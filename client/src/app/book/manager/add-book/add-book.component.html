@@ -1,0 +1,13 @@
+     <div class="form-group">
+      <label for="NameBook">Name Book</label>
+    <!-- <ng-select [items]="books" bindLabel="NameBook"  placeholder="Select Book" [(ngModel)]="book" name="book">
+    </ng-select> -->
+</div>
+<div class="form-group">
+  <label for="NameLibrary">Library</label>
+<ng-select [items]="libraries" bindLabel="NameLibrary"  placeholder="Select Library" [(ngModel)]="library" name="library">
+</ng-select>
+</div>
+<input type="button"  class="btn btn-primary" value="add book" (click)="addBook()">
+  <input type="button"  class="btn btn-primary" value="add new book" (click)="newBook()">
+

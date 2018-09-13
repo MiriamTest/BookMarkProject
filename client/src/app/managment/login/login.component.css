@@ -1,0 +1,17 @@
+input {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    border: solid 2px #e5b78b;
+    border-radius: 25px;
+ }
+
+  
+  .submit
+  {
+  background-color: #e5b78b;
+  width: 101%;
+  color: white;
+  }
+ 

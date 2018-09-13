@@ -1,0 +1,11 @@
+
+.body{
+    background-image: url("src/app/images/background.jpg");
+    background-repeat: round;
+      width: 97vw;
+     height: 115vh;
+     color:white;
+   }
+   a a:hover{
+     color:white !important;
+   }

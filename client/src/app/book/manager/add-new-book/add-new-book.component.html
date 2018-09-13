@@ -1,0 +1,66 @@
+<p>
+  add-new-book works!
+</p>
+
+
+
+
+<div class="col-md-6 col-md-offset-3 login">
+  <div class="book-triangle"></div>
+
+  <h2 class="book-header">Add new book</h2>
+
+  <form name="form" (ngSubmit)="NewBookform.form.valid&&onSubmit()" #NewBookform="ngForm" novalidate>
+
+    <div class="form-group">
+      <label for="NameBook">NameBook</label>
+      <input placeholder="NameBook" class="form-control" name="NameBook" type="text" required pattern="[a-zA-Z]+" [(ngModel)]="model.NameBook"
+        #nameBook="ngModel" />
+      <div [hidden]="nameBook.valid || nameBook.pristine" class="alert alert-danger">
+        <div [hidden]="!nameBook.hasError('required')"> name Book is required</div>
+        <div [hidden]="!nameBook.hasError('pattern')"> nameBook format should be
+          <small>
+            <b>[a-zA-Z]</b>
+          </small>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+    <ng-select [items]="authors" bindLabel="AuthorFirstName"  placeholder="Select author" [(ngModel)]="author" name="author">
+    </ng-select>
+</div>
+
+<div class="form-group">
+  <label for="category">Category</label>
+  <ng-select [items]="categories" bindLabel="Category" placeholder="Select Category" [(ngModel)]="category" name="category">
+  </ng-select>
+</div>
+<div class="form-group">
+  <label for="description">Description</label>
+  <textarea class="form-control" [(ngModel)]="model.Description" required pattern="[a-zA-Z]+"   #description="ngModel"></textarea>
+  <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+    <div [hidden]="!description.hasError('required')"> description is required</div>
+    <div [hidden]="!description.hasError('pattern')"> description format should be
+      <small>
+        <b>[a-zA-Z]</b>
+      </small>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+  <input type="file" [(ngModel)]="model.Img" required #Img="ngModel"/>
+  <div [hidden]="Img.pristine" class="alert alert-danger">
+    <div [hidden]="!Img.hasError('required')"> description is required</div>
+  </div>
+</div>
+
+<input type="submit" class="btn btn-primary" value="Save" [disabled]="!NewBookform.form.valid">
+
+</form>
+</div>

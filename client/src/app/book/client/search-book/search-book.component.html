@@ -1,0 +1,49 @@
+<div class="col-md-6 col-md-offset-3 login">
+    <div class="login-triangle"></div>
+    <h2 class="login-header">Search book</h2>
+    <form name="form" (ngSubmit)="SearchBookform.form.valid&&onSubmit()" #SearchBookform="ngForm" novalidate>
+        <div class="form-group">
+            <label for="Book">Book</label>
+        <select [(ngModel)]="bk" name="book">
+             <option *ngFor="let item of book" [value]="item.IdBook">{{item.NameBook}}</option>
+        
+        </select>
+        </div>
+        <!-- <label>Book</label>
+        <ng-select [items]="book"
+                   bindLabel="NameBook"
+                   placeholder="Select book"
+                   [(ngModel)]="bk">
+        </ng-select> -->
+        <div class="form-group">
+            <label for="City">City</label>
+        <select [(ngModel)]="ct" name="city">
+             <option *ngFor="let item of city" [value]="item.IdCity">{{item.NameCity}}</option>
+        
+        </select>
+        </div>
+  
+<!--        
+        <label>City</label>
+        <ng-select [items]="city"
+                   bindLabel="NameCity"
+                   bindValue="IdCity"
+                   placeholder="Select city"
+                   [(ngModel)]="ct">
+        </ng-select> -->
+
+
+     
+
+ <label>Category</label>
+        <ng-select [items]="category"
+                   name="category"
+                   bindLabel="Category"
+                   bindValue="IdCategory"
+                   placeholder="Select category"
+                   [(ngModel)]="cat">
+        </ng-select>
+        <input type="submit" class="btn btn-primary" value="Search" [disabled]="!SearchBookform.form.valid">
+  
+    </form>
+  </div>

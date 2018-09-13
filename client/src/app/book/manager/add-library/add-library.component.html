@@ -1,0 +1,59 @@
+<div class="col-md-6 col-md-offset-3 login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Add Library</h2>
+  <form name="form" (ngSubmit)="AddLibraryform.form.valid&&onSubmit()" #AddLibraryform="ngForm" novalidate>
+      
+      <div class="form-group">
+          <label for="FirstName">Library Name</label>
+   
+          <input class="form-control" name="NameLibrary" type="text" required  placeholder="Library Name" [(ngModel)]="model.NameLibrary"  #NameLibrary="ngModel"/>
+          <!-- <div [hidden]="namelibrary.pristine" class="alert alert-danger">
+              <div [hidden]="!namelibrary.hasError('required')">  first name is required</div>
+          </div> -->
+      </div>
+      <!-- <div class="form-group">
+          <label for="City">City</label>
+      <select [(ngModel)]="model.City" name="city">
+           <option *ngFor="let item of city" [value]="item.IdCity">{{item.NameCity}}</option>
+      
+      </select>
+      </div> -->
+
+     
+      <label>city</label>
+      <ng-select [items]="city"
+                 bindLabel="NameCity"
+                 placeholder="Select city"
+                 [(ngModel)]="model.City"
+                 name ="city">
+      </ng-select>
+      <label>street</label>
+      <ng-select [items]="street"
+                 bindLabel="NameStreet"
+                 placeholder="Select street"
+                 [(ngModel)]="model.Street"
+                 name ="street">
+      </ng-select>
+
+
+
+
+      <!-- <div class="form-group">
+          <label for="Street">Street</label>
+      <select name="street" [(ngModel)]="model.Street">
+        <option *ngFor="let item of street" [value]="item.IdStreet">{{item.NameStreet}}</option>
+      </select>
+      </div> -->
+      <div class="form-group">
+          <label for="NumHouse">Number House</label>
+   
+          <input class="form-control" name="numHouse" type="text" required pattern="[0-9]+"   placeholder="Number House" [(ngModel)]="model.NumHouse"  #numHouse="ngModel"/>
+          <div [hidden]="numHouse.valid || numHouse.pristine" class="alert alert-danger">
+              <div [hidden]="!numHouse.hasError('required')">  Number House is required</div>
+              <div [hidden]="!numHouse.hasError('pattern')">Only number allowed</div>
+          </div>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Save" [disabled]="!AddLibraryform.form.valid">
+
+  </form>
+</div>
