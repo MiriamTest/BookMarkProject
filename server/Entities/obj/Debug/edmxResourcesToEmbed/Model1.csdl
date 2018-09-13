@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookmarkDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="IdAuthor" />
+    </Key>
+    <Property Name="IdAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuthorFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuthorLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="IdBook" />
+    </Key>
+    <Property Name="IdBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdAuthor" Type="Int32" Nullable="false" />
+    <Property Name="category" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Img" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Books_Categories" FromRole="Books" ToRole="Categories" />
+    <NavigationProperty Name="BooksInLibrary" Relationship="Self.FK_BooksInLibrary_Books" FromRole="Books" ToRole="BooksInLibrary" />
+    <NavigationProperty Name="Lendings" Relationship="Self.FK_Lendings_Books" FromRole="Books" ToRole="Lendings" />
+  </EntityType>
+  <EntityType Name="BooksInLibrary">
+    <Key>
+      <PropertyRef Name="IdBookInLibrary" />
+    </Key>
+    <Property Name="IdBookInLibrary" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdBook" Type="Int32" Nullable="false" />
+    <Property Name="IdLibrary" Type="Int32" Nullable="false" />
+    <Property Name="LendingDuration" Type="Int32" />
+    <Property Name="IdStatus" Type="Int32" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_BooksInLibrary_Books" FromRole="BooksInLibrary" ToRole="Books" />
+    <NavigationProperty Name="Libraries" Relationship="Self.FK_BooksInLibrary_Libraries" FromRole="BooksInLibrary" ToRole="Libraries" />
+    <NavigationProperty Name="StatusLending" Relationship="Self.FK_BooksInLibrary_StatusLending" FromRole="BooksInLibrary" ToRole="StatusLending" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="IdCategory" />
+    </Key>
+    <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Books_Categories" FromRole="Categories" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="IdCity" />
+    </Key>
+    <Property Name="IdCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdRegion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Regions" Relationship="Self.FK_Cities_Regions" FromRole="Cities" ToRole="Regions" />
+    <NavigationProperty Name="Libraries" Relationship="Self.FK_Libraries_Cities" FromRole="Cities" ToRole="Libraries" />
+    <NavigationProperty Name="Streets" Relationship="Self.FK_Streets_Cities" FromRole="Cities" ToRole="Streets" />
+  </EntityType>
+  <EntityType Name="Lendings">
+    <Key>
+      <PropertyRef Name="IdLending" />
+    </Key>
+    <Property Name="IdLending" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" Nullable="false" />
+    <Property Name="IdBook" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Lendings_Books" FromRole="Lendings" ToRole="Books" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Lendings_Users" FromRole="Lendings" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Libraries">
+    <Key>
+      <PropertyRef Name="IdLibrary" />
+    </Key>
+    <Property Name="IdLibrary" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameLibrary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="Int32" Nullable="false" />
+    <Property Name="Street" Type="Int32" Nullable="false" />
+    <Property Name="NumHouse" Type="Int32" Nullable="false" />
+    <Property Name="GeoLocationX" Type="Int32" Nullable="false" />
+    <Property Name="GeoLocationY" Type="Int32" Nullable="false" />
+    <Property Name="IdAdmin" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BooksInLibrary" Relationship="Self.FK_BooksInLibrary_Libraries" FromRole="Libraries" ToRole="BooksInLibrary" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Libraries_Cities" FromRole="Libraries" ToRole="Cities" />
+    <NavigationProperty Name="Streets" Relationship="Self.FK_Libraries_Streets" FromRole="Libraries" ToRole="Streets" />
+    <NavigationProperty Name="subscribers" Relationship="Self.FK_subscribers_Libraries" FromRole="Libraries" ToRole="subscribers" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="IdRegion" />
+    </Key>
+    <Property Name="IdRegion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Regions" FromRole="Regions" ToRole="Cities" />
+    <NavigationProperty Name="Streets" Relationship="Self.FK_Streets_Regions" FromRole="Regions" ToRole="Streets" />
+  </EntityType>
+  <EntityType Name="StatusLending">
+    <Key>
+      <PropertyRef Name="IdStatus" />
+    </Key>
+    <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BooksInLibrary" Relationship="Self.FK_BooksInLibrary_StatusLending" FromRole="StatusLending" ToRole="BooksInLibrary" />
+  </EntityType>
+  <EntityType Name="Streets">
+    <Key>
+      <PropertyRef Name="IdStreet" />
+    </Key>
+    <Property Name="IdStreet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameStreet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdCity" Type="Int32" Nullable="false" />
+    <Property Name="IdRegion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Streets_Cities" FromRole="Streets" ToRole="Cities" />
+    <NavigationProperty Name="Libraries" Relationship="Self.FK_Libraries_Streets" FromRole="Streets" ToRole="Libraries" />
+    <NavigationProperty Name="Regions" Relationship="Self.FK_Streets_Regions" FromRole="Streets" ToRole="Regions" />
+  </EntityType>
+  <EntityType Name="subscribers">
+    <Key>
+      <PropertyRef Name="Idsubscriber" />
+    </Key>
+    <Property Name="Idsubscriber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" Nullable="false" />
+    <Property Name="IdLibrary" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Libraries" Relationship="Self.FK_subscribers_Libraries" FromRole="subscribers" ToRole="Libraries" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_subscribers_Users" FromRole="subscribers" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tz" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdAppliance" Type="Int32" Nullable="false" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Lendings" Relationship="Self.FK_Lendings_Users" FromRole="Users" ToRole="Lendings" />
+    <NavigationProperty Name="subscribers" Relationship="Self.FK_subscribers_Users" FromRole="Users" ToRole="subscribers" />
+  </EntityType>
+  <Association Name="FK_Books_Authors">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="IdAuthor" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="IdAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lendings_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="Lendings">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_Libraries">
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libraries">
+        <PropertyRef Name="IdLibrary" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdLibrary" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_StatusLending">
+    <End Role="StatusLending" Type="Self.StatusLending" Multiplicity="0..1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusLending">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="IdRegion" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="IdRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Libraries_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Libraries">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Streets_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Streets" Type="Self.Streets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Streets">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lendings_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Lendings">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Libraries_Streets">
+    <End Role="Streets" Type="Self.Streets" Multiplicity="1" />
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Streets">
+        <PropertyRef Name="IdStreet" />
+      </Principal>
+      <Dependent Role="Libraries">
+        <PropertyRef Name="Street" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subscribers_Libraries">
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="1" />
+    <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libraries">
+        <PropertyRef Name="IdLibrary" />
+      </Principal>
+      <Dependent Role="subscribers">
+        <PropertyRef Name="IdLibrary" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Streets_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+    <End Role="Streets" Type="Self.Streets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="IdRegion" />
+      </Principal>
+      <Dependent Role="Streets">
+        <PropertyRef Name="IdRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subscribers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="subscribers">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookmarkDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Authors" EntityType="Self.Authors" />
+    <EntitySet Name="Books" EntityType="Self.Books" />
+    <EntitySet Name="BooksInLibrary" EntityType="Self.BooksInLibrary" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" />
+    <EntitySet Name="Lendings" EntityType="Self.Lendings" />
+    <EntitySet Name="Libraries" EntityType="Self.Libraries" />
+    <EntitySet Name="Regions" EntityType="Self.Regions" />
+    <EntitySet Name="StatusLending" EntityType="Self.StatusLending" />
+    <EntitySet Name="Streets" EntityType="Self.Streets" />
+    <EntitySet Name="subscribers" EntityType="Self.subscribers" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Categories" Association="Self.FK_Books_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_Books" Association="Self.FK_BooksInLibrary_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lendings_Books" Association="Self.FK_Lendings_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Lendings" EntitySet="Lendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_Libraries" Association="Self.FK_BooksInLibrary_Libraries">
+      <End Role="Libraries" EntitySet="Libraries" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_StatusLending" Association="Self.FK_BooksInLibrary_StatusLending">
+      <End Role="StatusLending" EntitySet="StatusLending" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Regions" Association="Self.FK_Cities_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Libraries_Cities" Association="Self.FK_Libraries_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Libraries" EntitySet="Libraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Streets_Cities" Association="Self.FK_Streets_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Streets" EntitySet="Streets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lendings_Users" Association="Self.FK_Lendings_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Lendings" EntitySet="Lendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Libraries_Streets" Association="Self.FK_Libraries_Streets">
+      <End Role="Streets" EntitySet="Streets" />
+      <End Role="Libraries" EntitySet="Libraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subscribers_Libraries" Association="Self.FK_subscribers_Libraries">
+      <End Role="Libraries" EntitySet="Libraries" />
+      <End Role="subscribers" EntitySet="subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Streets_Regions" Association="Self.FK_Streets_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Streets" EntitySet="Streets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subscribers_Users" Association="Self.FK_subscribers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="subscribers" EntitySet="subscribers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

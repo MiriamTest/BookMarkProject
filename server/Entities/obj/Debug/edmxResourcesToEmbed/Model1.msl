@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookmarkDBModelStoreContainer" CdmEntityContainer="BookmarkDBEntities">
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Authors">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
+          <ScalarProperty Name="AuthorFirstName" ColumnName="AuthorFirstName" />
+          <ScalarProperty Name="AuthorLastName" ColumnName="AuthorLastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Books">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+          <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BooksInLibrary">
+      <EntityTypeMapping TypeName="BookmarkDBModel.BooksInLibrary">
+        <MappingFragment StoreEntitySet="BooksInLibrary">
+          <ScalarProperty Name="IdBookInLibrary" ColumnName="IdBookInLibrary" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="IdLibrary" ColumnName="IdLibrary" />
+          <ScalarProperty Name="LendingDuration" ColumnName="LendingDuration" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lendings">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Lendings">
+        <MappingFragment StoreEntitySet="Lendings">
+          <ScalarProperty Name="IdLending" ColumnName="IdLending" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libraries">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Libraries">
+        <MappingFragment StoreEntitySet="Libraries">
+          <ScalarProperty Name="IdLibrary" ColumnName="IdLibrary" />
+          <ScalarProperty Name="NameLibrary" ColumnName="NameLibrary" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="NumHouse" ColumnName="NumHouse" />
+          <ScalarProperty Name="GeoLocationX" ColumnName="GeoLocationX" />
+          <ScalarProperty Name="GeoLocationY" ColumnName="GeoLocationY" />
+          <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Regions">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+          <ScalarProperty Name="NameRegion" ColumnName="NameRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusLending">
+      <EntityTypeMapping TypeName="BookmarkDBModel.StatusLending">
+        <MappingFragment StoreEntitySet="StatusLending">
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Streets">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Streets">
+        <MappingFragment StoreEntitySet="Streets">
+          <ScalarProperty Name="IdStreet" ColumnName="IdStreet" />
+          <ScalarProperty Name="NameStreet" ColumnName="NameStreet" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subscribers">
+      <EntityTypeMapping TypeName="BookmarkDBModel.subscribers">
+        <MappingFragment StoreEntitySet="subscribers">
+          <ScalarProperty Name="Idsubscriber" ColumnName="Idsubscriber" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdLibrary" ColumnName="IdLibrary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BookmarkDBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IdAppliance" ColumnName="IdAppliance" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

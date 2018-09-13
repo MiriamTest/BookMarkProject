@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookmarkDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="IdAuthor" />
+    </Key>
+    <Property Name="IdAuthor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorFirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AuthorLastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="IdBook" />
+    </Key>
+    <Property Name="IdBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameBook" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdAuthor" Type="int" Nullable="false" />
+    <Property Name="category" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Img" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BooksInLibrary">
+    <Key>
+      <PropertyRef Name="IdBookInLibrary" />
+    </Key>
+    <Property Name="IdBookInLibrary" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdBook" Type="int" Nullable="false" />
+    <Property Name="IdLibrary" Type="int" Nullable="false" />
+    <Property Name="LendingDuration" Type="int" />
+    <Property Name="IdStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="IdCategory" />
+    </Key>
+    <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="IdCity" />
+    </Key>
+    <Property Name="IdCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCity" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="IdRegion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lendings">
+    <Key>
+      <PropertyRef Name="IdLending" />
+    </Key>
+    <Property Name="IdLending" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdBook" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Libraries">
+    <Key>
+      <PropertyRef Name="IdLibrary" />
+    </Key>
+    <Property Name="IdLibrary" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameLibrary" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="int" Nullable="false" />
+    <Property Name="Street" Type="int" Nullable="false" />
+    <Property Name="NumHouse" Type="int" Nullable="false" />
+    <Property Name="GeoLocationX" Type="int" Nullable="false" />
+    <Property Name="GeoLocationY" Type="int" Nullable="false" />
+    <Property Name="IdAdmin" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="IdRegion" />
+    </Key>
+    <Property Name="IdRegion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameRegion" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatusLending">
+    <Key>
+      <PropertyRef Name="IdStatus" />
+    </Key>
+    <Property Name="IdStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Streets">
+    <Key>
+      <PropertyRef Name="IdStreet" />
+    </Key>
+    <Property Name="IdStreet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameStreet" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdCity" Type="int" Nullable="false" />
+    <Property Name="IdRegion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subscribers">
+    <Key>
+      <PropertyRef Name="Idsubscriber" />
+    </Key>
+    <Property Name="Idsubscriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdLibrary" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tz" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IdAppliance" Type="int" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Books_Authors">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="IdAuthor" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="IdAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_Libraries">
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libraries">
+        <PropertyRef Name="IdLibrary" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdLibrary" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BooksInLibrary_StatusLending">
+    <End Role="StatusLending" Type="Self.StatusLending" Multiplicity="0..1" />
+    <End Role="BooksInLibrary" Type="Self.BooksInLibrary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusLending">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="BooksInLibrary">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="IdRegion" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="IdRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lendings_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="Lendings">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lendings_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Lendings">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Libraries_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Libraries">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Libraries_Streets">
+    <End Role="Streets" Type="Self.Streets" Multiplicity="1" />
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Streets">
+        <PropertyRef Name="IdStreet" />
+      </Principal>
+      <Dependent Role="Libraries">
+        <PropertyRef Name="Street" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Streets_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Streets" Type="Self.Streets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Streets">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Streets_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+    <End Role="Streets" Type="Self.Streets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="IdRegion" />
+      </Principal>
+      <Dependent Role="Streets">
+        <PropertyRef Name="IdRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subscribers_Libraries">
+    <End Role="Libraries" Type="Self.Libraries" Multiplicity="1" />
+    <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libraries">
+        <PropertyRef Name="IdLibrary" />
+      </Principal>
+      <Dependent Role="subscribers">
+        <PropertyRef Name="IdLibrary" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subscribers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="subscribers" Type="Self.subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="subscribers">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookmarkDBModelStoreContainer">
+    <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BooksInLibrary" EntityType="Self.BooksInLibrary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lendings" EntityType="Self.Lendings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Libraries" EntityType="Self.Libraries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusLending" EntityType="Self.StatusLending" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Streets" EntityType="Self.Streets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subscribers" EntityType="Self.subscribers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Categories" Association="Self.FK_Books_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_Books" Association="Self.FK_BooksInLibrary_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_Libraries" Association="Self.FK_BooksInLibrary_Libraries">
+      <End Role="Libraries" EntitySet="Libraries" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BooksInLibrary_StatusLending" Association="Self.FK_BooksInLibrary_StatusLending">
+      <End Role="StatusLending" EntitySet="StatusLending" />
+      <End Role="BooksInLibrary" EntitySet="BooksInLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Regions" Association="Self.FK_Cities_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lendings_Books" Association="Self.FK_Lendings_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Lendings" EntitySet="Lendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lendings_Users" Association="Self.FK_Lendings_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Lendings" EntitySet="Lendings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Libraries_Cities" Association="Self.FK_Libraries_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Libraries" EntitySet="Libraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Libraries_Streets" Association="Self.FK_Libraries_Streets">
+      <End Role="Streets" EntitySet="Streets" />
+      <End Role="Libraries" EntitySet="Libraries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Streets_Cities" Association="Self.FK_Streets_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Streets" EntitySet="Streets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Streets_Regions" Association="Self.FK_Streets_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Streets" EntitySet="Streets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subscribers_Libraries" Association="Self.FK_subscribers_Libraries">
+      <End Role="Libraries" EntitySet="Libraries" />
+      <End Role="subscribers" EntitySet="subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subscribers_Users" Association="Self.FK_subscribers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="subscribers" EntitySet="subscribers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
