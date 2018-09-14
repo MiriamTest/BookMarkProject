@@ -21,7 +21,7 @@ export class UserService {
   
    
     addUser(newUser: User) {
-        return this.http.post("http://localhost:12345/api/User/addUsers",newUser).pipe(map(response=> response.json()));
+        return this.http.post("http://localhost:52339/api/User/addUsers",newUser).pipe(map(response=> response.json()));
 
     }
 public UserId;
@@ -30,13 +30,12 @@ public UserId;
           this.UserId = UserId;
         }
     login(EMail:string,password:string):any{
-        return this.httpClient.get("http://localhost:12345/api/User/login/" + EMail + "/" + password)
+        return this.httpClient.get("http://localhost:52339/api/User/login/" + EMail + "/" + password)
       .pipe(map((response => response)));
-  
-
-
-
-
     }
+    // sendMail():any{
+    //     return this.httpClient.get("http://localhost:52339/api/SendingMail/sendMail")
+    //   .pipe(map((response => response)));
+    // }
 }
 

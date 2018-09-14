@@ -1,49 +1,55 @@
-<div class="col-md-6 col-md-offset-3 login">
+<div class="col-md-12 col-md-offset-3 login">
     <div class="login-triangle"></div>
     <h2 class="login-header">Search book</h2>
+    <h1>Hi Miri Koriz</h1>
     <form name="form" (ngSubmit)="SearchBookform.form.valid&&onSubmit()" #SearchBookform="ngForm" novalidate>
-        <div class="form-group">
-            <label for="Book">Book</label>
-        <select [(ngModel)]="bk" name="book">
-             <option *ngFor="let item of book" [value]="item.IdBook">{{item.NameBook}}</option>
-        
-        </select>
-        </div>
-        <!-- <label>Book</label>
+        <table>
+            <ul>
+        <label>Book</label>
         <ng-select [items]="book"
                    bindLabel="NameBook"
                    placeholder="Select book"
-                   [(ngModel)]="bk">
-        </ng-select> -->
-        <div class="form-group">
-            <label for="City">City</label>
-        <select [(ngModel)]="ct" name="city">
-             <option *ngFor="let item of city" [value]="item.IdCity">{{item.NameCity}}</option>
-        
-        </select>
-        </div>
-  
-<!--        
+                   [(ngModel)]="bookModel">
+        </ng-select>
+    </ul>
+    <ul>
         <label>City</label>
         <ng-select [items]="city"
                    bindLabel="NameCity"
                    bindValue="IdCity"
                    placeholder="Select city"
-                   [(ngModel)]="ct">
-        </ng-select> -->
-
-
-     
-
+                   [(ngModel)]="cityModel">
+        </ng-select>
+    </ul>
+    <ul>
+            <label>Library</label>
+                   <ng-select [items]="library"
+                              name="library"
+                              bindLabel="Library"
+                              placeholder="Select library"
+                              [(ngModel)]="libraryModel">
+                   </ng-select>
+               </ul>
+    <ul>
  <label>Category</label>
         <ng-select [items]="category"
                    name="category"
                    bindLabel="Category"
                    bindValue="IdCategory"
                    placeholder="Select category"
-                   [(ngModel)]="cat">
+                   [(ngModel)]="categoryModel">
         </ng-select>
+    </ul>
+    <ul>
+    <label>Author</label>
+    <ng-select [items]="author"
+               name="author"
+               bindLabel="Author"
+               placeholder="Select author"
+               [(ngModel)]="authorModel">
+    </ng-select>
+</ul>
         <input type="submit" class="btn btn-primary" value="Search" [disabled]="!SearchBookform.form.valid">
-  
+  </table>
     </form>
   </div>

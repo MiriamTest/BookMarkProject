@@ -9,6 +9,9 @@ import { BookInLibrary } from '../../../models/book-in-library';
 import { Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { Category } from '../../../models/category';
+import { Library } from '../../../models/library';
+import { Author } from '../../../models/author';
+import { AuthorService } from '../../../service/author.service';
 
 @Component({
   selector: 'app-search-book',
@@ -17,13 +20,17 @@ import { Category } from '../../../models/category';
 })
 export class SearchBookComponent implements OnInit {
 book:Book;
-bk:any;
+bookModel:Book;
 city:City;
-ct:any;
+cityModel:City;
 category:Category;
-cat:any;
+categoryModel:Category;
 bookInLibrary:BookInLibrary;
-  constructor(private router:Router, private _LibraryService:LibraryService,private _BookService:BookService) {
+libraryModel:Library;
+library:Library;
+author:Author;
+authorModel:Author;
+  constructor(private router:Router, private _LibraryService:LibraryService,private _BookService:BookService,private _AuthorService:AuthorService) {
 
     this._LibraryService.allCities().subscribe(c=>{
       this.city=c;
@@ -40,10 +47,17 @@ this._BookService.allCities().subscribe(c=>{
 this._BookService.allCategories().subscribe(c=>{
   this.category=c;
 }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+this._LibraryService.allLibraries().subscribe(l=>{
+  this.library=l;
+}, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+   this._AuthorService.allAuthors().subscribe(a=>{
+     this.author=a;
+   }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
   }
+
   onSubmit()
   {
-    this.router.navigate(['./client/BooksFound',this.bk,this.ct]); 
+    this.router.navigate(['./client/BooksFound',this.bookModel,this.cityModel]); 
     // this._BookService.searchBook(this.bk,this.ct).subscribe(b=>{
     //  debugger;
     //  this.bookInLibrary=b;

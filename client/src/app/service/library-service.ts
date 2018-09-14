@@ -9,25 +9,30 @@ import { map, takeUntil, tap } from 'rxjs/operators';
 @Injectable()
 export class LibraryService {
  
-    constructor(private http:HttpClient) { }
+    constructor(private httpClient:HttpClient, private http:Http) { }
+    public model:Library;
+    saveModel(newLibrary:Library){
+              this.model=newLibrary;
+    }
     addLibrary(newLibrary: Library):Observable<any>  {
         debugger;
-        return this.http.post("http://localhost:12345/api/Library/addLibrary",newLibrary).pipe(map((response:any)=> response.json()));
+        return this.http.post("http://localhost:52339/api/Library/addLibrary",newLibrary).pipe(map((response:any)=> response.json()));
 
     }
     
     allCities():any{
-        debugger;
-        return this.http.get("http://localhost:12345/api/Library/allCities").pipe(map((response=>response)));
+      
+        
+        return this.httpClient.get("http://localhost:52339/api/Library/allCities").pipe(map((response=>response)));
     }
     allStreets():any{
-        return this.http.get("http://localhost:12345/api/Library/allStreets").pipe(map((response=>response)));
+        return this.httpClient.get("http://localhost:52339/api/Library/allStreets").pipe(map((response=>response)));
     }
     getLibrary(id:number):any{
-        return this.http.get("http://localhost:12345/api/Library/getLibrary/" + id)
+        return this.httpClient.get("http://localhost:52339/api/Library/getLibrary/" + id)
     }
     allLibraries():any{
-        return this.http.get("http://localhost:12345/api/Library/allLibraries").pipe(map((response=>response)));
+        return this.httpClient.get("http://localhost:52339/api/Library/allLibraries").pipe(map((response=>response)));
         
     }
 }

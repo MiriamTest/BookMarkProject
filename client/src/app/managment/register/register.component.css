@@ -1,15 +1,63 @@
-input {
+/* input {
     color: #ffffff;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     border: solid 2px #e5b78b;
     border-radius: 25px;
- }
-
+ } */
+.body{
+    background-color: white;
+    margin-left: 9vw;
+    margin-top: 6vh;
+    padding: 2vw;
+    border: solid 2px black;
+}
  .submit
  {
  background-color: #e5b78b;
  width: 101%;
  color: white;
  }
+ /* input:focus{
+     background-color: transparent;
+     color: white;
+ } */
+ .alert-danger{
+     color: red;
+     background-color: transparent;
+     border-color: transparent;
+     /* margin-left: 6vw;
+     margin-top: -1.3vh; */
+ }
+ input:-webkit-autofill{
+     color: blueviolet;
+ }
+ label{
+     float: left;
+ }
+ .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  h6{
+      color:red;
+  }
+  h2{
+      color:black;
+  }
+ 
+ 

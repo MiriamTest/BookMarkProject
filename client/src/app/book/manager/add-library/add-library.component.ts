@@ -7,6 +7,9 @@ import { NgModule } from "@angular/core";
 import { City } from '../../../models/city';
 import { Street } from '../../../models/street';
 import { UserService } from 'src/app/service/user-service';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { PaymentDetailsComponent } from '../../payment-details/payment-details.component';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -21,39 +24,57 @@ export class AddLibraryComponent implements OnInit {
   model:Library;
   city:City;
   street:Street;
-  constructor(private _LibraryService:LibraryService,private router:Router,private _userService:UserService) {
-  
- this.model=new Library;
+  cityModel:City;
+  streetModel:Street;
+  constructor(private dialog: MatDialog, private _LibraryService:LibraryService,private router:Router,private _userService:UserService) {
+  this.cityModel=new City;
+  this.streetModel=new Street;
+    this.model=new Library;
     this.model.IdAdmin=_userService.UserId;
-   this._LibraryService.allCities().subscribe(c=>{
-     this.city=c;
-    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-    this._LibraryService.allStreets().subscribe(s=>{
-      this.street=s;
-     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
    }
 
 
   ngOnInit() {
-   
+    setTimeout( this._LibraryService.allCities().subscribe(c=>{
+      this.city=c;
+     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)),20)
+  
+    setTimeout(this._LibraryService.allStreets().subscribe(s=>{
+      this.street=s;
+     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)),40)
+    
   }
-  public onChange(event): void { 
-    const newVal = event.target.value;
-    console.log(newVal);
-  }
+  
 
 
 
   onSubmit() {
   debugger;
-    this._LibraryService.addLibrary(this.model) 
-    .subscribe(m => { 
-      if(m)
-      alert("ok");
-       }
-      
-      , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)); };
+  this.openDialog();
+  this.model.City=this.cityModel.IdCity;
+  this.model.Street=this.streetModel.IdStreet;
+this.model.IdAdmin=this._userService.UserId;
+
+    this._LibraryService.saveModel(this.model) 
+    // .subscribe(m => { 
+    //   if(m==true)
+    //   {
+    //      swal("Success","You have successfully registered","success");
+    //   }
+    //  }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
+    // ); 
+  }
   
+      openDialog() {
+
+        const dialogConfig = new MatDialogConfig();
+    
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+    
+        this.dialog.open(PaymentDetailsComponent, dialogConfig);
     }
+    }
+    
 
 

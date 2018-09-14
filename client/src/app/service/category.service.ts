@@ -15,6 +15,6 @@ export class CategoryService {
   constructor(private http:HttpClient) { }
   allCategories():any{
     debugger;
-    return this.http.get("http://localhost:12345/api/Author/allCategories").pipe(map((response=>response)));
+    return this.http.get("http://localhost:52339/api/Author/allCategories").pipe(map((response=>response)));
   }
 }

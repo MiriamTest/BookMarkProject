@@ -1,0 +1,50 @@
+.body{
+    padding: 4vw;
+    background-color: white;
+    margin-left: 4vw;
+    border:solid 2px black;
+}
+/* input {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    border: solid 2px #e5b78b;
+    border-radius: 25px;
+ } */
+
+ /* input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+  } */
+
+  
+  .submit
+  {
+  background-color: #e5b78b;
+  width: 101%;
+  color: black;
+  }
+ input:focus{
+     background-color: transparent;
+     color: black;
+ }
+ h2{
+     color:black;
+ }
+ /* ng-select{
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    border: solid 2px #e5b78b;
+    border-radius: 25px;
+ } */
+ /* .ng-select.ng-select-single .ng-select-container {
+    height: 36px;
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    
+    border-radius: 25px;
+ } */

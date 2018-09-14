@@ -1,16 +1,17 @@
-<div class="col-md-6 col-md-offset-3 login">
+<div class="body col-md-3 col-md-offset-3 login">
   <div class="login-triangle"></div>
   <h2 class="login-header">Add Library</h2>
+  <h6>* required field</h6>
   <form name="form" (ngSubmit)="AddLibraryform.form.valid&&onSubmit()" #AddLibraryform="ngForm" novalidate>
       
-      <div class="form-group">
+      <!-- <div class="form-group">
           <label for="FirstName">Library Name</label>
    
-          <input class="form-control" name="NameLibrary" type="text" required  placeholder="Library Name" [(ngModel)]="model.NameLibrary"  #NameLibrary="ngModel"/>
+          <input class="form-control" name="NameLibrary" type="text" required  placeholder="Library Name" [(ngModel)]="model.NameLibrary"  #NameLibrary="ngModel"/> -->
           <!-- <div [hidden]="namelibrary.pristine" class="alert alert-danger">
               <div [hidden]="!namelibrary.hasError('required')">  first name is required</div>
           </div> -->
-      </div>
+      <!-- </div> -->
       <!-- <div class="form-group">
           <label for="City">City</label>
       <select [(ngModel)]="model.City" name="city">
@@ -18,22 +19,45 @@
       
       </select>
       </div> -->
-
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Name Library" name="NameLibrary" type="text" required pattern="[a-zA-Z]+" [(ngModel)]="model.NameLibrary" #NameLibrary="ngModel">
+          <div [hidden]="NameLibrary.valid || NameLibrary.pristine">
+            <div [hidden]="!NameLibrary.hasError('required')">  NameLibrary is required</div>
+             <div [hidden]="!NameLibrary.hasError('pattern')">Only alphabets allowed</div>
+        </div>
+        </mat-form-field>
+    </div>
      
-      <label>city</label>
+      <!-- <label>city</label>
       <ng-select [items]="city"
+                 class="ng"
+                 name="city"
                  bindLabel="NameCity"
                  placeholder="Select city"
-                 [(ngModel)]="model.City"
+                 [(ngModel)]="cityModel"
                  name ="city">
-      </ng-select>
-      <label>street</label>
+      </ng-select> -->
+      <mat-form-field>
+        <mat-select placeholder="select city">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of city"  [(ngModel)]="cityModel" name=city bindLabel="NameCity"  [value]="state">{{state}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="select street">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of street"  [(ngModel)]="streetModel" name=street bindLabel="NameStreet"  [value]="state">{{state}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <label>street</label>
       <ng-select [items]="street"
+                 name="street"
                  bindLabel="NameStreet"
                  placeholder="Select street"
-                 [(ngModel)]="model.Street"
+                 [(ngModel)]="streetModel"
                  name ="street">
-      </ng-select>
+      </ng-select> -->
 
 
 
@@ -44,7 +68,7 @@
         <option *ngFor="let item of street" [value]="item.IdStreet">{{item.NameStreet}}</option>
       </select>
       </div> -->
-      <div class="form-group">
+      <!-- <div class="form-group">
           <label for="NumHouse">Number House</label>
    
           <input class="form-control" name="numHouse" type="text" required pattern="[0-9]+"   placeholder="Number House" [(ngModel)]="model.NumHouse"  #numHouse="ngModel"/>
@@ -52,8 +76,22 @@
               <div [hidden]="!numHouse.hasError('required')">  Number House is required</div>
               <div [hidden]="!numHouse.hasError('pattern')">Only number allowed</div>
           </div>
-      </div>
-      <input type="submit" class="btn btn-primary" value="Save" [disabled]="!AddLibraryform.form.valid">
+      </div> -->
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.numHouse" #numHouse="ngModel">
+          <div [hidden]="numHouse.pristine">
+            <div [hidden]="!numHouse.hasError('required')">  numHouse is required</div>
+           
+        </div>
+        </mat-form-field>
+    </div>
+    <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <input type="submit" class="btn btn-primary"  value="Save" [disabled]="!AddLibraryform.form.valid">
 
   </form>
 </div>

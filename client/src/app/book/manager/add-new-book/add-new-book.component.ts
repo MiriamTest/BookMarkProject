@@ -8,6 +8,8 @@ import { from } from 'rxjs/internal/observable/from';
 import { AuthorService } from '../../../service/author.service';
 import {Category}from'../../../models/category'
 import {CategoryService}from '../../../service/category.service'
+import swal from 'sweetalert2';
+import { text } from '@angular/core/src/render3/instructions';
 @Component({
   selector: 'app-add-new-book',
   templateUrl: './add-new-book.component.html',
@@ -20,6 +22,7 @@ authors:Author;
 author:Author;
 categories:Category;
 category:Category;
+text:any="jjih";
   ngOnInit(): void {
     
   }
@@ -29,6 +32,8 @@ category:Category;
   constructor(private router:Router,private _bookService:BookService,private _authorService:AuthorService,private _categoryService:CategoryService) {
     this.model=new Book;
     this.authors=new Author;
+   
+    
     this.author=new Author;    
     this.categories=new Category;
     this.category=new Category;
@@ -50,10 +55,17 @@ this.model.Description
     this.model.category=this.category.IdCategory;
     this._bookService.addNewBook(this.model) 
     .subscribe(book => { 
+       if(book)
+      
+        swal("Success","You add successfully a book","success");
 
        }
       
       , (error: HttpErrorResponse) => alert("mistake!!!!"))
   
     }  
+    gg(text:string)
+    {
+      alert(text);
+    }
 }

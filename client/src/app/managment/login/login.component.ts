@@ -5,6 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
 import { Route } from '@angular/compiler/src/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,8 @@ export class LoginComponent implements OnInit {
 flag:number=1;
 model:User;
 u:User;
-  constructor(private _userService:UserService,private router:Router) {
+  constructor(private dialogRef: MatDialogRef<LoginComponent>,private _userService:UserService,private router:Router) {
     this.model=new User;  
-
   }
 
   ngOnInit() {

@@ -1,11 +1,42 @@
-
+body{
+  
+}
 .body{
-    background-image: url("src/app/images/background.jpg");
+    background-image: url("src/app/images/book-stack-books-education-48126.jpg");
     background-repeat: round;
       width: 97vw;
      height: 115vh;
-     color:white;
+     color:#c4716f;
    }
    a a:hover{
-     color:white !important;
+     color:#c4716f !important;
    }
+   h1{
+     color:#893739;
+     margin-left: 15%;
+   }
+ 
+   .main-menu{
+    background: #2d4353;
+    border-right: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width:4vw;
+    overflow: hidden;
+    transition: width .05s linear;
+    -webkit-transform: translateZ(0) scale(1,1);
+    z-index: 1000;
+   }
+  /* footer{
+    width: 100%;
+    height: 10vh;
+    background-color: #c4840f;
+    margin-top: 85vh;
+    position: absolute;
+  } */
+  p{
+    float: left;
+  }

@@ -14,7 +14,7 @@ export class AuthorService {
   constructor(private http:HttpClient) { }
   allAuthors():any{
     debugger;
-    return this.http.get("http://localhost:12345/api/Author/allAuthors").pipe(map((response=>response)));
+    return this.http.get("http://localhost:52339/api/Author/allAuthors").pipe(map((response=>response)));
   }
 }
 

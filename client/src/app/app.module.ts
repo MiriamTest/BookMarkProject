@@ -23,6 +23,14 @@ import { ClientComponent } from './book/client/client.component';
 import { SearchLibraryComponent } from './book/client/search-library/search-library.component';
 import { SearchBookComponent } from './book/client/search-book/search-book.component';
 import { BooksFoundComponent } from './book/client/books-found/books-found.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule} from '@angular/material';
+
+import {MatDialogModule} from "@angular/material";
+import{MatDatepickerModule} from "@angular/material/datepicker"
+import{ MatNativeDateModule} from"@angular/material";
+import { PaymentDetailsComponent } from './book/payment-details/payment-details.component';
+import {MatSelectModule} from '@angular/material/select';
 
 const route: Routes = [
   {
@@ -51,9 +59,12 @@ const route: Routes = [
     
       {path:'SearchLibrary',component:SearchLibraryComponent},
       {path:'BooksFound/:IdBook/:IdCity',component:BooksFoundComponent},
-      {path:'SearchBook',component:SearchBookComponent}
+      {path:'SearchBook',component:SearchBookComponent},
+      {path:'PaymentDetails',component:PaymentDetailsComponent},
     ]
+
   }
+ 
  
 ]
   
@@ -61,6 +72,8 @@ const route: Routes = [
   
   
 @NgModule({
+ 
+ 
   declarations: [
     AppComponent,
     ManagmentComponent,
@@ -77,15 +90,31 @@ const route: Routes = [
     SearchLibraryComponent,
     SearchBookComponent,
     BooksFoundComponent,
+    PaymentDetailsComponent,
  
    
 
   ],
+  
   imports: [
     
-    BrowserModule,FormsModule,RouterModule.forRoot(route),HttpModule,HttpClientModule,NgSelectModule
+    BrowserModule,FormsModule,RouterModule.forRoot(route),HttpModule,HttpClientModule,NgSelectModule,BrowserAnimationsModule,  MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule,MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule
+   
   ],
+  exports: [
+    MatCheckboxModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+   
+  ],
+
   providers: [UserService,LibraryService,BookService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent]
 })
 export class AppModule { }
