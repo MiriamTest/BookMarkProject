@@ -34,8 +34,9 @@ allCities():any{
     debugger;
     return this.httpClient.get("http://localhost:52339/api/Library/allCities").pipe(map((response=>response)));
 }
-getBook(id:BookInLibrary):any{
-    return this.httpClient.get("http://localhost:52339/api/Book/getBook/" + id)
+
+getBook():any{
+    return this.httpClient.get("").pipe(map((response=>response)));
 }
 
 getStatus(id:number):any{

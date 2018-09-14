@@ -6,6 +6,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import { LoginComponent } from './managment/login/login.component';
 import { UserService } from './service/user-service';
 import { HttpErrorResponse } from '@angular/common/http';
+import{ChartModule} from'chart.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,8 +16,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AppComponent {
   title = 'app';
   constructor(private dialog: MatDialog, private _userService:UserService){}
+ 
   openDialog() {
-
+   
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -24,6 +26,7 @@ export class AppComponent {
 
     this.dialog.open(LoginComponent, dialogConfig);
 }
+
 // sendMail()
 // {
 // this._userService.sendMail().subscribe(p=>{
@@ -31,5 +34,8 @@ export class AppComponent {
 //   {}
 
 // },(error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+
+
 }
+
 

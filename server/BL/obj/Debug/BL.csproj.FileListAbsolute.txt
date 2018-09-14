@@ -212,3 +212,14 @@ D:\FinalMiriTovy\31-8\final\Progect-19-8\server\AutoMedic\BL\obj\Debug\BL.dll
 D:\FinalMiriTovy\31-8\final\Progect-19-8\server\AutoMedic\BL\obj\Debug\BL.pdb
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\BL\obj\Debug\BL.csprojAssemblyReference.cache
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\BL.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\BL.pdb
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\Dal.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\Entities.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\EntityFramework.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\Dal.pdb
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\Entities.pdb
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\bin\Debug\EntityFramework.xml
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\obj\Debug\BL.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\BL\obj\Debug\BL.pdb

@@ -196,3 +196,13 @@ C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Entitie
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Entities\obj\Debug\Entities.dll
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Entities\obj\Debug\Entities.pdb
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\Entities.dll.config
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\Entities.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\Entities.pdb
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\EntityFramework.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\EntityFramework.xml
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\obj\Debug\Entities.dll
+C:\Users\user1\Documents\GitHub\bookmark-finally-project\server\Entities\obj\Debug\Entities.pdb
