@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -43,7 +43,7 @@ namespace API.Controllers
         }
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/Library/getLibrary/{id}")]
-        public Libraries getLibrary([FromUri] int id)
+        public Libraries[] getLibrary([FromUri] int id)
         {
             return BLLibrary.getLibrary(id);
 

@@ -29,8 +29,10 @@ export class LibraryService {
         return this.httpClient.get("http://localhost:52339/api/Library/allStreets").pipe(map((response=>response)));
     }
     getLibrary(id:number):any{
-        return this.httpClient.get("http://localhost:52339/api/Library/getLibrary/" + id)
+        debugger;
+        return this.httpClient.get("http://localhost:52339/api/Library/getLibrary/" + id).pipe(map((response=>response)));
     }
+   
     allLibraries():any{
         return this.httpClient.get("http://localhost:52339/api/Library/allLibraries").pipe(map((response=>response)));
         

@@ -13,6 +13,7 @@ export class BookService {
 
     constructor(private httpClient:HttpClient, private http:Http) { }
     allBooks():any{
+        debugger;
         return this.httpClient.get("http://localhost:52339/api/Book/allBooks").pipe(map((response=>response)));
 }
 allCategories():any{

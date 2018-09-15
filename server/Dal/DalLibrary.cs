@@ -33,10 +33,10 @@ namespace Dal
         {
             return Connect.db.Streets.ToArray();
         }
-        public static Libraries getLibrary(int id)
+        public static Libraries[] getLibrary(int id)
         {
-            var i= Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == id);
-            return i;
+             var i=Connect.db.Libraries.Where(l => l.IdAdmin == id).ToArray();
+      return i; 
         }
         public static Libraries[] allLibraries()
         {
