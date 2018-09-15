@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using System.IO;
+
 namespace Dal
 {
     public static class DalLibrary
@@ -19,7 +21,7 @@ namespace Dal
                 Connect.db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch(IOException e)
             {
 
                 return false;

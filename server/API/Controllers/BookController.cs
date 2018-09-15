@@ -10,6 +10,8 @@ using BL;
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
+using System.IO;
+
 namespace API.Controllers
 {
     public class BookController : ApiController
@@ -52,9 +54,9 @@ namespace API.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.OK, BLBook.addNewBook(newBook));
             }
-            catch (Exception ex)
+            catch (IOException e)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
 
 
@@ -69,9 +71,9 @@ namespace API.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.OK, BLBook.searchBook(searchObj));
             }
-            catch (Exception ex)
+          catch (IOException e)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
     }

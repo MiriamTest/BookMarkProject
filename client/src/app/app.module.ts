@@ -22,10 +22,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ClientComponent } from './book/client/client.component';
 import { SearchLibraryComponent } from './book/client/search-library/search-library.component';
 import { SearchBookComponent } from './book/client/search-book/search-book.component';
-import { BooksFoundComponent } from './book/client/books-found/books-found.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule} from '@angular/material';
-
+import{ChartsModule} from 'ng2-charts';
 import {MatDialogModule} from "@angular/material";
 import{MatDatepickerModule} from "@angular/material/datepicker"
 import{ MatNativeDateModule} from"@angular/material";
@@ -58,7 +57,6 @@ const route: Routes = [
     [
     
       {path:'SearchLibrary',component:SearchLibraryComponent},
-      {path:'BooksFound/:IdBook/:IdCity',component:BooksFoundComponent},
       {path:'SearchBook',component:SearchBookComponent},
       {path:'PaymentDetails',component:PaymentDetailsComponent},
     ]
@@ -89,7 +87,6 @@ const route: Routes = [
     ClientComponent,
     SearchLibraryComponent,
     SearchBookComponent,
-    BooksFoundComponent,
     PaymentDetailsComponent,
  
    
@@ -98,7 +95,7 @@ const route: Routes = [
   
   imports: [
     
-    BrowserModule,FormsModule,RouterModule.forRoot(route),HttpModule,HttpClientModule,NgSelectModule,BrowserAnimationsModule,  MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule,MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule
+    BrowserModule,FormsModule,RouterModule.forRoot(route),HttpModule,HttpClientModule,NgSelectModule,BrowserAnimationsModule,  MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule,MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ChartsModule
    
   ],
   exports: [
@@ -110,6 +107,8 @@ const route: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ChartsModule,
+
    
   ],
 
