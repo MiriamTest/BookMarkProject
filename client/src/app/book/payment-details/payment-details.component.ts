@@ -11,7 +11,8 @@ import { LibraryService } from '../../service/library-service';
 })
 export class PaymentDetailsComponent implements OnInit {
 payment:LibraryPayment;
-
+month_validity:string;
+year_validity:string;
   constructor(private dialogRef: MatDialogRef<PaymentDetailsComponent>, private _paymentService:PaymentService, private _LibraryService:LibraryService) {
     this.payment=new LibraryPayment;
     
@@ -24,7 +25,7 @@ payment:LibraryPayment;
   {
     this.payment.IdManager=1;
     this.payment.IdLibrary=17;
-    this.payment.Validity="01/20";
+    this.payment.Validity=this.month_validity+"/"+this.year_validity;
     this._paymentService.addPayment(this.payment).subscribe(p=>{
       if(p==true)
       {

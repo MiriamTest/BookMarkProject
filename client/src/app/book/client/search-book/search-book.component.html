@@ -104,7 +104,8 @@
                   [options]="myStatuses" [(ngModel)]="statusModel" (ngModelChange)="page = 0; onChangeStatus($event); log()"></ss-multiselect-dropdown> -->
               </td>
             </tr>
-            <tr *ngFor="let data of booksList | filterBy: myFilter | orderBy: sort : reverse | slice: (pageSize*page) : (pageSize*(page + 1)) ;let i = index">
+            <!-- | orderBy: sort : reverse |  -->
+            <tr *ngFor="let data of booksList | filterBy: myFilter |slice: (pageSize*page) : (pageSize*(page + 1)) ;let i = index">
               <td>{{ (pageSize*page) + i + 1 }}</td>
               <td *ngFor="let head of header | filterBy: {show: true}">
                 <ng-container *ngIf="head.value !== 'actions' && head.value !== 'status'">

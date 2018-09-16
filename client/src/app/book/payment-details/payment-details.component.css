@@ -9,3 +9,11 @@ h2{
 h6{
     width: 7vw;
 }
+.month{
+    width: 55px;
+    float: left;
+}
+.year{
+    width: 55px;
+    float: right;
+}

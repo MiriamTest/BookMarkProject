@@ -12,7 +12,6 @@ import { Category } from '../../../models/category';
 import { Library } from '../../../models/library';
 import { Author } from '../../../models/author';
 import { AuthorService } from '../../../service/author.service';
-import { DatePipe } from '@angular/common';
 import { NgModel } from '@angular/forms';
 declare const $: any;
 
@@ -103,7 +102,7 @@ pageSize = 25;
   public books = new Array<Book>()
   public sort = '';
   public reverse = false;
-  public myFilter = { order: {}, business: {}, customer: {} };
+  public myFilter = { books: {}};
   public mySettings;
   public myTexts;
   categoriesModel: string[] = ['שונות', 'עולם החי'];
@@ -120,7 +119,7 @@ pageSize = 25;
   //   { id: 'ממתין להצעת מחיר', name: 'ממתין להצעת מחיר' },
   // ];
 
-  constructor(protected date: DatePipe,private _BookService:BookService,
+  constructor(private _BookService:BookService,
     ) { }
 
   ngOnInit() {
@@ -139,6 +138,8 @@ pageSize = 25;
     this._BookService.allBooks().subscribe(res =>{
       this.books=res;
       this.books.forEach(book => this.booksList.push({books: book}));})
+      console.log( this.booksList);
+      
   }
 
   onChangeStatus() {

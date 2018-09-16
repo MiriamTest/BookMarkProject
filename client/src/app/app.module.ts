@@ -97,7 +97,19 @@ const route: Routes = [
   
   imports: [
     
-    BrowserModule,FormsModule,RouterModule.forRoot(route),HttpModule,HttpClientModule,NgSelectModule,BrowserAnimationsModule,  MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule,MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ChartsModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(route),
+    HttpModule,HttpClientModule,
+    NgSelectModule,BrowserAnimationsModule,  
+    MatButtonModule,MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatCheckboxModule,
+    MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ChartsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    FilterPipeModule
    
   ],
   exports: [

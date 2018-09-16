@@ -15,7 +15,7 @@ import{ChartModule} from'chart.js';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private dialog: MatDialog, private _userService:UserService){}
+  constructor(private _userService:UserService){}
  
  
 

@@ -35,6 +35,7 @@ export class AddLibraryComponent implements OnInit {
 
 
   ngOnInit() {
+   
     setTimeout( this._LibraryService.allCities().subscribe(c=>{
       this.city=c;
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)),20)
