@@ -45,17 +45,22 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field> -->
 
-    
- <div class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="Validity" name="validity" type="text" required pattern="[0-9]+" [(ngModel)]="payment.Validity" #validity="ngModel">
-        <div [hidden]="validity.valid || validity.pristine">
-          <div [hidden]="!NumberOfCredit.hasError('required')">  validity is required</div>
+ <!-- <label>Expiration Date</label> -->
+      <mat-form-field class="month">
+        <input  matInput placeholder="month" name="month" type="text" required pattern="[0-9]+" [(ngModel)]="month_validity" #month="ngModel">
+        <div [hidden]="month.valid || month.pristine">
+          <div [hidden]="!month.hasError('required')">  month is required</div>
            <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
            </div>
           </mat-form-field>
-         </div>
-
+          <mat-form-field class="year">
+            <input  matInput placeholder="year" name="year" type="text" required pattern="[0-9]+" [(ngModel)]="year_validity" #year="ngModel">
+            <div [hidden]="year.valid || year.pristine">
+              <div [hidden]="!year.hasError('required')">  year is required</div>
+               <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
+               </div>
+              </mat-form-field>
+<span>/</span>
     <input type="submit"  (click)= "setTimeout(dialogRef.close(),100)" class="btn btn-primary" value="Save" [disabled]="!PaymentDetailsform.form.valid">
 
   </form>

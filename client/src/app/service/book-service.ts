@@ -12,7 +12,9 @@ import { BookInLibrary } from 'src/app/models/book-in-library';
 export class BookService {  
 
     constructor(private httpClient:HttpClient, private http:Http) { }
+    
     allBooks():any{
+        debugger;
         return this.httpClient.get("http://localhost:52339/api/Book/allBooks").pipe(map((response=>response)));
 }
 allCategories():any{
@@ -35,9 +37,7 @@ allCities():any{
     return this.httpClient.get("http://localhost:52339/api/Library/allCities").pipe(map((response=>response)));
 }
 
-getBook():any{
-    return this.httpClient.get("").pipe(map((response=>response)));
-}
+
 
 getStatus(id:number):any{
     return this.httpClient.get("http://localhost:52339/api/Book/getStatus/" + id)

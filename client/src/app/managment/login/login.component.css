@@ -11,7 +11,13 @@
   .submit
   {
   background-color: #e5b78b;
-  width: 101%;
+  width: 15%;
   color: white;
   }
- 
+  .body{
+    background-color: white;
+    margin-left: 9vw;
+    margin-top: 6vh;
+    padding: 2vw;
+    border: solid 2px black;
+}
