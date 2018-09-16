@@ -23,16 +23,17 @@ library:Library;
   constructor(private router:Router,private _bookService:BookService, private _libraryService:LibraryService,private _userService:UserService) {
     this.book=new Book;
     this.books=new Book;
-    this.libraries=new Library;
+    // this.libraries[]=new Library;
    this. library=new Library;
     this._bookService.allBooks().subscribe(books=>{
       this.books=books;
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
-this._bookService.allBooks().subscribe(c=>{
+  this._bookService.allBooks().subscribe(c=>{
      this.b=c;
    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
    this._libraryService.getLibrary(parseInt(sessionStorage.getItem("userId"))).subscribe(libraries=>{
-     this.libraries=libraries;
+    debugger;
+    this.libraries=libraries;
    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
    }
 

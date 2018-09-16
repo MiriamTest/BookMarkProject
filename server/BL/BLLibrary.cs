@@ -21,7 +21,7 @@ namespace BL
         {
             return DalLibrary.allStreets();
         }
-        public static Libraries getLibrary(int id)
+        public static Libraries[] getLibrary(int id)
         {
             return DalLibrary.getLibrary(id);
         }
