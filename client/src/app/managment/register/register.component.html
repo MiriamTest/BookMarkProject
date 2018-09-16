@@ -16,11 +16,11 @@
                 <div class="example-container">
                     <mat-form-field>
                       <input matInput placeholder="Tz" name="tz" type="text" required maxlength="9" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.tz" #tz="ngModel">
-                      <div [hidden]="tz.valid || tz.pristine">
+                      <mat-error [hidden]="tz.valid || tz.pristine">
                         <div [hidden]="!tz.hasError('required')">  tz is required</div>
                          <div [hidden]="!tz.hasError('pattern')">Only numbers allowed</div>
                         <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
-                    </div>
+                      </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="example-container">
@@ -35,10 +35,10 @@
                 <div class="example-container">
                     <mat-form-field>
                       <input matInput placeholder="Last Name" name="lastName" type="text" required pattern="[a-zA-Z]+" [(ngModel)]="model.LastName" #lastName="ngModel">
-                      <div [hidden]="lastName.valid || lastName.pristine">
+                      <mat-error [hidden]="lastName.valid || lastName.pristine">
                         <div [hidden]="!lastName.hasError('required')">lastname is required</div>
                          <div [hidden]="!lastName.hasError('pattern')">Only alphabets allowed</div>
-                    </div>
+                      </mat-error>
                     </mat-form-field>
                 </div>
         <!-- <div class="form-group">
@@ -53,10 +53,10 @@
     <div class="example-container">
             <mat-form-field>
               <input matInput placeholder="eMail" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
-              <div [hidden]="email.valid || email.pristine">
+              <mat-error [hidden]="email.valid || email.pristine">
                     <div [hidden]="!email.hasError('required')">  eMail is required</div>
                      <div [hidden]="!email.hasError('pattern')"> Email format should be<small><b>joe@abc.com</b></small></div>
-            </div>
+              </mat-error>
             </mat-form-field>
           </div>
 
@@ -71,10 +71,12 @@
         </div> -->
         <div class="example-container">
             <mat-form-field>
-              <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="password" maxlength="4" [type]="hide ? 'password' : 'password'">
-              <div [hidden]="password.pristine">
+              <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="password" maxlength="4" minlength="4" [type]="hide ? 'password' : 'password'">
+              <mat-error [hidden]="password.pristine">
               <div [hidden]="!password.hasError('required')">  password is required</div>
-            </div>
+              <div [hidden]="!password.hasError('minlength')">  password must be 4 characters</div>
+              <div></div>
+            </mat-error>
             </mat-form-field>
         </div>
         
@@ -93,12 +95,12 @@
             <div class="example-container">
                 <mat-form-field>
                   <input matInput placeholder="Phone" name="phone" type="text" required maxlength="10" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.PhoneNumber" #phone="ngModel">
-                  <div [hidden]="phone.valid || phone.pristine">
+                  <mat-error [hidden]="phone.valid || phone.pristine">
                     <div [hidden]="!phone.hasError('required')">  phone is required</div>
                      <div [hidden]="!phone.hasError('pattern')">Only numbers allowed</div>
                    
                     <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
-                </div>
+                  </mat-error>
                 </mat-form-field>
             </div>
             <!-- <div class="form-group">
@@ -111,11 +113,11 @@
             <div class="example-container">
                 <mat-form-field>
                   <input matInput placeholder="IdAppliance" name="idAppliance" type="text" required   [(ngModel)]="model.IdAppliance" #idAppliance="ngModel">
-                  <div [hidden]="idAppliance.valid || idAppliance.pristine">
+                  <mat-error [hidden]="idAppliance.valid || idAppliance.pristine">
                     <div [hidden]="!idAppliance.hasError('required')">  idAppliance is required</div>
                    
                     <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
-                </div>
+                </mat-error>
                 </mat-form-field>
             </div>
             <!-- <div class="form-group">

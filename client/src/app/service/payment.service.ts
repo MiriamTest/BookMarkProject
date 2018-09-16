@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 import { LibraryPayment } from '../models/library-payment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

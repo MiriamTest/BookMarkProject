@@ -23,13 +23,15 @@ import { ClientComponent } from './book/client/client.component';
 import { SearchLibraryComponent } from './book/client/search-library/search-library.component';
 import { SearchBookComponent } from './book/client/search-book/search-book.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule} from '@angular/material';
+import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule, MatPaginatorModule, MatTableModule} from '@angular/material';
 import{ChartsModule} from 'ng2-charts';
 import {MatDialogModule} from "@angular/material";
 import{MatDatepickerModule} from "@angular/material/datepicker"
 import{ MatNativeDateModule} from"@angular/material";
 import { PaymentDetailsComponent } from './book/payment-details/payment-details.component';
 import {MatSelectModule} from '@angular/material/select';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
 
 const route: Routes = [
   {
@@ -108,7 +110,9 @@ const route: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     ChartsModule,
-
+    MatPaginatorModule,
+    MatTableModule,
+    FilterPipeModule
    
   ],
 

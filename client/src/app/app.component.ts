@@ -17,15 +17,7 @@ export class AppComponent {
   title = 'app';
   constructor(private dialog: MatDialog, private _userService:UserService){}
  
-  openDialog() {
-   
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    this.dialog.open(LoginComponent, dialogConfig);
-}
+ 
 
 // sendMail()
 // {

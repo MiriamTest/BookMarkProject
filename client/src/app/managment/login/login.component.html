@@ -18,10 +18,10 @@
             <div class="example-container">
                 <mat-form-field>
                   <input matInput placeholder="eMail" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
-                  <div [hidden]="email.valid || email.pristine">
+                  <mat-error [hidden]="email.valid || email.pristine">
                         <div [hidden]="!email.hasError('required')">  eMail is required</div>
                          <div [hidden]="!email.hasError('pattern')"> Email format should be<small><b>joe@abc.com</b></small></div>
-                </div>
+                  </mat-error>
                 </mat-form-field>
               </div>
            
@@ -42,16 +42,17 @@
         <div class="example-container">
             <mat-form-field>
               <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="password"  [type]="hide ? 'password' : 'password'">
-              <div [hidden]="password.pristine">
+              <mat-error [hidden]="password.pristine">
               <div [hidden]="!password.hasError('required')">  password is required</div>
-            </div>
+            </mat-error>
+            
             </mat-form-field>
         </div>
         <div>
             <a>forgat your password?</a>
         </div>
     
-        <input type="submit" class="submit" (click)= "setTimeout(dialogRef.close(),20)" value="Save" [disabled]="!Loginform.form.valid">
+        <input type="submit" class="submit"  value="Save" [disabled]="!Loginform.form.valid">
      
      
      

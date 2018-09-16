@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 flag:number=1;
 model:User;
 u:User;
-  constructor(private dialogRef: MatDialogRef<LoginComponent>,private _userService:UserService,private router:Router) {
+  constructor(private _userService:UserService,private router:Router) {
     this.model=new User;  
   }
 

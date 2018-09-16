@@ -168,3 +168,14 @@ C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Dal\obj
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Dal\obj\Debug\Dal.dll
 C:\Users\tovaw\Documents\final project\2-9\Progect-19-8\server\AutoMedic\Dal\obj\Debug\Dal.pdb
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\Dal.dll
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\Dal.pdb
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\Entities.dll
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\Entities.pdb
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\Entities.dll.config
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\bin\Debug\EntityFramework.xml
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\obj\Debug\Dal.csproj.CopyComplete
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\obj\Debug\Dal.dll
+C:\Users\tovaw\Desktop\github\bookmark-finally-project\server\Dal\obj\Debug\Dal.pdb

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{BD0B1D83-23A8-4B17-ABE5-BB85B1CB6BD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "..\..\..\..\..\..\Desktop\BL\BL.csproj", "{C9461784-3294-44FC-8AF6-3036B9D1310C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{C9461784-3294-44FC-8AF6-3036B9D1310C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
