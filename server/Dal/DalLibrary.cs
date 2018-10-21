@@ -44,6 +44,12 @@ namespace Dal
         {
             return Connect.db.Libraries.ToArray();
         }
+    public static Libraries getLibraryAccordingToBook(int bookId)
+    {
+      var bookInLibrary = Connect.db.BooksInLibrary.FirstOrDefault(l => l.IdBook == bookId);
+      var library= Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == bookInLibrary.IdLibrary);
+      return library;
+    }
     }
 }
 

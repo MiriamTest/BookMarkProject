@@ -14,14 +14,18 @@ import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { debug } from 'util';
 import { retry } from "rxjs/internal/operators/retry";
 import { promise } from "protractor";
+import {Lending} from '../models/lending';
 @Injectable()
 export class UserService { 
    
     constructor(private http:Http ,private httpClient:HttpClient) { }
   
-   
+    lending(l:Lending ){
+       debugger;
+       return this.http.post("http://localhost:52339/api/Lending/addLending",l).pipe(map(response=> response.json()));
+    }
     addUser(newUser: User) {
-        return this.http.post("http://localhost:52339/api/User/addUsers",newUser).pipe(map(response=> response.json()));
+        return this.http.post("http://localhost:52339/api/user/addUsers",newUser).pipe(map(response=> response.json()));
 
     }
 public UserId;
@@ -30,7 +34,7 @@ public UserId;
           this.UserId = UserId;
         }
     login(EMail:string,password:string):any{
-        return this.httpClient.get("http://localhost:52339/api/User/login/" + EMail + "/" + password)
+        return this.httpClient.get("http://localhost:52339/api/user/login/" + EMail + "/" + password)
       .pipe(map((response => response)));
     }
     // sendMail():any{

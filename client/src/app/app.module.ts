@@ -32,6 +32,11 @@ import { PaymentDetailsComponent } from './book/payment-details/payment-details.
 import {MatSelectModule} from '@angular/material/select';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 
+import { ShowDetailsComponent } from './book/client/show-details/show-details.component';
+import { BookDetailsComponent } from './book/secretary/book-details/book-details.component';
+import { AddSecretaryComponent } from './book/manager/add-secretary/add-secretary.component';
+import { SecretaryComponent } from './book/secretary/secretary.component';
+
 
 const route: Routes = [
   {
@@ -51,7 +56,7 @@ const route: Routes = [
       {path:'AddBook',component:AddBookComponent},
       {path:'AddNewBook',component:AddNewBookComponent},
       {path:'AddLibrary',component:AddLibraryComponent},
-      {path:'Statistics',component:StatisticsComponent}
+      {path:'AddSecretary',component:AddSecretaryComponent}
     ]
   },
   {
@@ -63,7 +68,10 @@ const route: Routes = [
       {path:'PaymentDetails',component:PaymentDetailsComponent},
     ]
 
-  }
+  },
+ { path:'secretary',component: SecretaryComponent},
+ { path:'bookDetails',component:BookDetailsComponent}
+
  
  
 ]
@@ -90,6 +98,10 @@ const route: Routes = [
     SearchLibraryComponent,
     SearchBookComponent,
     PaymentDetailsComponent,
+    SecretaryComponent,
+    BookDetailsComponent,
+    ShowDetailsComponent,
+    AddSecretaryComponent,
  
    
 

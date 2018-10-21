@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import swal from 'sweetalert2'
 import { Route } from '@angular/compiler/src/core';
 import { MatDialogRef } from '@angular/material';
+import { Lending } from '../../models/lending';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ import { MatDialogRef } from '@angular/material';
 export class LoginComponent implements OnInit {
 flag:number=1;
 model:User;
+l:Lending;
 u:User;
   constructor(private _userService:UserService,private router:Router) {
     this.model=new User;  
@@ -24,21 +26,32 @@ u:User;
   }
   onSubmit()
   {   
+    debugger;
+//     this.l=new Lending();
+//     this.l.IdUser =1004;
+//     this.l.IdBook =1;
+// var u=this._userService.lending(this.l).subscribe(u => { 
+//   if(u)
+//   {
+//   }
+
+//    }
+  
+//   , (error: HttpErrorResponse) => alert("mistake!!!!"));
 
     this._userService.login(this.model.EMail,this.model.Password) 
     .subscribe(u => { 
       if(u)
       {
-       // this._userService.setUserId(u.IdUser);
+        this.model=u;
          sessionStorage.setItem("userId",u.IdUser);
-        // sessionStorage.setItem("userMail", u.mail.toString());
-        // sessionStorage.setItem("userPassword", user.password.toString());
-        // sessionsessionStorage.setItem("userId",this.model.IdUser.toString());
-        // sessionStorage.setItem('userId', this.model.IdUser.toString());
-        if((u as User).IsAdmin==true)
-        this.router.navigate(['./manager']);
+        if(this.model.Status===1)
+           this.router.navigate(['./manager']);
+        else if(this.model.Status===2)
+           this.router.navigate(['./client']);
         else
-        this.router.navigate(['./client']);
+          this.router.navigate(['./secretary']);
+
       }
 
      

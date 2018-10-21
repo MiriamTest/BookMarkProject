@@ -29,5 +29,10 @@ namespace BL
         {
             return DalLibrary.allLibraries();
         }
+    public static Libraries getLibraryAccordingToBook(int bookId)
+    {
+      return DalLibrary.getLibraryAccordingToBook(bookId);
+    }
+   
     }
 }

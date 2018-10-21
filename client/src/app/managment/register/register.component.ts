@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 flag:number=0;
 model:User;
 id:number;
-Ismanager:string="client";
+status:string="client";
 
 constructor(private _userService:UserService, private router:Router) {
   this.model=new User;
@@ -27,18 +27,18 @@ constructor(private _userService:UserService, private router:Router) {
   ngOnInit() {
   }
   onSubmit() {
-  if(this.Ismanager=="manager")
+  if(this.status=="manager")
   
-    this.model.IsAdmin=true;
+    this.model.Status=1;
     else
-    this.model.IsAdmin=false;
+    this.model.Status=2;
 
     this._userService.addUser(this.model) 
     .subscribe(m => { 
       if(m)
       {
         swal("Success","You have successfully registered","success");
-        if(this.model.IsAdmin==true)
+        if(this.model.Status==1)
         this.router.navigate(['./manager']);
         else
         this.router.navigate(['./client']);

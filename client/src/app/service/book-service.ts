@@ -26,6 +26,11 @@ addNewBook(newBook: Book):Observable<any>  {
     return this.http.post("http://localhost:52339/api/Book/addNewBook",newBook).pipe(map((response:any)=> response.json()));
 
 }
+addBook(Book: BookInLibrary):Observable<any>  {
+    debugger;
+    return this.http.post("http://localhost:52339/api/Book/addBook",Book).pipe(map((response:any)=> response.json()));
+
+}
 searchBook(book:number,city:number):any{
    
     return this.httpClient.get("http://localhost:52339/api/Book/searchBook/" + book + "/" + city)

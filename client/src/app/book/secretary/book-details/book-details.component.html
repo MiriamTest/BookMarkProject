@@ -1,0 +1,10 @@
+<h1>{{book.NameBook}}</h1>
+<h2>{{book.Description}}</h2>
+    <!-- <div class="example-container">
+
+          <mat-error [hidden]="message==''">
+                <div [hidden]="!message==''">אינך רשאי להשאיל </div>
+          </mat-error>
+     </div> -->
+     <h4>{{message}}</h4>
+<button (click)= "changeStatus()" class="btn btn-danger" [disabled]="!check"   value="השאל/החזר" >

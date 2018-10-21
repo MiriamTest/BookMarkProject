@@ -18,6 +18,7 @@ namespace Entities
         public Users()
         {
             this.Lendings = new HashSet<Lendings>();
+            this.SecrateryInLibrary = new HashSet<SecrateryInLibrary>();
             this.subscribers = new HashSet<subscribers>();
         }
     
@@ -27,12 +28,13 @@ namespace Entities
         public string LastName { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
-        public int IdAppliance { get; set; }
-        public bool IsAdmin { get; set; }
+        public int Status { get; set; }
         public string PhoneNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lendings> Lendings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SecrateryInLibrary> SecrateryInLibrary { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subscribers> subscribers { get; set; }
     }

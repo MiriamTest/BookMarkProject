@@ -13,10 +13,10 @@ namespace Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookmarkDBEntities : DbContext
+    public partial class BookmarkDBEntities1 : DbContext
     {
-        public BookmarkDBEntities()
-            : base("name=BookmarkDBEntities")
+        public BookmarkDBEntities1()
+            : base("name=BookmarkDBEntities1")
         {
         }
     
@@ -33,9 +33,11 @@ namespace Entities
         public virtual DbSet<Lendings> Lendings { get; set; }
         public virtual DbSet<Libraries> Libraries { get; set; }
         public virtual DbSet<Regions> Regions { get; set; }
+        public virtual DbSet<SecrateryInLibrary> SecrateryInLibrary { get; set; }
         public virtual DbSet<StatusLending> StatusLending { get; set; }
         public virtual DbSet<Streets> Streets { get; set; }
         public virtual DbSet<subscribers> subscribers { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

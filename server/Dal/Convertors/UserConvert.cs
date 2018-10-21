@@ -18,9 +18,8 @@ namespace Dal.Convertors
                 LastName = UserEntity.LastName,
                 EMail = UserEntity.EMail,
                 Password = UserEntity.Password,
-                IsAdmin = UserEntity.IsAdmin,
-                PhoneNumber = UserEntity.PhoneNumber,
-                IdAppliance = UserEntity.IdAppliance
+                 Status=UserEntity.Status,
+                PhoneNumber = UserEntity.PhoneNumber
             };
 
         }

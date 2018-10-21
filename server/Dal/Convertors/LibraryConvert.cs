@@ -17,8 +17,6 @@ namespace Dal.Convertors
                 City = l.City,
                 Street = l.Street,
                 NumHouse = l.NumHouse,
-                GeoLocationX = 234,
-                GeoLocationY = 899,
                 IdAdmin = l.IdAdmin
 
             };

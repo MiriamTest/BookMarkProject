@@ -63,7 +63,21 @@ namespace API.Controllers
 
             //}
         }
-        [System.Web.Http.HttpGet]
+    [System.Web.Http.HttpPost]
+    [System.Web.Http.Route("api/Book/addBook")]
+    public HttpResponseMessage addBook([FromBody] BooksInLibrary newBook)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLBook.addBook(newBook));
+      }
+      catch (IOException e)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+      }
+
+    }
+    [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/Book/searchBook/{searchObj}")]
         public HttpResponseMessage searchBook([FromUri] Dal.Model.SearchObj searchObj )
         {

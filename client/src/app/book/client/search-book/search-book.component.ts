@@ -13,6 +13,8 @@ import { Library } from '../../../models/library';
 import { Author } from '../../../models/author';
 import { AuthorService } from '../../../service/author.service';
 import { NgModel } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ShowDetailsComponent } from '../show-details/show-details.component';
 declare const $: any;
 
 @Component({
@@ -119,8 +121,7 @@ pageSize = 25;
   //   { id: 'ממתין להצעת מחיר', name: 'ממתין להצעת מחיר' },
   // ];
 
-  constructor(private _BookService:BookService,
-    ) { }
+  constructor(private _BookService:BookService,private dialog: MatDialog ) { }
 
   ngOnInit() {
     // get settings for dropdown
@@ -186,5 +187,16 @@ pageSize = 25;
     console.log("test", event);
     select.update.emit(values);
   }
+  showDetails(){
+    this.openDialog();
+  }
+  openDialog() {
 
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(ShowDetailsComponent, dialogConfig);
+}
 }

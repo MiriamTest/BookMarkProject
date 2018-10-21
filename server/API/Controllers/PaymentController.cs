@@ -11,21 +11,21 @@ using BL;
 
 namespace API.Controllers
 {
-    public class PaymentController : ApiController
-    {
-        // GET: Payment
-        [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("api/Payment/addPayment")]
-        public HttpResponseMessage addLibrary([FromBody] Librariespayments addPayment)
-        {
-            try
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, BLPayment.addLibraryPayment(addPayment));
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
-            }
-        }
-    }
+  public class PaymentController : ApiController
+  {
+  //  // GET: Payment
+  //  [System.Web.Http.HttpPost]
+  //  [System.Web.Http.Route("api/Payment/addPayment")]
+  //  public HttpResponseMessage addLibrary([FromBody] Librariespayments addPayment)
+  //  {
+  //    try
+  //    {
+  //      return Request.CreateResponse(HttpStatusCode.OK, BLPayment.addLibraryPayment(addPayment));
+  //    }
+  //    catch (Exception ex)
+  //    {
+  //      return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+  //    }
+  //  }
+  }
 }

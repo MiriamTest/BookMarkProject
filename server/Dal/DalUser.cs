@@ -17,21 +17,27 @@ namespace Dal
             try
             {
 
-                Connect.db.Users.Add(Convertors.UserConvert.UserToModel(newUser));
-                Connect.db.SaveChanges();
-                return true;
-            }
-            catch (IOException e)
-            {
+       var i= Connect.db.Users.Add(Convertors.UserConvert.UserToModel(newUser));
+        Connect.db.SaveChanges();
+        return true;
+      }
+      catch (IOException e)
+      {
 
                 return false;
             }
         }
         public static Users login(string mail, string password)
         {
-           return Connect.db.Users.FirstOrDefault(p => p.EMail == mail && p.Password == password);
-        }
+      var i= Connect.db.Users.FirstOrDefault(p => p.EMail == mail && p.Password == password);
+      return i;  
+
     }
+    public static Users getUser(int idUser)
+    {
+      return Connect.db.Users.FirstOrDefault(p => p.IdUser == idUser);
+    }
+  }
 }
 				
 

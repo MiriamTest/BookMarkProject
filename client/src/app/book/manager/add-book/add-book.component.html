@@ -9,12 +9,24 @@
 </ng-select> -->
 
 
-<mat-form-field>
+<!-- <mat-form-field>
   <mat-select placeholder="select library">
     <mat-option>None</mat-option>
     <mat-option *ngFor="let state of libraries"  [(ngModel)]="library" name="libraries" bindLabel="NameLibrary"  [value]="state">{{state}}</mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field> -->
+<ng-select [items]="libraries" bindLabel="NameLibrary"  placeholder="Select library" [(ngModel)]="library" name="library">
+</ng-select>
+
+</div>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Lending Duration" name="LendingDuration" type="number" required   [(ngModel)]="bookToAdd.LendingDuration" #LendingDuration="ngModel">
+    <mat-error [hidden]="LendingDuration.valid || LendingDuration.pristine">
+      <div [hidden]="!LendingDuration.hasError('required')">  Lending Duration is required</div>
+    </mat-error>
+  </mat-form-field>
 </div>
 <input type="button"  class="btn btn-primary" value="add book" (click)="addBook()">
   <input type="button"  class="btn btn-primary" value="add new book" (click)="newBook()">

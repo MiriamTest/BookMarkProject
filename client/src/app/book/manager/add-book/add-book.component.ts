@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Library } from 'src/app/models/library';
 import { LibraryService } from 'src/app/service/library-service';
 import { UserService } from 'src/app/service/user-service';
+import { BookInLibrary } from 'src/app/models/book-in-library';
 
 
 @Component({
@@ -19,12 +20,14 @@ book:Book;
 b:string;
 libraries:Library;
 library:Library;
-
+bookToAdd:BookInLibrary;
+duration:number;
   constructor(private router:Router,private _bookService:BookService, private _libraryService:LibraryService,private _userService:UserService) {
     this.book=new Book;
     this.books=new Book;
     // this.libraries[]=new Library;
    this. library=new Library;
+   this.bookToAdd=new BookInLibrary;
     this._bookService.allBooks().subscribe(books=>{
       this.books=books;
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
@@ -45,7 +48,10 @@ library:Library;
   }
   addBook(){
     debugger;
-    this._bookService.addNewBook(this.book).subscribe(response=>{
+    this.bookToAdd.IdBook=this.book.IdBook;
+    this.bookToAdd.IdLibrary=this.library.IdLibrary;
+ //   this.bookToAdd.LendingDuration=this.duration;
+    this._bookService.addBook(this.bookToAdd).subscribe(response=>{
       if(response)
       alert("great");
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));

@@ -9,9 +9,9 @@ namespace BL
 {
   public static  class BLPayment
     {
-        public static bool addLibraryPayment(Librariespayments payment)
-        {
-            return DalPayment.addLibraryPayment(payment);
-        }
+        //public static bool addLibraryPayment(Librariespayments payment)
+        //{
+        //    return DalPayment.addLibraryPayment(payment);
+        //}
     }
 }

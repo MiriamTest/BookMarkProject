@@ -7,7 +7,7 @@ using Entities;
 using Dal;
 namespace BL
 {
-  public static class  BlUser
+  public static class  BLUser
     {
         public static bool addUsers(Users user)
         {
@@ -17,6 +17,11 @@ namespace BL
         {
             return DalUser.login(mail, password);
         }
-
+    public static Users getUser(int idUser)
+    {
+      return DalUser.getUser(idUser);
     }
+    
+
+  }
 }

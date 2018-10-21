@@ -24,11 +24,16 @@ namespace BL
         {
             return DalBook.getBook(id);
         }
-        public static bool addNewBook(Books newBook)
+        public static Books addNewBook(Books newBook)
         {
             return DalBook.addNewBook(newBook);
         }
-        public static BooksInLibrary[] searchBook(Dal.Model.SearchObj searchObj )
+    public static bool addBook(BooksInLibrary newBook)
+    {
+      newBook.IdStatus = 2;
+      return DalBook.addBook(newBook);
+    }
+    public static BooksInLibrary[] searchBook(Dal.Model.SearchObj searchObj )
         {
 
             return DalBook.searchBook(searchObj);
@@ -41,5 +46,15 @@ namespace BL
         {
             return DalBook.getStatus(id);
         }
+    public static BooksInLibrary getBook(int bookId)
+    {
+      return DalBook.getBook(bookId);
     }
+    public static Books getBookObj(int bookId)
+    {
+      return DalBook.getBookObj(bookId);
+    }
+
+   
+  }
 }

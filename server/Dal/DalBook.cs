@@ -27,26 +27,70 @@ namespace Dal
             //return Connect.db.Books.FirstOrDefault(b => b.IdBook == id);
             return null;
         }
-        public static bool addNewBook(Books newBook)
+        public static Books addNewBook(Books newBook)
         {    
             try
             {
 
-                Connect.db.Books.Add(Convertors.BookConvert.BookToModel(newBook));
+             var book=   Connect.db.Books.Add(Convertors.BookConvert.BookToModel(newBook));
                 Connect.db.SaveChanges();
-                return true;
+                return book;
             }
             catch (IOException e)
             {
-                return false;
+                return null;
             }
         }
-        public static BooksInLibrary[] searchBook(Model.SearchObj searchObj)
+    public static bool addBook(BooksInLibrary newBook)
+    {
+      try
+      {
+
+        Connect.db.BooksInLibrary.Add(Convertors.BookInLibraryConvert.BookInLibraryToModel(newBook));
+        Connect.db.SaveChanges();
+        return true;
+      }
+      catch (IOException e)
+      {
+        return false;
+      }
+    }
+    public static BooksInLibrary[] searchBook(Model.SearchObj searchObj)
         {
             return null;
          
 
-        }
-       
     }
+    public static BooksInLibrary getBook(int bookId)
+    {
+      return Connect.db.BooksInLibrary.FirstOrDefault(s => s.IdBook == bookId);
+    }
+
+    public static Books getBookObj(int bookId)
+    {
+      Books b= Connect.db.Books.FirstOrDefault(s => s.IdBook == bookId);
+      return b;
+    }
+    public static bool changeStatus(int idBook,int idStatus)
+    {
+      BooksInLibrary book = Connect.db.BooksInLibrary.FirstOrDefault(b =>b.IdBookInLibrary==idBook);//retrieval the book according the Id
+      if (book!=null)
+      {
+        try
+        {
+          book.IdStatus = idStatus;
+          Connect.db.SaveChanges();
+          return true;
+        }
+        catch (IOException e)
+        {
+          return false;
+        }
+      }
+      return false;
+    }
+
+
+  }
+
 }

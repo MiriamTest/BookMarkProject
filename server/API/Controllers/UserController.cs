@@ -20,8 +20,9 @@ namespace API.Controllers
         [System.Web.Http.Route("api/user/login/{mail}/{password}")]
         public Users login([FromUri] string mail, [FromUri] string password)
         {
-            return BlUser.login(mail, password);
-
+            
+       var i= BLUser.login(mail, password);
+      return i;
         }
 
 
@@ -31,7 +32,7 @@ namespace API.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BlUser.addUsers(newUser));
+                return Request.CreateResponse(HttpStatusCode.OK, BLUser.addUsers(newUser));
             }
             catch (Exception ex)
             {
@@ -40,7 +41,14 @@ namespace API.Controllers
 
 
 
-            //}
+            
         }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/user/getUser/{idUser}")]
+    public Users getUser([FromUri] int idUser)
+    {
+      return BLUser.getUser(idUser);
+
     }
+  }
 }
