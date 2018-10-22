@@ -11,16 +11,16 @@ using BL;
 
 namespace API.Controllers
 {
-  public class PaymentController : ApiController
+  public class CreditCardController : ApiController
   {
         // GET: Payment
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("api/Payment/addPayment")]
-        public HttpResponseMessage addPayment([FromBody] Payments addPayment)
+        [System.Web.Http.Route("api/CreditCard/addCreditCard")]
+        public HttpResponseMessage addCreditCard([FromBody] CreditCards addCreditCard)
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, BLPayment.addPayment(addPayment));
+                return Request.CreateResponse(HttpStatusCode.OK, BLCreditCard.addCreditCard(addCreditCard));
             }
             catch (Exception ex)
             {
