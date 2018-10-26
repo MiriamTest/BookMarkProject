@@ -28,7 +28,7 @@ import{ChartsModule} from 'ng2-charts';
 import {MatDialogModule} from "@angular/material";
 import{MatDatepickerModule} from "@angular/material/datepicker"
 import{ MatNativeDateModule} from"@angular/material";
-import { PaymentDetailsComponent } from './book/payment-details/payment-details.component';
+import { CreditCardDetailsComponent} from './book/creditCard-details/creditCard-details.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 
@@ -65,7 +65,7 @@ const route: Routes = [
     
       {path:'SearchLibrary',component:SearchLibraryComponent},
       {path:'SearchBook',component:SearchBookComponent},
-      {path:'PaymentDetails',component:PaymentDetailsComponent},
+      {path:'CreditCardDetails',component:CreditCardDetailsComponent},
     ]
 
   },
@@ -97,7 +97,7 @@ const route: Routes = [
     ClientComponent,
     SearchLibraryComponent,
     SearchBookComponent,
-    PaymentDetailsComponent,
+    CreditCardDetailsComponent,
     SecretaryComponent,
     BookDetailsComponent,
     ShowDetailsComponent,

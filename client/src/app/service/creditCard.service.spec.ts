@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PaymentService } from './payment.service';
+import { PaymentService } from './creditCard.service';
 
 describe('PaymentService', () => {
   beforeEach(() => {

@@ -8,7 +8,7 @@ import { City } from '../../../models/city';
 import { Street } from '../../../models/street';
 import { UserService } from 'src/app/service/user-service';
 import {MatDialog, MatDialogConfig} from "@angular/material";
-import { PaymentDetailsComponent } from '../../payment-details/payment-details.component';
+import { CreditCardDetailsComponent } from '../../creditCard-details/creditCard-details.component';
 import swal from 'sweetalert2';
 
 
@@ -73,7 +73,7 @@ this.model.IdAdmin=this._userService.UserId;
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
     
-        this.dialog.open(PaymentDetailsComponent, dialogConfig);
+        this.dialog.open(CreditCardDetailsComponent, dialogConfig);
     }
     }
     
