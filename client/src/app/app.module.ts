@@ -36,6 +36,9 @@ import { ShowDetailsComponent } from './book/client/show-details/show-details.co
 import { BookDetailsComponent } from './book/secretary/book-details/book-details.component';
 import { AddSecretaryComponent } from './book/manager/add-secretary/add-secretary.component';
 import { SecretaryComponent } from './book/secretary/secretary.component';
+import { EditDetailsComponent } from './book/manager/edit-details/edit-details.component';
+import { EditLibraryComponent } from './book/manager/edit-library/edit-library.component';
+import { ShowBooksInLibraryComponent } from './book/manager/show-books-in-library/show-books-in-library.component';
 
 
 const route: Routes = [
@@ -56,7 +59,11 @@ const route: Routes = [
       {path:'AddBook',component:AddBookComponent},
       {path:'AddNewBook',component:AddNewBookComponent},
       {path:'AddLibrary',component:AddLibraryComponent},
-      {path:'AddSecretary',component:AddSecretaryComponent}
+      {path:'AddSecretary',component:AddSecretaryComponent},
+      {path:'EditDetails',component:EditDetailsComponent},
+      // {path:'EditLibrary',component:EditLibraryComponent},
+      {path:'ShowBooksInLibrary',component:ShowBooksInLibraryComponent},
+     
     ]
   },
   {
@@ -65,13 +72,19 @@ const route: Routes = [
     
       {path:'SearchLibrary',component:SearchLibraryComponent},
       {path:'SearchBook',component:SearchBookComponent},
+<<<<<<< HEAD
+      {path:'PaymentDetails',component:PaymentDetailsComponent},
+      {path:'ShowDetails',component:ShowDetailsComponent},
+=======
       {path:'CreditCardDetails',component:CreditCardDetailsComponent},
+>>>>>>> bd5fd3985f3f92f23aa68fc4184ef0abcd7144f1
     ]
 
   },
  { path:'secretary',component: SecretaryComponent},
- { path:'bookDetails',component:BookDetailsComponent}
-
+ { path:'bookDetails',component:BookDetailsComponent},
+ { path:'EditDetails',component:BookDetailsComponent},
+ {path:'EditLibrary/:IdLibrary',component:EditLibraryComponent},
  
  
 ]
@@ -102,6 +115,9 @@ const route: Routes = [
     BookDetailsComponent,
     ShowDetailsComponent,
     AddSecretaryComponent,
+    EditDetailsComponent,
+    EditLibraryComponent,
+    ShowBooksInLibraryComponent,
  
    
 
