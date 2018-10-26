@@ -15,8 +15,8 @@ namespace Dal.Convertors
               CardNumber = CreditCardEntity.CardNumber,
               ExpiryDate = CreditCardEntity.ExpiryDate,
               IdUser = CreditCardEntity.IdUser,
-              TzUser = CreditCardEntity.TzUser,
-              Zip = CreditCardEntity.Zip
+              TzOwner = CreditCardEntity.TzOwner,
+              CVV = CreditCardEntity.CVV
 
             };
 
