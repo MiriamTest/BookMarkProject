@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LibraryPayment } from '../models/library-payment';
+import { CreditCard } from '../models/credit-card';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Http, Response } from '@angular/http';
@@ -12,11 +12,11 @@ import { Subject, pipe } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PaymentService {
+export class CreditCardService {
 
   constructor(private http:Http) { }
-  addPayment(newPayment: LibraryPayment):Observable<any>  {
-    return this.http.post("http://localhost:52339/api/Payment/addPayment",newPayment).pipe(map((response:any)=> response.json()));
+  addPayment(newCreditCard: CreditCard):Observable<any>  {
+    return this.http.post("http://localhost:52339/api/Payment/addPayment",newCreditCard).pipe(map((response:any)=> response.json()));
 
 }
 

@@ -29,7 +29,7 @@
         </mat-form-field>
     </div>
      
-      <!-- <label>city</label>
+      <label>city</label>
       <ng-select [items]="city"
                  class="ng"
                  name="city"
@@ -37,7 +37,7 @@
                  placeholder="Select city"
                  [(ngModel)]="cityModel"
                  name ="city">
-      </ng-select> -->
+      </ng-select>
       <mat-form-field>
         <mat-select placeholder="select city">
           <mat-option>None</mat-option>
@@ -50,14 +50,14 @@
           <mat-option *ngFor="let state of street"  [(ngModel)]="streetModel" name=street bindLabel="NameStreet"  [value]="state">{{state}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <!-- <label>street</label>
+      <label>street</label>
       <ng-select [items]="street"
                  name="street"
                  bindLabel="NameStreet"
                  placeholder="Select street"
                  [(ngModel)]="streetModel"
                  name ="street">
-      </ng-select> -->
+      </ng-select>
 
 
 
