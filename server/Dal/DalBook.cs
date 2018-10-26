@@ -89,7 +89,10 @@ namespace Dal
       }
       return false;
     }
-
+    public static BooksInLibrary[] getAllCatchBooks()
+    {
+      return Connect.db.BooksInLibrary.Where(p => p.IdStatus == 3).ToArray();
+    }
 
   }
 
