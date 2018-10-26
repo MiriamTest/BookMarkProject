@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
+
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { unwatchFile } from 'fs';
 import { LendingService } from 'src/app/service/lending.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-secretary',
@@ -42,7 +43,7 @@ export class SecretaryComponent implements OnInit {
 //   this._LendingService.Valid=i;
 //   this.message();
 // debugger;
-// }
+// }מע ע
 // } , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
 this._LendingService.checkBook(Number(this.idLending)).subscribe(i=>{
   this.theMessage=Number(i);

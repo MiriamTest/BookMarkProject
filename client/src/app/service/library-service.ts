@@ -6,10 +6,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Library } from '../models/Library';
 import { Observable, Subject, pipe } from 'rxjs';
 import { map, takeUntil, tap } from 'rxjs/operators';
+import { BookInLibrary } from '../models/book-in-library';
 @Injectable()
 export class LibraryService {
- 
-    constructor(private httpClient:HttpClient, private http:Http) { }
+ booksInLibrary:BookInLibrary;
+ idLibrary:number;
+ libraries:Library[];
+    constructor(private httpClient:HttpClient, private http:Http) {
+        this.booksInLibrary=new BookInLibrary;
+     }
     public model:Library;
     saveModel(newLibrary:Library){
               this.model=newLibrary;
@@ -36,5 +41,15 @@ export class LibraryService {
     allLibraries():any{
         return this.httpClient.get("http://localhost:52339/api/Library/allLibraries").pipe(map((response=>response)));
         
+    }
+    deleteLibrary(idLibrary:number):any{
+        return this.httpClient.get("http://localhost:52339/api/Library/deleteLibrary/"+idLibrary).pipe(map((response=>response)));
+    }
+    getBooksInLibrary(idLibrary:number):any{
+        return this.httpClient.get("http://localhost:52339/api/Library/getBooksInLibrary/"+idLibrary).pipe(map((response=>response)));
+    }
+    getBook(idBook:number)
+    {
+        return this.httpClient.get("http://localhost:52339api/Book/getBookObj/"+idBook).pipe(map((response=>response)));
     }
 }

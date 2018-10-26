@@ -90,5 +90,31 @@ namespace API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Book/getBookObj/{idBook}")]
+    public HttpResponseMessage getBookObj([FromUri] int idBook)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLBook.getBookObj(idBook));
+      }
+      catch (IOException e)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+      }
     }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Book/deleteBook/{idBook}")]
+    public HttpResponseMessage deleteBook([FromUri] int idBook)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLBook.deleteBook(idBook));
+      }
+      catch (IOException e)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+      }
+    }
+  }
 }

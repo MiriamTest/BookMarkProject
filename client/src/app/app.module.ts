@@ -31,7 +31,6 @@ import{ MatNativeDateModule} from"@angular/material";
 import { CreditCardDetailsComponent} from './book/creditCard-details/creditCard-details.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterPipeModule } from 'ngx-filter-pipe';
-
 import { ShowDetailsComponent } from './book/client/show-details/show-details.component';
 import { BookDetailsComponent } from './book/secretary/book-details/book-details.component';
 import { AddSecretaryComponent } from './book/manager/add-secretary/add-secretary.component';
@@ -39,6 +38,7 @@ import { SecretaryComponent } from './book/secretary/secretary.component';
 import { EditDetailsComponent } from './book/manager/edit-details/edit-details.component';
 import { EditLibraryComponent } from './book/manager/edit-library/edit-library.component';
 import { ShowBooksInLibraryComponent } from './book/manager/show-books-in-library/show-books-in-library.component';
+
 
 
 const route: Routes = [
@@ -49,9 +49,6 @@ const route: Routes = [
           { path: 'Register', component: RegisterComponent },
          
       ],
-
-    
-
   },
   {
     path:'manager',component:ManagerComponent,children:
@@ -72,14 +69,9 @@ const route: Routes = [
     
       {path:'SearchLibrary',component:SearchLibraryComponent},
       {path:'SearchBook',component:SearchBookComponent},
-<<<<<<< HEAD
-      {path:'PaymentDetails',component:PaymentDetailsComponent},
-      {path:'ShowDetails',component:ShowDetailsComponent},
-=======
       {path:'CreditCardDetails',component:CreditCardDetailsComponent},
->>>>>>> bd5fd3985f3f92f23aa68fc4184ef0abcd7144f1
+      {path:'ShowDetails',component:ShowDetailsComponent},
     ]
-
   },
  { path:'secretary',component: SecretaryComponent},
  { path:'bookDetails',component:BookDetailsComponent},
@@ -88,13 +80,7 @@ const route: Routes = [
  
  
 ]
-  
-  
-  
-  
 @NgModule({
- 
- 
   declarations: [
     AppComponent,
     ManagmentComponent,
@@ -105,7 +91,6 @@ const route: Routes = [
     AddLibraryComponent,
     AddBookComponent,
     StatisticsComponent,
-
     AddNewBookComponent,
     ClientComponent,
     SearchLibraryComponent,
@@ -118,13 +103,9 @@ const route: Routes = [
     EditDetailsComponent,
     EditLibraryComponent,
     ShowBooksInLibraryComponent,
- 
-   
 
   ],
-  
   imports: [
-    
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(route),
@@ -138,7 +119,6 @@ const route: Routes = [
     MatPaginatorModule,
     MatTableModule,
     FilterPipeModule
-   
   ],
   exports: [
     MatCheckboxModule,
@@ -153,9 +133,7 @@ const route: Routes = [
     MatPaginatorModule,
     MatTableModule,
     FilterPipeModule
-   
   ],
-
   providers: [UserService,LibraryService,BookService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]

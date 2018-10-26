@@ -89,7 +89,18 @@ namespace Dal
       }
       return false;
     }
+    public static bool deleteBook(int bookId)
+    {
+      BooksInLibrary book = Connect.db.BooksInLibrary.FirstOrDefault(b => b.IdBook == bookId);
+      if(book!=null)
+      {
+        Connect.db.BooksInLibrary.Remove(book);
+        Connect.db.SaveChanges();
+        return true;
+      }
+      return false;
 
+    }
 
   }
 

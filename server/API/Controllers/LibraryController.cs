@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using Entities;
 using System.Net;
 using BL;
-
 namespace API.Controllers
 {
     public class LibraryController : ApiController
@@ -55,6 +54,19 @@ namespace API.Controllers
             return BLLibrary.allLibraries();
 
         }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Library/deleteLibrary/{idLibrary}")]
+    public Boolean deleteLibrary(int idLibrary)
+    {
+      return BLLibrary.deleteLibrary(idLibrary);
 
     }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Library/getBooksInLibrary/{idLibrary}")]
+    public BooksInLibrary[] getBooksInLibrary(int idLibrary)
+    {
+      return BLLibrary.getBooksInLibrary(idLibrary);
+
+    }
+  }
 }

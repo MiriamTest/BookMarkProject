@@ -1,6 +1,6 @@
 <div class="body col-md-3 col-md-offset-3 login">
   <div class="login-triangle"></div>
-  <h2 class="login-header">Add Library</h2>
+  <h2 class="login-header">עריכת ספריה</h2>
   <h6>* required field</h6>
   <form name="form" (ngSubmit)="AddLibraryform.form.valid&&onSubmit()" #AddLibraryform="ngForm" novalidate>
       
@@ -79,7 +79,7 @@
       </div> -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.numHouse" #numHouse="ngModel">
+          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.NumHouse" #numHouse="ngModel">
           <div [hidden]="numHouse.pristine">
             <div [hidden]="!numHouse.hasError('required')">  numHouse is required</div>
            

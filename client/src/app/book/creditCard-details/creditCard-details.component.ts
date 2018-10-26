@@ -27,9 +27,9 @@ year_validity:string;
    //this.payment.IdLibrary=17;
    // this.payment.Validity=this.month_validity+"/"+this.year_validity;
     this._creditCardService.addPayment(this.creditCard).subscribe(p=>{
-      if(p==true)
+      if(p==false)
       {
-
+debugger;
         this._LibraryService.addLibrary(this._LibraryService.model).subscribe(l=>{
           if(l==true)
           {
