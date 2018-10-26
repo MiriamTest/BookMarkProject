@@ -11,18 +11,18 @@ namespace Dal
    public static class DalPayment
     {
        
-        public static Payments addPayment(Payments newPayment)
+        public static bool addPayment(Payments newPayment)
         {    
             try
             {
 
              var payment=   Connect.db.Payments.Add(Convertors.PaymentConvert.PaymentToModel(newPayment));
                 Connect.db.SaveChanges();
-                return payment;
+                return true;
             }
             catch (IOException e)
             {
-                return null;
+                return false;
             }
         }
    

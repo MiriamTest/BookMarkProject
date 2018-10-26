@@ -12,13 +12,15 @@ namespace Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class subscribers
+    public partial class BankAccounts
     {
-        public int Idsubscriber { get; set; }
+        public int IdBantAccount { get; set; }
+        public string BankName { get; set; }
+        public int BranchNum { get; set; }
+        public int AccountNum { get; set; }
+        public string OwnerName { get; set; }
         public int IdUser { get; set; }
-        public int IdLibrary { get; set; }
     
-        public virtual Libraries Libraries { get; set; }
         public virtual Users Users { get; set; }
     }
 }

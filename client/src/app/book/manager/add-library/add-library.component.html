@@ -21,7 +21,7 @@
       </div> -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Name Library" name="NameLibrary" type="text" required pattern="[a-zA-Z]+" [(ngModel)]="model.NameLibrary" #NameLibrary="ngModel">
+          <input matInput placeholder="Name Library" name="NameLibrary" type="text" required [(ngModel)]="model.NameLibrary" #NameLibrary="ngModel">
           <div [hidden]="NameLibrary.valid || NameLibrary.pristine">
             <div [hidden]="!NameLibrary.hasError('required')">  NameLibrary is required</div>
              <div [hidden]="!NameLibrary.hasError('pattern')">Only alphabets allowed</div>
@@ -79,13 +79,22 @@
       </div> -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.numHouse" #numHouse="ngModel">
+          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.NumHouse" #numHouse="ngModel">
           <div [hidden]="numHouse.pristine">
             <div [hidden]="!numHouse.hasError('required')">  numHouse is required</div>
            
         </div>
         </mat-form-field>
     </div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="OpeningHours" name="OpeningHours" type="text" required  [(ngModel)]="model.OpeningHours" #OpeningHours="ngModel">
+        <div [hidden]="OpeningHours.pristine">
+          <div [hidden]="!OpeningHours.hasError('required')">  OpeningHours is required</div>
+         
+      </div>
+      </mat-form-field>
+  </div>
     <!-- <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

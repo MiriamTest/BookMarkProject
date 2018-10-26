@@ -9,7 +9,7 @@ namespace Entities
 {
     public static class Connect
     {
-        public static BookmarkDBEntities1 db = new BookmarkDBEntities1();
+        public static BookmarkDBEntities db = new BookmarkDBEntities();
     
     }
 }

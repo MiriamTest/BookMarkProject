@@ -54,7 +54,7 @@ export class AddLibraryComponent implements OnInit {
   this.openDialog();
   this.model.City=this.cityModel.IdCity;
   this.model.Street=this.streetModel.IdStreet;
-this.model.IdAdmin=this._userService.UserId;
+this.model.IdAdmin=Number(sessionStorage.getItem("userId"));
 
     this._LibraryService.saveModel(this.model) 
     // .subscribe(m => { 

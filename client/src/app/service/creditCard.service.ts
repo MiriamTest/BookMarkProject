@@ -7,6 +7,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import {HttpErrorResponse } from '@angular/common/http';
 import { Library } from '../models/Library';
 import { Subject, pipe } from 'rxjs';
+import { Payment } from '../models/payment';
 
 
 @Injectable({
@@ -15,9 +16,14 @@ import { Subject, pipe } from 'rxjs';
 export class CreditCardService {
 
   constructor(private http:Http) { }
-  addPayment(newCreditCard: CreditCard):Observable<any>  {
-    return this.http.post("http://localhost:52339/api/Payment/addPayment",newCreditCard).pipe(map((response:any)=> response.json()));
+  addPayment(newPayment:Payment):Observable<any>  {
+    return this.http.post("http://localhost:52339/api/Payment/addPayment",newPayment).pipe(map((response:any)=> response.json()));
 
+}
+addCreditCard(newCreditCard:CreditCard):Observable<any>{
+  return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard",newCreditCard).pipe(map((response:any)=> response.json()));
+
+  
 }
 
 }

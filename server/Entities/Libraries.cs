@@ -19,7 +19,6 @@ namespace Entities
         {
             this.BooksInLibrary = new HashSet<BooksInLibrary>();
             this.SecrateryInLibrary = new HashSet<SecrateryInLibrary>();
-            this.subscribers = new HashSet<subscribers>();
         }
     
         public int IdLibrary { get; set; }
@@ -36,7 +35,5 @@ namespace Entities
         public virtual Streets Streets { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SecrateryInLibrary> SecrateryInLibrary { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<subscribers> subscribers { get; set; }
     }
 }
