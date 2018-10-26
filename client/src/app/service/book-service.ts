@@ -7,10 +7,12 @@ import { Observable, Subject, pipe } from 'rxjs';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { Book } from 'src/app/models/book';
 import { BookInLibrary } from 'src/app/models/book-in-library';
+import { City } from '../models/city';
 
 @Injectable()
 export class BookService {  
-
+idLibrary:number;
+city:City;
     constructor(private httpClient:HttpClient, private http:Http) { }
     
     allBooks():any{
@@ -39,7 +41,10 @@ searchBook(book:number,city:number):any{
 }
 allCities():any{
     debugger;
+    if(this.city==null)
     return this.httpClient.get("http://localhost:52339/api/Library/allCities").pipe(map((response=>response)));
+    else
+    return this.city;
 }
 
 
@@ -47,5 +52,7 @@ allCities():any{
 getStatus(id:number):any{
     return this.httpClient.get("http://localhost:52339/api/Book/getStatus/" + id)
 }
-
+deleteBook(id:number):any{
+    return this.http.get("http://localhost:52339/api/Book/deleteBook/"+id).pipe(map((response=>response)));
+}
 }

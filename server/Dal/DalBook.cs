@@ -89,9 +89,23 @@ namespace Dal
       }
       return false;
     }
+<<<<<<< HEAD
     public static BooksInLibrary[] getAllCatchBooks()
     {
       return Connect.db.BooksInLibrary.Where(p => p.IdStatus == 3).ToArray();
+=======
+    public static bool deleteBook(int bookId)
+    {
+      BooksInLibrary book = Connect.db.BooksInLibrary.FirstOrDefault(b => b.IdBook == bookId);
+      if(book!=null)
+      {
+        Connect.db.BooksInLibrary.Remove(book);
+        Connect.db.SaveChanges();
+        return true;
+      }
+      return false;
+
+>>>>>>> 6012c53d9db648d1d593df3988ee42f688200f22
     }
 
   }

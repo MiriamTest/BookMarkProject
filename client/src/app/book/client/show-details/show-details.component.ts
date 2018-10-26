@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { MatDialogRef } from '@angular/material';
 import { TouchSequence } from 'selenium-webdriver';
+import { LendingService } from '../../../service/lending.service';
 
 @Component({
   selector: 'app-show-details',
@@ -15,11 +16,13 @@ import { TouchSequence } from 'selenium-webdriver';
 export class ShowDetailsComponent implements OnInit {
 book:Book;
 lending:Lending;
-  constructor(private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>) { 
+  constructor(private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) { 
     this.book=new Book;
     //just for try
-    this.book.NameBook="שלום עולם";
-    this.book.IdBook=1;
+    debugger;
+    this.book.NameBook=this._lendingService.book.NameBook;
+    this.book.IdBook=this._lendingService.book.IdBook;
+
     this.lending=new Lending;
    this.lending.IdUser = Number(sessionStorage.getItem("userId"));
    this.lending.IdBook =this.book.IdBook;

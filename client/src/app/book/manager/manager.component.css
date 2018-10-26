@@ -1,14 +1,39 @@
 .main-menu{
-    background: #2d4353;
+    /* background-image: url("../../images/link.jpg");
+    background-repeat: round; */
     border-right: 1px solid #e5e5e5;
     position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
     left: 0;
-    width: 6vw;
+    width: 15vw;
     overflow: hidden;
     transition: width .05s linear;
-    -webkit-transform: translateZ(0) scale(1,1);
     z-index: 1000;
    }
+   .addBook{
+    background-image: url("../../images/linkBook.jpg");
+    background-repeat: round;
+    width: 15vw;
+    height: 25vh;
+   }
+   .addLibrary{
+    background-image: url("../../images/linkLibrary.jpg");
+    background-repeat: round;
+    width: 15vw;
+    height: 25vh;
+   }
+   .addSecratery{
+    background-image: url("../../images/linkSecratery.jpg");
+    background-repeat: round;
+    width: 15vw;
+    height: 25vh;
+   }
+   .editDetails{
+    background-image: url("../../images/editDetails.jpg");
+    background-repeat: round;
+    width: 15vw;
+    height: 25vh;
+   }
+  

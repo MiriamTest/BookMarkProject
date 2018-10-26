@@ -1,0 +1,7 @@
+<table class="t">
+  <ul *ngFor="let item of books">
+<li>{{item.IdBook}}</li>  
+<li><button (click)="delete(item.IdBook)">מחק ספר</button></li>
+
+  </ul>
+</table>
