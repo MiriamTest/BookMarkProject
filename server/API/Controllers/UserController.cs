@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,8 +25,39 @@ namespace API.Controllers
       return i;
         }
 
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/user/checkForRsetPassword/{mail}")]
+    public bool checkForResetPassword([FromUri] string mail)
+    {
 
-        [System.Web.Http.HttpPost]
+      try
+      {
+        BLUser.checkForResetPassword(mail);
+        return true;
+      }
+      catch(Exception ex)
+      {
+        return false;
+      }
+     
+    }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/user/resetPassword/{idUser}/{password}")]
+    public bool resetPassword([FromUri] int idUser,[FromUri] string password)
+    {
+
+      try
+      {
+        BLUser.resetPassword(idUser, password);
+        return true;
+      }
+      catch (Exception ex)
+      {
+        return false;
+      }
+
+    }
+    [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/user/addUsers")]
         public HttpResponseMessage addUsers([FromBody] Users newUser)
         {
@@ -50,5 +81,14 @@ namespace API.Controllers
       return BLUser.getUser(idUser);
 
     }
+
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/user/checkEMail/{email}")]
+    public bool checkEMail([FromUri] string email)
+    {
+      return BLUser.checkEMail(email);
+
+    }
+
   }
 }

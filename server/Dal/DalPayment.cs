@@ -25,7 +25,22 @@ namespace Dal
                 return null;
             }
         }
-   
+    public static bool deletePayment(int idPayment)
+    {
+      try
+      {
+        Payments payment = Connect.db.Payments.FirstOrDefault(l => l.IdPayment == idPayment);
+        Connect.db.Payments.Remove(payment);
+
+        Connect.db.SaveChanges();
+        return true;
+      }
+      catch (IOException e)
+      {
+        return false;
+      }
+    }
+
 
 
   }

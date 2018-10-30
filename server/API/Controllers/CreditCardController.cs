@@ -27,5 +27,13 @@ namespace API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
         }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/CreditCard/deleteCreditCard/{idCreditCard}")]
+    public bool deleteLibrary(int idCreditCard)
+    {
+      return BLCreditCard.deleteCreditCard(idCreditCard);
+
     }
+   
+  }
 }

@@ -14,7 +14,7 @@ namespace Entities
     
     public partial class BankAccounts
     {
-        public int IdBankAccount { get; set; }
+        public int IdBantAccount { get; set; }
         public string BankName { get; set; }
         public int BranchNum { get; set; }
         public int AccountNum { get; set; }

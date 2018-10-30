@@ -1,3 +1,4 @@
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,26 @@ namespace API.Controllers
 {
     public class HomeController : Controller
     {
-  static  int i = 0;
+  
 
-    static Timer TimerToExcuteFunctionEveryMinute = new Timer(6000);
+    static Timer TimerToExcuteFunctionEveryMinute = new Timer(3600000);//every 24 hours
     static void CheckForTime_Elapsed(object sender, ElapsedEventArgs e)
     {
-      i++;
+      try
+      {
+       if( DateTime.Now.Hour==0)
+         BLLending.updateStatusEveryDay();
+      }
+      catch(Exception ex)
+      {
+        throw ex;
+      }
+      
     }
-    static HomeController()//áåðä ñèèéú
+    static HomeController()
     {
-     // TimerToExcuteFunctionEveryMinute = new ElapsedEventHandler(CheckForTime_Elapsed);//áñåâøééí ùí äôåð÷öéä ùàú øåöä ìäôòéì ëì ã÷ä
-    //  TimerToExcuteFunctionEveryMinute = true;
+     TimerToExcuteFunctionEveryMinute.Elapsed += new ElapsedEventHandler(CheckForTime_Elapsed);
+     TimerToExcuteFunctionEveryMinute.Enabled = true;
     }
 
     public string Index()

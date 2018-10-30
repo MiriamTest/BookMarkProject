@@ -4,14 +4,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import {HttpErrorResponse } from '@angular/common/http';
 import { Library } from '../models/Library';
 import { Subject, pipe } from 'rxjs';
-<<<<<<< HEAD
-import { HttpClient } from 'selenium-webdriver/http';
-=======
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Payment } from '../models/payment';
->>>>>>> 53af0a32493813fe636716ec4d1de2c6bae75d54
 
 
 @Injectable({
@@ -19,7 +15,7 @@ import { Payment } from '../models/payment';
 })
 export class CreditCardService {
 
-  constructor(private http:Http) { }
+  constructor(private http:Http ,private httpClient:HttpClient) { }
   addPayment(newPayment:Payment):Observable<any>  {
     return this.http.post("http://localhost:52339/api/Payment/addPayment",newPayment).pipe(map((response:any)=> response.json()));
 
@@ -30,4 +26,12 @@ addCreditCard(newCreditCard:CreditCard):Observable<any>{
   
 }
 
+deletePayment(idPayment:number):any{
+  return this.httpClient.get("http://localhost:52339/api/Payment/deletePayment/"+idPayment).pipe(map((response=>response)));
+  
+}
+deleteCreditCard(idCreditCard:number):any{
+  
+  return this.httpClient.get("http://localhost:52339/api/CreditCard/deleteCreditCard/"+idCreditCard).pipe(map((response=>response)));
+}
 }

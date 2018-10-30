@@ -89,11 +89,10 @@ namespace Dal
       }
       return false;
     }
-<<<<<<< HEAD
     public static BooksInLibrary[] getAllCatchBooks()
     {
       return Connect.db.BooksInLibrary.Where(p => p.IdStatus == 3).ToArray();
-=======
+    }
     public static bool deleteBook(int bookId)
     {
       BooksInLibrary book = Connect.db.BooksInLibrary.FirstOrDefault(b => b.IdBook == bookId);
@@ -105,7 +104,6 @@ namespace Dal
       }
       return false;
 
->>>>>>> 6012c53d9db648d1d593df3988ee42f688200f22
     }
 
   }

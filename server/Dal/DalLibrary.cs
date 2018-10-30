@@ -50,27 +50,29 @@ namespace Dal
       var library= Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == bookInLibrary.IdLibrary);
       return library;
     }
-    public static Boolean deleteLibrary(int idLibrary)
+    public static bool deleteLibrary(int idLibrary)
     {
-     Libraries library= Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == idLibrary);
+      Libraries library = Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == idLibrary);
       Connect.db.Libraries.Remove(library);
       var bookInLibrary = Connect.db.BooksInLibrary.Where(b => b.IdLibrary == library.IdLibrary);
       foreach (var item in bookInLibrary)
       {
-         Connect.db.BooksInLibrary.Remove(item);
+        Connect.db.BooksInLibrary.Remove(item);
+        Connect.db.BooksInLibrary.Remove(item);
       }
-      var secratery = Connect.db.SecretaryInLibrary.Where(s => s.IdLibrary == library.IdLibrary);
+      var secratery = Connect.db.SecrateryInLibrary.Where(s => s.IdLibrary == library.IdLibrary);
       foreach (var item in secratery)
-      {
-        Connect.db.SecretaryInLibrary.Remove(item);
-      }
+
       Connect.db.SaveChanges();
       return true;
     }
-   public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
-    {
-     return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();
+ 
+    public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
+  {
+    return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();
+  }
+
+
+  }
     }
-    }
-}
 

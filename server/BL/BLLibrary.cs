@@ -33,7 +33,7 @@ namespace BL
     {
       return DalLibrary.getLibraryAccordingToBook(bookId);
     }
-   public static Boolean deleteLibrary(int idLibrary)
+   public static bool deleteLibrary(int idLibrary)
     {
       return DalLibrary.deleteLibrary(idLibrary);
     }

@@ -63,6 +63,14 @@ namespace Dal
     {
       return Connect.db.BooksInLibrary.FirstOrDefault(b => b.IdBookInLibrary == book);
     }
+    public static int getStartLending(int idBook)
+    {
+      Lendings l = Connect.db.Lendings.FirstOrDefault(p => p.IdBook == idBook);
+      if (l != null)
+        return l.StartDate.Day;
+      else
+        return -1;
+    }
   }
 
 

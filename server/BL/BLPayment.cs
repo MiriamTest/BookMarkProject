@@ -9,7 +9,7 @@ namespace BL
 {
   public static  class BLPayment
     {
-    public static bool addPayment(Payments payment)
+    public static Payments addPayment(Payments payment)
     {
       payment.Date = DateTime.Now;
       payment.StartDate = DateTime.Now;
@@ -20,6 +20,10 @@ namespace BL
       else
         payment.EndDate = null;
       return DalPayment.addPayment(payment);
+    }
+    public static bool deletePayment(int idPayment)
+    {
+      return DalPayment.deletePayment(idPayment);
     }
   }
 }

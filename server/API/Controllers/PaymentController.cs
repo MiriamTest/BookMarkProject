@@ -27,5 +27,12 @@ namespace API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
         }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Payment/deletePayment/{idPayment}")]
+    public bool deletePayment(int idPayment)
+    {
+      return BLPayment.deletePayment(idPayment);
+
     }
+  }
 }

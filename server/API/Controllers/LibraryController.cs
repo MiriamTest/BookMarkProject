@@ -56,7 +56,7 @@ namespace API.Controllers
         }
     [System.Web.Http.HttpGet]
     [System.Web.Http.Route("api/Library/deleteLibrary/{idLibrary}")]
-    public Boolean deleteLibrary(int idLibrary)
+    public bool deleteLibrary(int idLibrary)
     {
       return BLLibrary.deleteLibrary(idLibrary);
 

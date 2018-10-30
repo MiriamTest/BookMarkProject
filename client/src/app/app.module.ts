@@ -7,9 +7,9 @@ import { LoginComponent } from './managment/login/login.component';
 import { ActivatedRoute } from '@angular/router';
 import { RegisterComponent } from './managment/register/register.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http'; 
-import { HttpClientModule} from "@angular/common/http";
-import { UserService } from"./service/user-service";
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
+import { UserService } from "./service/user-service";
 import { BookComponent } from './book/book.component';
 import { ManagerComponent } from './book/manager/manager.component';
 import { AddLibraryComponent } from './book/manager/add-library/add-library.component';
@@ -22,14 +22,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ClientComponent } from './book/client/client.component';
 import { SearchLibraryComponent } from './book/client/search-library/search-library.component';
 import { SearchBookComponent } from './book/client/search-book/search-book.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule,MatCheckboxModule, MatPaginatorModule, MatTableModule} from '@angular/material';
-import{ChartsModule} from 'ng2-charts';
-import {MatDialogModule} from "@angular/material";
-import{MatDatepickerModule} from "@angular/material/datepicker"
-import{ MatNativeDateModule} from"@angular/material";
-import { CreditCardDetailsComponent} from './book/creditCard-details/creditCard-details.component';
-import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatCheckboxModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
+import { MatDialogModule } from "@angular/material";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material";
+import { CreditCardDetailsComponent } from './book/creditCard-details/creditCard-details.component';
+import { MatSelectModule } from '@angular/material/select';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { ShowDetailsComponent } from './book/client/show-details/show-details.component';
 import { BookDetailsComponent } from './book/secretary/book-details/book-details.component';
@@ -38,48 +38,53 @@ import { SecretaryComponent } from './book/secretary/secretary.component';
 import { EditDetailsComponent } from './book/manager/edit-details/edit-details.component';
 import { EditLibraryComponent } from './book/manager/edit-library/edit-library.component';
 import { ShowBooksInLibraryComponent } from './book/manager/show-books-in-library/show-books-in-library.component';
-
-
-
+import { ResetPasswordComponent } from './managment/reset-password/reset-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { TextEqualityValidatorModule } from "ngx-text-equality-validator";
+import { CommonModule } from '@angular/common';
+import { sha256, sha224 } from 'js-sha256';
+// import { EqualTextValidator } from "angular2-text-equality-validator";
 const route: Routes = [
   {
-      path: 'managment', component: ManagmentComponent, children:
+    path: 'managment', component: ManagmentComponent, children:
       [
-          { path: 'Login', component: LoginComponent },
-          { path: 'Register', component: RegisterComponent },
-         
+        { path: 'Login', component: LoginComponent },
+        { path: 'Register', component: RegisterComponent },
+        { path: 'resetPassword/:IdUser', component: ResetPasswordComponent }
       ],
   },
   {
-    path:'manager',component:ManagerComponent,children:
-    [
-      {path:'AddBook',component:AddBookComponent},
-      {path:'AddNewBook',component:AddNewBookComponent},
-      {path:'AddLibrary',component:AddLibraryComponent},
-      {path:'AddSecretary',component:AddSecretaryComponent},
-      {path:'EditDetails',component:EditDetailsComponent},
-      // {path:'EditLibrary',component:EditLibraryComponent},
-      {path:'ShowBooksInLibrary',component:ShowBooksInLibraryComponent},
-     
-    ]
+    path: 'manager', component: ManagerComponent, children:
+      [
+        { path: 'AddBook', component: AddBookComponent },
+        { path: 'AddNewBook', component: AddNewBookComponent },
+        { path: 'AddLibrary', component: AddLibraryComponent },
+        { path: 'AddSecretary', component: AddSecretaryComponent },
+        { path: 'EditDetails', component: EditDetailsComponent },
+        // {path:'EditLibrary',component:EditLibraryComponent},
+        { path: 'ShowBooksInLibrary', component: ShowBooksInLibraryComponent },
+
+      ]
   },
   {
-    path:'client',component:ClientComponent,children:
-    [
-    
-      {path:'SearchLibrary',component:SearchLibraryComponent},
-      {path:'SearchBook',component:SearchBookComponent},
-      {path:'CreditCardDetails',component:CreditCardDetailsComponent},
-      {path:'ShowDetails',component:ShowDetailsComponent},
-    ]
+    path: 'client', component: ClientComponent, children:
+      [
+
+        { path: 'SearchLibrary', component: SearchLibraryComponent },
+        { path: 'SearchBook', component: SearchBookComponent },
+        { path: 'CreditCardDetails', component: CreditCardDetailsComponent },
+        { path: 'ShowDetails', component: ShowDetailsComponent },
+      ]
   },
- { path:'secretary',component: SecretaryComponent},
- { path:'bookDetails',component:BookDetailsComponent},
- { path:'EditDetails',component:BookDetailsComponent},
- {path:'EditLibrary/:IdLibrary',component:EditLibraryComponent},
- 
- 
-]
+  { path: 'secretary', component: SecretaryComponent },
+  { path: 'bookDetails', component: BookDetailsComponent },
+  { path: 'EditDetails', component: BookDetailsComponent },
+  { path: 'EditLibrary/:IdLibrary', component: EditLibraryComponent }
+
+
+
+
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,19 +108,24 @@ const route: Routes = [
     EditDetailsComponent,
     EditLibraryComponent,
     ShowBooksInLibraryComponent,
+    ResetPasswordComponent,
 
   ],
   imports: [
+    // EqualTextValidator,
+    CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
+    // TextEqualityValidatorModule,
     FormsModule,
     RouterModule.forRoot(route),
-    HttpModule,HttpClientModule,
-    NgSelectModule,BrowserAnimationsModule,  
-    MatButtonModule,MatFormFieldModule,
+    HttpModule, HttpClientModule,
+    NgSelectModule, BrowserAnimationsModule,
+    MatButtonModule, MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
     MatCheckboxModule,
-    MatDialogModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ChartsModule,
+    MatDialogModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ChartsModule,
     MatPaginatorModule,
     MatTableModule,
     FilterPipeModule
@@ -132,9 +142,9 @@ const route: Routes = [
     ChartsModule,
     MatPaginatorModule,
     MatTableModule,
-    FilterPipeModule
-  ],
-  providers: [UserService,LibraryService,BookService],
+    FilterPipeModule,
+     ],
+  providers: [UserService, LibraryService, BookService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })

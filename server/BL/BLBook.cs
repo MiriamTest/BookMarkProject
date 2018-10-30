@@ -54,7 +54,10 @@ namespace BL
     {
       return DalBook.getBookObj(bookId);
     }
-
+    public static bool deleteBook(int bookId)
+    {
+      return DalBook.deleteBook(bookId);
+    }
    
   }
 }

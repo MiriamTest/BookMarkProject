@@ -13,5 +13,12 @@ namespace BL
     {
       return DalCreditCard.addCreditCard(newCreditCard);
     }
+
+    public static bool deleteCreditCard(int idCreditCard)
+    {
+      return DalCreditCard.deleteCreditCard(idCreditCard);
+    }
+
+    
   }
 }

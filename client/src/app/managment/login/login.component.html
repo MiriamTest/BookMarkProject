@@ -3,7 +3,7 @@
     <div class="login-triangle"></div>
 
     <h2 class="login-header">Log in</h2>
-    <h6>* required field</h6>
+    <h6>* שדה חובה</h6>
     <div class="example-container">
       
     <form name="form" (ngSubmit)="Loginform.form.valid&&onSubmit()" #Loginform="ngForm" novalidate>
@@ -17,10 +17,10 @@
             </div> -->
             <div class="example-container">
                 <mat-form-field>
-                  <input matInput placeholder="eMail" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
+                  <input matInput placeholder="מייל" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
                   <mat-error [hidden]="email.valid || email.pristine">
-                        <div [hidden]="!email.hasError('required')">  eMail is required</div>
-                         <div [hidden]="!email.hasError('pattern')"> Email format should be<small><b>joe@abc.com</b></small></div>
+                        <div [hidden]="!email.hasError('required')"> שדה חובה</div>
+                         <div [hidden]="!email.hasError('pattern')"> המייל חייב להיות בתבנית באה<small><b>joe@abc.com</b></small></div>
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -41,15 +41,15 @@
         </div> -->
         <div class="example-container">
             <mat-form-field>
-              <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="password"  [type]="hide ? 'password' : 'password'">
+              <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="סיסמא"  [type]="hide ? 'password' : 'password'">
               <mat-error [hidden]="password.pristine">
-              <div [hidden]="!password.hasError('required')">  password is required</div>
+              <div [hidden]="!password.hasError('required')">  שדה חובה</div>
             </mat-error>
             
             </mat-form-field>
         </div>
         <div>
-            <a>forgat your password?</a>
+            <a href="" (click)="checkForReset()">שכחת את הסיסמא?</a>
         </div>
     
         <input type="submit" class="submit"  value="Save" [disabled]="!Loginform.form.valid">

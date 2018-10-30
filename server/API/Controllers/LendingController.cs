@@ -49,7 +49,7 @@ namespace API.Controllers
     }
     [System.Web.Http.HttpGet]
     [System.Web.Http.Route("api/Lending/changeToBorrowed/{code}/{status}")]
-    public Boolean changeToBorrowed([FromUri] int code, int status)
+    public bool changeToBorrowed([FromUri] int code, int status)
     {
       return BLLending.changeStatus(code);
 

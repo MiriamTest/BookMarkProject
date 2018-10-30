@@ -14,40 +14,46 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-flag:number=0;
-model:User;
-id:number;
-status:string="client";
+flag = 0;
+model: User;
+id: number;
+status = "client";
 
-constructor(private _userService:UserService, private router:Router) {
-  this.model=new User;
-  
+constructor(private _userService: UserService, private router: Router) {
+  this.model = new User;
 }
 
   ngOnInit() {
   }
   onSubmit() {
-  if(this.status=="manager")
-  
-    this.model.Status=1;
-    else
-    this.model.Status=2;
-
-    this._userService.addUser(this.model) 
-    .subscribe(m => { 
-      if(m)
-      {
-        swal("Success","You have successfully registered","success");
-        if(this.model.Status==1)
-        this.router.navigate(['./manager']);
-        else
-        this.router.navigate(['./client']);
-      }
- }
-       
-      
+  if (this.status === "manager") {
+    this.model.Status = 1;
+  } else {
+    this.model.Status = 2;
+  }
+    this._userService.checkEMail(this.model.EMail).subscribe(res => {
+     if (res) {
+      this._userService.addUser(this.model)
+      .subscribe(m => {
+        if (m) {
+          swal("Success", "You have successfully registered" , "success");
+          if (this.model.Status === 1) {
+          this.router.navigate(['./manager']);
+          } else {
+          this.router.navigate(['./client']);
+          }
+        }
+   }
+        , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
+      );
+  } else {
+    this.model.EMail = "";
+    swal("שגיאה", "מייל זה קיים במערכת נא להכניס מייל אחר", "error" );
+  }
+    }
       , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
-    ); };
-  
+      );
+
+   }
     }
 

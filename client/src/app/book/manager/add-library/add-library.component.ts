@@ -30,7 +30,7 @@ export class AddLibraryComponent implements OnInit {
   this.cityModel=new City;
   this.streetModel=new Street;
     this.model=new Library;
-    this.model.IdAdmin=_userService.UserId;
+    this.model.IdAdmin = Number(sessionStorage.getItem("userId"));
    }
 
 
