@@ -6,8 +6,15 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Library } from '../models/Library';
 import { Subject, pipe } from 'rxjs';
+<<<<<<< HEAD
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Payment } from '../models/payment';
+=======
+
+import { HttpClient } from 'selenium-webdriver/http';
+import { Payment } from '../models/payment';
+
+>>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
 
 
 @Injectable({

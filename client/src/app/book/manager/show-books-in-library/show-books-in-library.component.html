@@ -1,7 +1,13 @@
-<table class="t">
-  <ul *ngFor="let item of books">
-<li>{{item.IdBook}}</li>  
-<li><button (click)="delete(item.IdBook)">מחק ספר</button></li>
+<div class="body" dir="rtl">
+  <h2>עריכת ספר</h2>
+<table class="table">
+  <tr *ngFor="let item of books">
+<td><a  [routerLink]="['/EditBook', item.IdBookInLibrary]">{{item.IdBookInLibrary}}</a></td>
+<td><button (click)="delete(item.IdBook)">מחק ספר</button></td>
 
-  </ul>
+  </tr>
 </table>
+<div>
+  <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,3 +1,137 @@
-<p>
-  search-library works!
-</p>
+<!-- <div class="col-md-12 col-md-offset-3 login">
+    <div class="login-triangle"></div>
+    <h2 class="login-header">Search book</h2>
+    <h1>Hi Miri Koriz</h1>
+    <form name="form" (ngSubmit)="SearchBookform.form.valid&&onSubmit()" #SearchBookform="ngForm" novalidate>
+        <table>
+            <ul>
+        <label>Book</label>
+        <ng-select [items]="book"
+                   bindLabel="NameBook"
+                   placeholder="Select book"
+                   [(ngModel)]="bookModel">
+        </ng-select>
+    </ul>
+    <ul>
+        <label>City</label>
+        <ng-select [items]="city"
+                   bindLabel="NameCity"
+                   bindValue="IdCity"
+                   placeholder="Select city"
+                   [(ngModel)]="cityModel">
+        </ng-select>
+    </ul>
+    <ul>
+            <label>Library</label>
+                   <ng-select [items]="library"
+                              name="library"
+                              bindLabel="Library"
+                              placeholder="Select library"
+                              [(ngModel)]="libraryModel">
+                   </ng-select>
+               </ul>
+    <ul>
+ <label>Category</label>
+        <ng-select [items]="category"
+                   name="category"
+                   bindLabel="Category"
+                   bindValue="IdCategory"
+                   placeholder="Select category"
+                   [(ngModel)]="categoryModel">
+        </ng-select>
+    </ul>
+    <ul>
+    <label>Author</label>
+    <ng-select [items]="author"
+               name="author"
+               bindLabel="Author"
+               placeholder="Select author"
+               [(ngModel)]="authorModel">
+    </ng-select>
+</ul>
+        <input type="submit" class="btn btn-primary" value="Search" [disabled]="!SearchBookform.form.valid">
+  </table>
+    </form>
+  </div> -->
+
+
+  <div id="orders-component">
+    <!-- <div class="d-grid-top justify-content-end">
+     
+      <p>סנן לפי תאריכים:</p>
+      <button mat-raised-button color="grey" (click)="myFilter = {}; categoriesModel = myCategories; statusModel = myStatuses"
+        class="root-btn filled">נקה חיפוש</button>
+  
+      <div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="true">
+        <button id="dd-btn" mat-raised-button color="cyan" class="root-btn filled" dropdownToggle type="button"
+          aria-controls="dd-select-column">
+          שדות להצגה
+        </button>
+        
+      </div>
+    </div> -->
+  
+ 
+  
+    <div>
+      <div class="table-responsive mat-elevation-z8">
+        <mat-paginator [length]="(booksList | filterBy: myFilter).length" [pageSize]="pageSize" [pageIndex]="page"
+          (page)="page = $event.pageIndex;pageSize = $event.pageSize" [pageSizeOptions]="[5, 10, 25, 100, 200]">
+        </mat-paginator>
+        <table class="table table-responsive table-striped m-0">
+          <thead>
+            <tr class="text-right title-row">
+              <th>#</th>
+              <th *ngFor="let head of header | filterBy: {show: true};let i = index" (click)="onClickTh(head)"
+                [attr.data-id]="header.indexOf(head)" style="white-space: nowrap; cursor: pointer;" draggable="true"
+                (dragstart)="onColumnDragStart($event, header.indexOf(head))" (drop)="onDropColumn($event)" (dragover)="onDragOverColumn($event)"
+                (dragleave)="onDragLeaveColumn($event)">{{ head.name }}
+                <i *ngIf="sort ===  head.value" class="fas" [class.fa-long-arrow-alt-up]="!reverse"
+                  [class.fa-long-arrow-alt-down]="reverse"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td *ngFor="let head of header | filterBy: { show: true };let i = index">
+                <div class="inner-addon" *ngIf="head.value!= 'status' && head.value!= 'actions'">
+                  <i class="ss-icon-zoom2"></i>
+                  <input placeholder="חיפוש..." [(ngModel)]="myFilter[head.table][head.value]" (ngModelChange)="page = 0; "
+                    class="form-control">
+                </div>
+                <!-- <ss-multiselect-dropdown [texts]="myTexts" [settings]="mySettings" *ngIf="head.value === 'status'"
+                  [options]="myStatuses" [(ngModel)]="statusModel" (ngModelChange)="page = 0; onChangeStatus($event); log()"></ss-multiselect-dropdown> -->
+              </td>
+            </tr>
+            <!-- | orderBy: sort : reverse |  -->
+            <tr *ngFor="let data of booksList | filterBy: myFilter |slice: (pageSize*page) : (pageSize*(page + 1)) ;let i = index">
+              <td>{{ (pageSize*page) + i + 1 }}</td>
+              <td *ngFor="let head of header | filterBy: {show: true}">
+                <ng-container *ngIf="head.value !== 'actions' && head.value !== 'status'">
+                  {{data[head.table][head.value]}}
+                </ng-container>
+                <div *ngIf="head.value == 'actions'">
+                  <div class="btn-grids">
+                    <button mat-raised-button color="purple" class="root-btn filled" (click)="openOrderDetailsPopup(data['order']['id'])">פרטי עסקה</button>
+                    <button mat-raised-button color="cyan" (click)="openEditPopup(i)" class="root-btn filled">עמוד עסק</button>
+                  </div>
+                </div>
+                <!-- <div *ngIf="head.value == 'status'" class="d-flex justify-content-between">
+                  <span> {{iService.isDate(data[head.table][head.value])}} </span>
+                  <div class="status-div" [style.background-color]="getcolor(data.order.status)"></div>
+                </div> -->
+  
+              </td>
+              <td>
+                <button value="השאל" (click)="showDetails(data)">vatl</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="(booksList | filterBy: myFilter).length" [pageSize]="pageSize" [pageIndex]="page"
+          (page)="page = $event.pageIndex;pageSize = $event.pageSize" [pageSizeOptions]="[5, 10, 25, 100, 200]">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>

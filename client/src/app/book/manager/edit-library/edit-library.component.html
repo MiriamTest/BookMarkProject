@@ -1,7 +1,7 @@
-<div class="body col-md-3 col-md-offset-3 login">
+<div class="body " dir="rtl" >
   <div class="login-triangle"></div>
   <h2 class="login-header">עריכת ספריה</h2>
-  <h6>* required field</h6>
+  <h6>* שדה חובה</h6>
   <form name="form" (ngSubmit)="AddLibraryform.form.valid&&onSubmit()" #AddLibraryform="ngForm" novalidate>
       
       <!-- <div class="form-group">
@@ -21,22 +21,21 @@
       </div> -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Name Library" name="NameLibrary" type="text" required pattern="[a-zA-Z]+" [(ngModel)]="model.NameLibrary" #NameLibrary="ngModel">
-          <div [hidden]="NameLibrary.valid || NameLibrary.pristine">
-            <div [hidden]="!NameLibrary.hasError('required')">  NameLibrary is required</div>
-             <div [hidden]="!NameLibrary.hasError('pattern')">Only alphabets allowed</div>
-        </div>
+          <input matInput placeholder="שם ספריה" name="NameLibrary" type="text" required  [(ngModel)]="model.NameLibrary" #NameLibrary="ngModel">
+          <mat-error [hidden]="NameLibrary.valid || NameLibrary.pristine">
+            <div [hidden]="!NameLibrary.hasError('required')">שדה חובה</div>
+        </ mat-error>
         </mat-form-field>
     </div>
      
       <label>city</label>
       <ng-select [items]="city"
-                 class="ng"
+                 class="ng" 
+                 dir="ltr"
                  name="city"
                  bindLabel="NameCity"
-                 placeholder="Select city"
-                 [(ngModel)]="cityModel"
-                 name ="city">
+                 placeholder="בחר עיר"
+                 [(ngModel)]="cityModel">
       </ng-select>
       <!-- <mat-form-field>
         <mat-select placeholder="select city">
@@ -53,8 +52,9 @@
       <label>street</label>
       <ng-select [items]="street"
                  name="street"
+                 dir="ltr"
                  bindLabel="NameStreet"
-                 placeholder="Select street"
+                 placeholder="בחר רחוב"
                  [(ngModel)]="streetModel"
                  name ="street">
       </ng-select>
@@ -79,9 +79,9 @@
       </div> -->
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Number House" name="numHouse" type="text" required  [(ngModel)]="model.NumHouse" #numHouse="ngModel">
+          <input matInput placeholder="מספר בית" name="numHouse" type="text" required  [(ngModel)]="model.NumHouse" #numHouse="ngModel">
           <div [hidden]="numHouse.pristine">
-            <div [hidden]="!numHouse.hasError('required')">  numHouse is required</div>
+            <div [hidden]="!numHouse.hasError('required')">שדה חובה</div>
            
         </div>
         </mat-form-field>
@@ -92,7 +92,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field> -->
     
-      <input type="submit" class="btn btn-primary"  value="Save" [disabled]="!AddLibraryform.form.valid">
+      <input type="submit" class="submit"  value="שמור" [disabled]="!AddLibraryform.form.valid">
 
   </form>
 </div>

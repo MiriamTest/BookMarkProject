@@ -11,6 +11,7 @@ namespace BL
   {
     public static bool addUsers(Users user)
     {
+<<<<<<< HEAD
       return DalUser.addUser(user);
     }
     public static Users login(string mail, string password)
@@ -33,6 +34,9 @@ namespace BL
 
         string mailSubject = "Bookmark-reset password";
         if (BLSendinMail.SendingEmail(buildMailBodyForResetPassword(user), mailSubject, mail))//sending mail
+=======
+        public static Users addUsers(Users user)
+>>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
         {
           return true;
 

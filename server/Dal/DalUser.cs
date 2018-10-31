@@ -10,7 +10,7 @@ namespace Dal
 {
     public static class  DalUser
     {
-        public static bool addUser(Users newUser)
+        public static Users addUser(Users newUser)
         {
 
 
@@ -19,12 +19,12 @@ namespace Dal
 
        var i= Connect.db.Users.Add(Convertors.UserConvert.UserToModel(newUser));
         Connect.db.SaveChanges();
-        return true;
+        return i;
       }
       catch (IOException e)
       {
 
-                return false;
+                return null;
             }
         }
 

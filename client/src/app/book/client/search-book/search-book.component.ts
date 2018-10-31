@@ -16,6 +16,7 @@ import { NgModel } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ShowDetailsComponent } from '../show-details/show-details.component';
 import { LendingService } from '../../../service/lending.service';
+import { SearchObj } from '../../../models/search-obj';
 declare const $: any;
 
 @Component({
@@ -24,17 +25,17 @@ declare const $: any;
   styleUrls: ['./search-book.component.css']
 })
 export class SearchBookComponent implements OnInit {
-book:Book;
-bookModel:Book;
-city:City;
-cityModel:City;
-category:Category;
-categoryModel:Category;
-bookInLibrary:BookInLibrary;
-libraryModel:Library;
-library:Library;
-author:Author;
-authorModel:Author;
+  book: Book;
+  bookModel: Book;
+  city: City;
+  cityModel: City;
+  category: Category;
+  categoryModel: Category;
+  bookInLibrary: BookInLibrary;
+  libraryModel: Library;
+  library: Library;
+  author: Author;
+  authorModel: Author;
   // constructor(private router:Router, private _LibraryService:LibraryService,private _BookService:BookService,private _AuthorService:AuthorService) {
 
   //   this._LibraryService.allCities().subscribe(c=>{
@@ -42,38 +43,42 @@ authorModel:Author;
   //    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
   // }
 
-//   ngOnInit() {
-// this._BookService.allBooks().subscribe(b=>{
-//   this.book=b;
-// }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-// this._BookService.allCities().subscribe(c=>{
-//   this.city=c
-// }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-// this._BookService.allCategories().subscribe(c=>{
-//   this.category=c;
-// }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-// this._LibraryService.allLibraries().subscribe(l=>{
-//   this.library=l;
-// }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-//    this._AuthorService.allAuthors().subscribe(a=>{
-//      this.author=a;
-//    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
-//   }
+  //   ngOnInit() {
+  // this._BookService.allBooks().subscribe(b=>{
+  //   this.book=b;
+  // }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+  // this._BookService.allCities().subscribe(c=>{
+  //   this.city=c
+  // }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+  // this._BookService.allCategories().subscribe(c=>{
+  //   this.category=c;
+  // }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+  // this._LibraryService.allLibraries().subscribe(l=>{
+  //   this.library=l;
+  // }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+  //    this._AuthorService.allAuthors().subscribe(a=>{
+  //      this.author=a;
+  //    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+  //   }
 
   // onSubmit()
   // {
   //   this.router.navigate(['./client/BooksFound',this.bookModel,this.cityModel]); 
-   
+
   // }
 
-// from here the new code---------
-pageSize = 25;
+  // from here the new code---------
+  pageSize = 25;
   page = 0;
   public header = [
     // tslint:disable-next-line:quotemark
-    { name: "ID", value: 'IdBook', show: true, table: 'books' },
-    { name: 'ספר:', value: 'NameBook', show: true, table: 'books' },
+    { name: "ID", value: 'bookID', show: true, table: 'books' },
+    { name: 'ספר:', value: 'bookName', show: true, table: 'books' },
     { name: 'קטגוריה:', value: 'category', show: true, table: 'books' },
+    { name: 'ספריה:', value: 'library', show: true, table: 'books' },
+    { name: 'עיר:', value: 'city', show: true, table: 'books' },
+    { name: 'סטטוס:', value: 'status', show: true, table: 'books' },
+    { name: 'איזורים:', value: 'ares', show: true, table: 'books' },
     // { name: 'תאריך התחלה', value: 'meeting_start', show: true, table: 'order' },
     // { name: 'עדכון אחרון', value: 'updated_at', show: true, table: 'order' },
     // //{ name: 'סיום', value: 'meeting_end', show: true, table: 'order' },
@@ -101,11 +106,11 @@ pageSize = 25;
 
 
   ];
-  public booksList = new Array<any>();
-  public books = new Array<Book>()
+  public booksList: any[] = [];
+  public books: SearchObj[] = [];
   public sort = '';
   public reverse = false;
-  public myFilter = { books: {}};
+  public myFilter = { books: {} };
   public mySettings;
   public myTexts;
   categoriesModel: string[] = ['שונות', 'עולם החי'];
@@ -122,7 +127,7 @@ pageSize = 25;
   //   { id: 'ממתין להצעת מחיר', name: 'ממתין להצעת מחיר' },
   // ];
 
-  constructor(private _BookService:BookService,private dialog: MatDialog ,private _lendingService:LendingService) { }
+  constructor(private _BookService: BookService, private dialog: MatDialog, private _lendingService: LendingService) { }
 
   ngOnInit() {
     // get settings for dropdown
@@ -137,11 +142,11 @@ pageSize = 25;
     //   }
     //   console.log(this.ordersList);
     // });
-    this._BookService.allBooks().subscribe(res =>{
-      this.books=res;
-      this.books.forEach(book => this.booksList.push({books: book}));})
-      console.log( this.booksList);
-      
+    this._BookService.getSearchObjs().subscribe(res => {
+      this.books = res;
+      this.books.forEach(book => this.booksList.push({ books: book }));
+    })
+
   }
 
   onChangeStatus() {
@@ -188,8 +193,8 @@ pageSize = 25;
     console.log("test", event);
     select.update.emit(values);
   }
-  showDetails(data:any){
-    this._lendingService.book=data.books;
+  showDetails(data: any) {
+    this._lendingService.book = data.books;
     debugger;
     this.openDialog();
   }
@@ -201,5 +206,5 @@ pageSize = 25;
     dialogConfig.autoFocus = true;
 
     this.dialog.open(ShowDetailsComponent, dialogConfig);
-}
+  }
 }

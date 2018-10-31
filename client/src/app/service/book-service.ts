@@ -13,6 +13,7 @@ import { City } from '../models/city';
 export class BookService {  
 idLibrary:number;
 city:City;
+bookInLibrary: BookInLibrary[];
     constructor(private httpClient:HttpClient, private http:Http) { }
     
     allBooks():any{
@@ -39,6 +40,7 @@ searchBook(book:number,city:number):any{
   .pipe(map((response => response)));
 
 }
+
 allCities():any{
     debugger;
     if(this.city==null)
@@ -47,12 +49,24 @@ allCities():any{
     return this.city;
 }
 
+getSearchObjs():any{
+    return this.httpClient.get("http://localhost:52339/api/Book/getSearchObj");
+}
 
 
-getStatus(id:number):any{
+
+getStatus(id: number): any {
     return this.httpClient.get("http://localhost:52339/api/Book/getStatus/" + id)
 }
-deleteBook(id:number):any{
-    return this.http.get("http://localhost:52339/api/Book/deleteBook/"+id).pipe(map((response=>response)));
+deleteBook(id: number): any {
+    return this.http.get("http://localhost:52339/api/Book/deleteBook/"+id).pipe(map((response => response)));
+}
+allStatuses(): any {
+    return this.httpClient.get("http://localhost:52339/api/Book/allStatuses").pipe(map((response => response)));
+}
+editBook(b: BookInLibrary): Observable<any>  {
+    debugger;
+    return this.http.post("http://localhost:52339/api/Book/editBook", b).pipe(map((response: any) => response.json()));
+
 }
 }

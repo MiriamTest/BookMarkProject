@@ -1,8 +1,13 @@
 .body{
+    margin-top: 5%;
+    margin-left: 60%;
     padding: 4vw;
-    background-color: white;
-    margin-left: 40vw;
-    border:solid 2px black;
+    background-color: #ffffffc2;
+    border:solid 4px ;
+    border-bottom-color: #f74e25;
+    border-left-color:#f74e25;
+    border-right-color: #f00e62;
+    border-top-color: #f00e62;
 }
 /* input {
     color: black;

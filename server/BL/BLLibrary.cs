@@ -41,5 +41,17 @@ namespace BL
     {
       return DalLibrary.getBooksInLibrary(idLibrary);
     }
+    public static bool addSecrateryToLibrary(int idLibrary, int idSecratery)
+    {
+      return DalLibrary.addSecrateryToLibrary(idLibrary, idSecratery);
     }
+    public static bool editLibrary(Libraries library)
+    {
+      return DalLibrary.editLibrary(library);
+    }
+    public static Object getSearchLibrary()
+    {
+      return DalLibrary.getSearchLibrary();
+    }
+  }
 }

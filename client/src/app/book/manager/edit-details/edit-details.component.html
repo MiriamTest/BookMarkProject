@@ -1,13 +1,14 @@
-<p>
-  edit-details works!
-</p>
-<table class="t">
-  <ul *ngFor="let item of libraries">
-      <a  [routerLink]="['/EditLibrary', item.IdLibrary]">{{item.NameLibrary}}</a>
-     <button (click)="deleteLibrary(item.IdLibrary)">מחק ספריה</button>
-      <button (click)="getBooks(item.IdLibrary)">עריכת ספרים בספריה</button>
-  </ul>
+<div class="body " dir="rtl">
+  <h2>עריכת פרטים</h2>
+<table class="table">
+  
+  <tr *ngFor="let item of libraries">
+     <td> <a  [routerLink]="['/EditLibrary', item.IdLibrary]">{{item.NameLibrary}}</a></td>
+    <td> <button (click)="deleteLibrary(item.IdLibrary)">מחק ספריה</button></td>
+     <td> <button (click)="getBooks(item.IdLibrary)">עריכת ספרים בספריה</button></td>
+  </tr>
 </table>
 <div>
     <router-outlet></router-outlet>
     </div>
+  </div>

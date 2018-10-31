@@ -68,5 +68,44 @@ namespace API.Controllers
       return BLLibrary.getBooksInLibrary(idLibrary);
 
     }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Library/addSecrateryToLibrary/{idLibrary}/{idSecratery}")]
+    public HttpResponseMessage addSecrateryToLibrary([FromUri] int idLibrary, [FromUri]  int idSecratery)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLLibrary.addSecrateryToLibrary(idLibrary, idSecratery));
+      }
+      catch (Exception ex)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+      }
+    }
+    [System.Web.Http.HttpPost]
+    [System.Web.Http.Route("api/Library/editLibrary/{library}")]
+    public HttpResponseMessage editLibrary([FromBody] Libraries library)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLLibrary.editLibrary(library));
+      }
+      catch (Exception ex)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+      }
+    }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Library/getSearchLibrary")]
+    public HttpResponseMessage getSearchLibrary()
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLLibrary.getSearchLibrary());
+      }
+      catch (Exception ex)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+      }
+    }
   }
 }
