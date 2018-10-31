@@ -37,13 +37,13 @@ export class UserService {
       .pipe(map((response => response)));
     }
     checkForRestPassword(EMail: string): any {
-       // tslint:disable-next-line:prefer-const
+    //    tslint:disable-next-line:prefer-const
        let a;
 a = 2;
        return this.httpClient.get("http://localhost:52339/api/user/checkForRsetPassword/" + a)
         .pipe(map((response => response)));
-      //  return this.httpClient.get("http://localhost:52339/api/user/checkForRsetPassword/" + EMail)
-     // .pipe(map((response => response)));
+    //    return this.httpClient.get("http://localhost:52339/api/user/checkForRsetPassword/" + EMail)
+    //  .pipe(map((response => response)));
     }
     restPassword(userId: number, password: string): any {
         return this.httpClient.get("http://localhost:52339/api/user/resetPassword/" + userId + "/" + password)

@@ -34,7 +34,7 @@ namespace Dal
         {
       if(password==null)
       {
-       return Connect.db.Users.FirstOrDefault(p => p.EMail == mail);
+        return Connect.db.Users.FirstOrDefault(p => p.EMail == mail);
       }
       else { 
       var i= Connect.db.Users.FirstOrDefault(p => p.EMail == mail && p.Password == password);
