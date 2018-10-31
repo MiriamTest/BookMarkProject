@@ -25,9 +25,24 @@ namespace Dal
                 return null;
             }
         }
-   
 
+ 
 
+    public static bool deleteCreditCard(int idCreditCard)
+    {
+      try
+      {
+CreditCards creditCards = Connect.db.CreditCards.FirstOrDefault(l => l.IdCreditCard == idCreditCard);
+      Connect.db.CreditCards.Remove(creditCards);
+
+        Connect.db.SaveChanges();
+      return true;
+      }
+      catch(IOException e)
+      {
+        return false;
+      }
+    }
   }
 
 }

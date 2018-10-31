@@ -46,12 +46,22 @@ year_validity:string;
   
             }
             else
-            //to remove payment in db;
+            {
+              this._creditCardService.deletePayment(p.IdPayment).subscribe(b=>{
+              }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+               //to remove payment in db;
             alert("mistake lib");
+            }
+          
           })
         }
         else
-         alert("mistake");
+        {
+          this._creditCardService.deleteCreditCard(cc.IdCreditCard).subscribe(b=>{
+          }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+           alert("mistake");
+        }
+        
         
       })
     }

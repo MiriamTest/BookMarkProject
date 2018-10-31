@@ -6,18 +6,15 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import { LoginComponent } from './managment/login/login.component';
 import { UserService } from './service/user-service';
 import { HttpErrorResponse } from '@angular/common/http';
-import{ChartModule} from'chart.js';
+  // import{ChartModule} from'chart.js';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
- 
 })
 export class AppComponent {
   title = 'app';
-  constructor(private _userService:UserService){}
- 
- 
+  constructor(private _userService: UserService) {}
 
 // sendMail()
 // {

@@ -18,6 +18,18 @@ import swal from 'sweetalert2';
   styleUrls: ['./add-library.component.css'],
 })
 export class AddLibraryComponent implements OnInit {
+<<<<<<< HEAD
+  model:Library;
+  city:City;
+  street:Street;
+  cityModel:City;
+  streetModel:Street;
+  constructor(private dialog: MatDialog, private _LibraryService:LibraryService,private router:Router,private _userService:UserService) {
+  this.cityModel=new City;
+  this.streetModel=new Street;
+    this.model=new Library;
+    this.model.IdAdmin = Number(sessionStorage.getItem("userId"));
+=======
   model: Library;
   city: City;
   street: Street;
@@ -29,6 +41,7 @@ export class AddLibraryComponent implements OnInit {
   this.streetModel = new Street;
     this.model = new Library;
     this.model.IdAdmin = _userService.UserId;
+>>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
    }
 
 

@@ -73,9 +73,9 @@ namespace BL
       str.Append("<p>קוד השאלה:</p>").Append(Environment.NewLine);
       str.Append("<h3 style='color:red'>" + lending.IdLending + "</h3>").Append(Environment.NewLine);
       str.Append("<p>נשמח לעמוד לשרותכם תמיד</p></div>").Append(Environment.NewLine);
+      str.Append("<img height = '92px' src=' / images / branding / googlelogo / 2x / googlelogo_color_272x92dp.png' width='272px'  alt='Bookmark' title='Bookmark' />").Append(Environment.NewLine) ;
       return str.ToString();
     }
-
 
     //   string mailBody = "<div><b>" + user.FirstName + "שלום</b>" +
     //"<p>Bookmark תודה שהשתמשת בשרותי </p>" +
@@ -94,14 +94,14 @@ namespace BL
       BooksInLibrary book = DalLending.lendingBook(lending.IdBook);
       return DalBook.getBookObj(book.IdBook);
     }
-    public static Boolean changeToBorrowed(int code, int status)
+    public static bool changeToBorrowed(int code, int status)
     {
       Lendings lending = DalLending.checkLending(code);
 
 
       return DalBook.changeStatus(lending.IdBook, status);
     }
-    public static Boolean changeToFree(int code)
+    public static bool changeToFree(int code)
     {
       Lendings lending = DalLending.checkLending(code);
       return DalBook.changeStatus(lending.IdBook, 2);
@@ -110,14 +110,14 @@ namespace BL
     }
     public static string checkDaysForLending(int code)
     {
-    //  Lendings lending = DalLending.checkLending(code);
-    //  var dayNow = DateTime.Now;
-    //  var dayStart = lending.StartDate;
-    //  int days = dayNow.Day-dayStart.Day;
-    //  //int d = int.Parse(days.ToString());
-    //  if (days > 2)
-    //    return "לא ניתן לבצע השאלה";
-    return null;
+      //  Lendings lending = DalLending.checkLending(code);
+      //  var dayNow = DateTime.Now;
+      //  var dayStart = lending.StartDate;
+      //  int days = dayNow.Day-dayStart.Day;
+      //  //int d = int.Parse(days.ToString());
+      //  if (days > 2)
+      //    return "לא ניתן לבצע השאלה";
+      return null;
     }
     public static int checkDaysForFree(int code)
     {
@@ -130,9 +130,9 @@ namespace BL
     }
     public static int checkStatus(int code)
     {
-         Lendings lending = DalLending.checkLending(code);
+      Lendings lending = DalLending.checkLending(code);
       BooksInLibrary book = DalLending.lendingBook(lending.IdBook);
-        if (book.IdStatus == 2)
+      if (book.IdStatus == 2)
       {
         return -1;
 
@@ -142,7 +142,7 @@ namespace BL
       else return 0;
 
     }
-    public static Boolean changeStatus(int code)
+    public static bool changeStatus(int code)
     {
       int status;
       Lendings lending = DalLending.checkLending(code);
@@ -152,6 +152,29 @@ namespace BL
       else
         status = 2;
       return DalBook.changeStatus(lending.IdBook, status);
+    }
+    public static bool updateStatusEveryDay()
+    {
+      DateTime dateTime = DateTime.Now;
+      BooksInLibrary[] catchBooksArray = DalBook.getAllCatchBooks();//all catch books
+      foreach (var catchBook in catchBooksArray)
+      {
+        int days = DalLending.getStartLending(catchBook.IdBook);
+        if (days != -1)
+        {
+          if (DateTime.Now.Day - days > 2)
+          {
+            if (!DalBook.changeStatus(catchBook.IdBook, 2))//change status to free
+              return false;
+          }
+        }
+        else
+        {
+          return false;
+        }
+      }
+      return true;
+
     }
 
   }
