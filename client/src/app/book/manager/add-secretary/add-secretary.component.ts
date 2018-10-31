@@ -4,6 +4,8 @@ import { UserService } from 'src/app/service/user-service';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Library } from '../../../models/library';
+import { LibraryService } from '../../../service/library-service';
 
 @Component({
   selector: 'app-add-secretary',
@@ -12,20 +14,37 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AddSecretaryComponent implements OnInit {
 model:User;
-  constructor(private _userService:UserService,private router:Router) {
+libraries:Library;
+library:Library;
+secratery:User;
+  constructor(private _userService:UserService,private router:Router,private _libraryService:LibraryService) {
     this.model=new User;
-   }
+    this.libraries=new Library;
+    this.library=new Library;
+    this._libraryService.getLibrary(parseInt(sessionStorage.getItem("userId"))).subscribe(libraries=>{
+     
+      this.libraries=libraries;
+     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
+     }
+   
 
   ngOnInit() {
   }
   onSubmit() {
+    debugger;
     this.model.Status=3
       this._userService.addUser(this.model) 
       .subscribe(m => { 
         if(m)
         {
-          swal("Success","You have successfully registered","success");
-          
+          this.secratery=m;
+          debugger;
+          // swal("Success","You have successfully registered","success");
+          this._libraryService.addSecrateryToLibrary(this.library.IdLibrary,this.secratery.IdUser).subscribe(s=>{
+            if(s)
+            {}
+           
+          }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText))
           this.router.navigate(['./manager']);
         
         }
@@ -33,5 +52,8 @@ model:User;
          
         
         , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
-      ); };
+      ); 
+      debugger;
+      
+    };
 }

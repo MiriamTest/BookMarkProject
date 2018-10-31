@@ -30,8 +30,15 @@ namespace API.Controllers
         {
             return BLBook.getBook(id);
 
-        }
-        [System.Web.Http.HttpGet]
+    }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Book/getSearchObj")]
+    public Object getSearchObj()
+    {
+      return BLBook.getSearchObj();
+
+    }
+    [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/Book/getStatus/{Id}")]
         public StatusLending getStatus([FromUri] int id)
         {
@@ -115,6 +122,33 @@ namespace API.Controllers
       {
         return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
       }
+    }
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Book/allStatuses")]
+    public HttpResponseMessage allStatuses()
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLBook.allStatuses());
+      }
+      catch (IOException e)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+      }
+    }
+    [System.Web.Http.HttpPost]
+    [System.Web.Http.Route("api/Book/editBook")]
+    public HttpResponseMessage editBook([FromBody] BooksInLibrary b)
+    {
+      try
+      {
+        return Request.CreateResponse(HttpStatusCode.OK, BLBook.editBook(b));
+      }
+      catch (IOException e)
+      {
+        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+      }
+
     }
   }
 }

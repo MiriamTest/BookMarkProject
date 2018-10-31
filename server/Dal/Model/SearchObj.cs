@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +9,14 @@ namespace Dal.Model
     public  class SearchObj
     {
         public int IdBook { get; set; }
-        public int IdAuthor { get; set; }
-        public int IdCategory { get; set; }
-        public int IdCity { get; set; }
-        public int IdLibrary { get; set; }
-        public int IdRegion { get; set; }
-        public int IdStatus { get; set; }
+        public string nameBook { get; set; }
+        public string Author { get; set; }
+        public string Category { get; set; }
+        public string City { get; set; }
+        public string Library { get; set; }
+        public string Region { get; set; }
+        public string Status { get; set; }
       
     }
     
 }
-    

@@ -16,45 +16,36 @@ import swal from 'sweetalert2';
   selector: 'app-add-library',
   templateUrl: './add-library.component.html',
   styleUrls: ['./add-library.component.css'],
-   
-
-
 })
 export class AddLibraryComponent implements OnInit {
-  model:Library;
-  city:City;
-  street:Street;
-  cityModel:City;
-  streetModel:Street;
-  constructor(private dialog: MatDialog, private _LibraryService:LibraryService,private router:Router,private _userService:UserService) {
-  this.cityModel=new City;
-  this.streetModel=new Street;
-    this.model=new Library;
-    this.model.IdAdmin=_userService.UserId;
+  model: Library;
+  city: City;
+  street: Street;
+  cityModel: City;
+  streetModel: Street;
+  // tslint:disable-next-line:max-line-length
+  constructor(private dialog: MatDialog, private _LibraryService: LibraryService, private router: Router, private _userService: UserService) {
+  this.cityModel = new City;
+  this.streetModel = new Street;
+    this.model = new Library;
+    this.model.IdAdmin = _userService.UserId;
    }
 
 
   ngOnInit() {
-   
-    setTimeout( this._LibraryService.allCities().subscribe(c=>{
-      this.city=c;
-     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)),20)
-  
-    setTimeout(this._LibraryService.allStreets().subscribe(s=>{
-      this.street=s;
-     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)),40)
-    
+    setTimeout( this._LibraryService.allCities().subscribe(c => {
+      this.city = c;
+     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)), 20);
+
+    setTimeout(this._LibraryService.allStreets().subscribe(s => {
+      this.street = s;
+     }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)), 40);
   }
-  
-
-
-
   onSubmit() {
-  debugger;
   this.openDialog();
-  this.model.City=this.cityModel.IdCity;
-  this.model.Street=this.streetModel.IdStreet;
-this.model.IdAdmin=Number(sessionStorage.getItem("userId"));
+  this.model.City = this.cityModel.IdCity;
+  this.model.Street = this.streetModel.IdStreet;
+this.model.IdAdmin = Number(sessionStorage.getItem("userId"));
 
     this._LibraryService.saveModel(this.model) 
     // .subscribe(m => { 
@@ -65,17 +56,12 @@ this.model.IdAdmin=Number(sessionStorage.getItem("userId"));
     //  }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
     // ); 
   }
-  
       openDialog() {
 
         const dialogConfig = new MatDialogConfig();
-    
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
-    
         this.dialog.open(CreditCardDetailsComponent, dialogConfig);
     }
     }
-    
-
 

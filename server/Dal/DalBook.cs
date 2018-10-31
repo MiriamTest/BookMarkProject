@@ -101,7 +101,88 @@ namespace Dal
       return false;
 
     }
+    public static Object getSearchObj()
+    {
+      //Model.SearchObj[] obj = new Model.SearchObj[] { };
+      //obj[0]  = new Model.SearchObj();
+      var search = (from booksInLibrary in Connect.db.BooksInLibrary.ToList()
+                    join books in Connect.db.Books.ToList()
+                on booksInLibrary.IdBook equals books.IdBook
+                    join libraries in Connect.db.Libraries.ToList()
+                    on booksInLibrary.IdLibrary equals libraries.IdLibrary
+                    join statusess in Connect.db.StatusLending.ToList()
+                    on booksInLibrary.IdStatus equals statusess.IdStatus
+                    join cities in Connect.db.Cities.ToList()
+                    on libraries.City equals cities.IdCity
+                    join regions in Connect.db.Regions.ToList()
+                    on cities.IdRegion equals regions.IdRegion
+                    join categories in Connect.db.Categories.ToList()
+                    on books.category equals categories.IdCategory
+                    select new
+                    {
+                      bookID = books.IdBook,
+                      bookName = books.NameBook,
+                      library = libraries.NameLibrary,
+                      city = cities.NameCity,
+                      status = statusess.Status,
+                      ares = regions.NameRegion,
+                      category = categories.Category
+                    }).AsQueryable();
+      List<Object> dynamicList = new List<Object>();
+      dynamicList.Add(search);
 
+      return search;
+    }
+    public static StatusLending[] allStatuses()
+    {
+      return Connect.db.StatusLending.ToArray();
+    }
+    public static bool editBook(BooksInLibrary book)
+    {
+      try
+      {
+       BooksInLibrary b=  Connect.db.BooksInLibrary.FirstOrDefault(bl => bl.IdBookInLibrary == book.IdBookInLibrary);
+        if(b!=null)
+        { 
+        b.IdBook = book.IdBook;
+        b.IdLibrary = book.IdLibrary;
+        b.LendingDuration = book.LendingDuration;
+        b.StatusLending = book.StatusLending;
+        Connect.db.SaveChanges();
+        return true;
+        }
+        return false;
+      }
+      catch(IOException e)
+      {
+        return false;
+      }
+    }
+    public static Object getEditBook()
+    {
+      //Model.SearchObj[] obj = new Model.SearchObj[] { };
+      //obj[0]  = new Model.SearchObj();
+      var search = (from booksInLibrary in Connect.db.BooksInLibrary.ToList()
+                    join books in Connect.db.Books.ToList()
+                on booksInLibrary.IdBook equals books.IdBook
+                    join statusess in Connect.db.StatusLending.ToList()
+                    on booksInLibrary.IdStatus equals statusess.IdStatus
+                  
+                    join categories in Connect.db.Categories.ToList()
+                    on books.category equals categories.IdCategory
+                    select new
+                    {
+                      bookID = books.IdBook,
+                      bookName = books.NameBook,
+                      LendingDuration = booksInLibrary.LendingDuration,
+                      status = statusess.Status,
+                  
+                    }).AsQueryable();
+      List<Object> dynamicList = new List<Object>();
+      dynamicList.Add(search);
+
+      return search;
+    }
   }
 
 }

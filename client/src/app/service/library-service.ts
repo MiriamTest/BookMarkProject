@@ -50,6 +50,14 @@ export class LibraryService {
     }
     getBook(idBook:number)
     {
-        return this.httpClient.get("http://localhost:52339api/Book/getBookObj/"+idBook).pipe(map((response=>response)));
+        return this.httpClient.get("http://localhost:52339/api/Book/getBookObj/"+idBook).pipe(map((response=>response)));
+    }
+    addSecrateryToLibrary(idLibrary:number,idSecratery:number):any
+    {
+        debugger;
+          return this.httpClient.get("http://localhost:52339/api/Library/addSecrateryToLibrary/"+idLibrary+"/"+idSecratery).pipe(map((response=>response)));
+    }
+    getLibrarySearch(): any {
+        return this.httpClient.get("http://localhost:52339/api/Library/getSearchLibrary");
     }
 }

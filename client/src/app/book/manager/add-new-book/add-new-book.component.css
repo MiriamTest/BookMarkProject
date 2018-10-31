@@ -18,3 +18,11 @@ input {
      background-color: transparent;
      color: white;
  }
+ .body{
+    background-color: #ffffffc2;
+    border:solid 4px ;
+    border-bottom-color: #f74e25;
+    border-left-color:#f74e25;
+    border-right-color: #f00e62;
+    border-top-color: #f00e62;
+ }

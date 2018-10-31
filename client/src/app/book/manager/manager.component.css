@@ -13,26 +13,22 @@
     z-index: 1000;
    }
    .addBook{
-    background-image: url("../../images/linkBook.jpg");
-    background-repeat: round;
+   background-color: #f74e25;
     width: 15vw;
     height: 25vh;
    }
    .addLibrary{
-    background-image: url("../../images/linkLibrary.jpg");
-    background-repeat: round;
+    background-color: #f00e62;
     width: 15vw;
     height: 25vh;
    }
    .addSecratery{
-    background-image: url("../../images/linkSecratery.jpg");
-    background-repeat: round;
     width: 15vw;
-    height: 25vh;
+    height: 300px !important;
+    background-color: #a4117c;
    }
    .editDetails{
-    background-image: url("../../images/editDetails.jpg");
-    background-repeat: round;
+  background-color: #f74e25;
     width: 15vw;
     height: 25vh;
    }

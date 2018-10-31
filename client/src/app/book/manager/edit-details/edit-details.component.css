@@ -1,3 +1,16 @@
 .t{
     margin-left: 30%;
 }
+.body{
+    padding: 4vw;
+    background-color: #ffffffc2;
+    border:solid 4px ;
+    border-bottom-color: #f74e25;
+    border-left-color:#f74e25;
+    border-right-color: #f00e62;
+    border-top-color: #f00e62;
+    margin-left: 50%;
+    margin-right: 15%;
+    height: 58vh;
+    margin-top: 6%;
+}

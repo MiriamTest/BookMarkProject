@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,7 @@ namespace BL
 {
   public static class  BLUser
     {
-        public static bool addUsers(Users user)
+        public static Users addUsers(Users user)
         {
             return DalUser.addUser(user);
         }

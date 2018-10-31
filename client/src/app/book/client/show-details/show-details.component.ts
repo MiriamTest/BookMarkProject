@@ -14,37 +14,29 @@ import { LendingService } from '../../../service/lending.service';
   styleUrls: ['./show-details.component.css']
 })
 export class ShowDetailsComponent implements OnInit {
-book:Book;
-lending:Lending;
-  constructor(private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) { 
-    this.book=new Book;
-    //just for try
-    debugger;
-    this.book.NameBook=this._lendingService.book.NameBook;
-    this.book.IdBook=this._lendingService.book.IdBook;
+book: Book;
+lending: Lending;
 
-    this.lending=new Lending;
-   this.lending.IdUser = Number(sessionStorage.getItem("userId"));
-   this.lending.IdBook =this.book.IdBook;
+  constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) { 
+    this.book =  new Book;
+    //just for try
+    this.book.NameBook = this._lendingService.book.NameBook;
+    this.book.IdBook = this._lendingService.book.IdBook;
+
+    this.lending = new Lending;
+    this.lending.IdUser = Number(sessionStorage.getItem("userId"));
+    this.lending.IdBook = this.book.IdBook;
   }
 
   ngOnInit() {
   }
-lend()
-{
-  
-
-this._userService.lending(this.lending).subscribe(u => { 
-   if(u)
-   {
-     swal("ההשאלה בוצעה בהצלחה"," ראו פרטים נוספים במייל","success")
+lend() {
+this._userService.lending(this.lending).subscribe(u => {
+   if (u) {
+      swal("ההשאלה בוצעה בהצלחה", " ראו פרטים נוספים במייל", "success")
    }
 
     }
-  
    , (error: HttpErrorResponse) => alert("mistake!!!!"));
-  
-
-
-}
+ }
 }

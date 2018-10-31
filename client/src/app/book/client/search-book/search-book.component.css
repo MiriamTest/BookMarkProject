@@ -1,6 +1,10 @@
 ul{
     float: left;
 }
+table {
+  width: 100%;
+  background: white;
+}
 #businesses-component .btn-grids {
     display: grid;
     grid-template-columns: auto auto;

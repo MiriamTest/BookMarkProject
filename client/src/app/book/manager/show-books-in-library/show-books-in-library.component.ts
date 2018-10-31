@@ -25,7 +25,9 @@ books:BookInLibrary;
       if(b)
       {
         debugger;
-    this.books= b; 
+    this.books = b;
+    this._bookSerice.bookInLibrary = b;
+    debugger;
     }
     } , (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
  
