@@ -9,7 +9,6 @@ th{
   padding-right: 5%;
 }
 #businesses-component .btn-grids {
-<<<<<<< HEAD
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 1rem; }
@@ -259,7 +258,8 @@ th{
     background-color: #7cced8;
     transition: 0s;
     color: white; }
-=======
+
+#businesses-component .btn-grids {
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 1rem; }
@@ -619,4 +619,3 @@ body {
     transform: rotate(360deg);
   }
 }
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b

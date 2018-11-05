@@ -25,11 +25,7 @@ import { SearchBookComponent } from './book/client/search-book/search-book.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatCheckboxModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
-<<<<<<< HEAD
-import { MatDialogModule } from "@angular/material";
-=======
 import { MatDialogModule, MatRadioModule } from "@angular/material";
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material";
 import { CreditCardDetailsComponent } from './book/creditCard-details/creditCard-details.component';
@@ -54,10 +50,6 @@ import { ClientInstructionsComponent } from './book/client/client-instructions/c
 import { ManagerInstructionsComponent } from './book/manager/manager-instructions/manager-instructions.component';
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 const route: Routes = [
   {
     path: 'managment', component: ManagmentComponent, children:
@@ -65,10 +57,6 @@ const route: Routes = [
         { path: 'Login', component: LoginComponent },
         { path: 'Register', component: RegisterComponent },
         { path: 'resetPassword/:IdUser', component: ResetPasswordComponent }
-<<<<<<< HEAD
-
-=======
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
       ],
   },
   {
@@ -100,11 +88,8 @@ const route: Routes = [
   { path: 'EditDetails', component: BookDetailsComponent },
   { path: 'EditLibrary/:IdLibrary', component: EditLibraryComponent },
   { path: 'EditBook/:IdBook', component: EditBookComponent },
-<<<<<<< HEAD
   { path: 'managerInstructions', component: ManagerInstructionsComponent },
   { path: 'clientInstructions', component: ClientInstructionsComponent },
-=======
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 ];
 @NgModule({
   declarations: [
@@ -131,12 +116,9 @@ const route: Routes = [
     ShowBooksInLibraryComponent,
     ResetPasswordComponent,
     EditBookComponent,
-<<<<<<< HEAD
     AboutComponent,
     ManagerInstructionsComponent,
     ClientInstructionsComponent,
-=======
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 
   ],
   imports: [
@@ -172,13 +154,8 @@ const route: Routes = [
     ChartsModule,
     MatPaginatorModule,
     MatTableModule,
-<<<<<<< HEAD
-    FilterPipeModule,
-     ],
-=======
     FilterPipeModule
   ],
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
   providers: [UserService, LibraryService, BookService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]

@@ -6,15 +6,7 @@
     <h6>* שדה חובה</h6>
     <div class="example-container">
 
-    <form name="form" (ngSubmit)="Loginform.form.valid&&onSubmit()" #Loginform="ngForm" novalidate>
-        <!-- <div class="form-group">
-            <label for="Email">Email</label>
-            <input placeholder="eMail" class="form-control" name="Email" type="text" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="model.EMail" #email="ngModel" />
-            <div [hidden]="email.valid || email.pristine" >
-                <div [hidden]="!email.hasError('required')">  eMail is required</div>
-                <div [hidden]="!email.hasError('pattern')"> Email format should be <small><b>joe@abc.com</b></small></div>
-
-            </div> -->
+    <form name="form" (ngSubmit)="Loginform.form.valid&&onSubmit()" #Loginform="ngForm" novalidate>   
             <div class="example-container">
                 <mat-form-field>
                   <input matInput placeholder="מייל" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
@@ -25,20 +17,6 @@
                 </mat-form-field>
               </div>
 
-
-
-        <!-- <div class="form-group">
-            <label for="password">Password</label>
-            <input placeholder="password" class="form-control" id="password" name="password" type="password" required maxlength="10"
-                   [(ngModel)]="model.Password" #password="ngModel" />
-            <div [hidden]="password.valid || password.pristine" >
-                <div [hidden]="!password.hasError('required')">  password is required</div>
-                <div [hidden]="!password.hasError('maxlength')">password should be maximum 10 digits</div>
-
-            </div>
-
-
-        </div> -->
         <div class="example-container">
             <mat-form-field>
               <input matInput type="password" name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="סיסמא"  >
@@ -52,19 +30,11 @@
         <div>
             <a href="" (click)="checkForReset()">שכחת את הסיסמא?</a>
         </div>
-<<<<<<< HEAD
-
-        <input type="submit" class="submit"  value="Save" [disabled]="!Loginform.form.valid">
-
-
-
-=======
     
         <input type="submit" class="btn btn-warning" value="כניסה"  [disabled]="!Loginform.form.valid">
      
      
      
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     </form>
     <a href="/managment/Register">להרשמה</a>
 </div>

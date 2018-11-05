@@ -14,17 +14,6 @@ import { Payment } from '../models/payment';
   providedIn: 'root'
 })
 export class CreditCardService {
-<<<<<<< HEAD
-  constructor(private http: Http , private httpClient: HttpClient) { }
-  addPayment(newPayment: Payment): Observable<any>  {
-    return this.http.post("http://localhost:52339/api/Payment/addPayment", newPayment).pipe(map((response: any) => response.json()));
-
-}
-addCreditCard(newCreditCard:CreditCard):Observable<any>{
-  return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard",newCreditCard).pipe(map((response: any) => response.json()));
-
-  
-=======
   checkPayment(idUser: number): any {
     return this.httpClient.get("http://localhost:52339/api/Payment/checkPayment/" + idUser).pipe(map((response => response)));
   }
@@ -36,7 +25,6 @@ addCreditCard(newCreditCard:CreditCard):Observable<any>{
 }
 addCreditCard(newCreditCard: CreditCard): Observable<any> {
   return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard", newCreditCard).pipe(map((response: any) => response.json()));
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 }
 
 deletePayment(idPayment: number): any {

@@ -67,10 +67,7 @@ namespace Dal
       Connect.db.SaveChanges();
       return true;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
     {
       return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();
@@ -114,10 +111,7 @@ namespace Dal
       {
         return false;
       }
-<<<<<<< HEAD
 
-=======
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     }
 
 

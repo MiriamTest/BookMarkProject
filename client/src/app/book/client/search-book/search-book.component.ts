@@ -39,17 +39,12 @@ export class SearchBookComponent implements OnInit {
   pageSize = 25;
   page = 0;
   public header = [
-<<<<<<< HEAD
-    { name: "ID", value: 'bookID', show: false, table: 'books' },
-    { name: 'ספר:', value: 'bookName', show: true, table: 'books' },
-    { name: 'סופר:', value: 'authors', show: true, table: 'books' },
-    { name: 'סטטוס:', value: 'statuss', show: true, table: 'books' },
-=======
     // tslint:disable-next-line:quotemark
-    { name: "ID", value: 'IdBook', show: true, table: 'books' },
+    { name: "ID", value: 'IdBook', show: false, table: 'books' },
     { name: "idBookInLibrary", value: 'IdBookInLibrary', show: false, table: 'books' },
     { name: 'ספר:', value: 'NameBook', show: true, table: 'books' },
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
+    { name: 'סופר:', value: 'authors', show: true, table: 'books' },
+    { name: 'סטטוס:', value: 'statuss', show: true, table: 'books' },
     { name: 'קטגוריה:', value: 'category', show: true, table: 'books' },
     { name: 'ספריה:', value: 'library', show: true, table: 'books' },
     { name: 'קוד ספריה', value: 'IdLibrary', show: false, table: 'books' },
@@ -127,8 +122,6 @@ export class SearchBookComponent implements OnInit {
   }
   showDetails(data: any) {
     this._lendingService.book = data.books;
-<<<<<<< HEAD
-=======
     // this._lendingService.getSpesificBook(data.books.IdBookInLibrary).subscribe(u => {
     //   if (u) {
     //     this._lendingService.specificBook = u;
@@ -137,7 +130,6 @@ export class SearchBookComponent implements OnInit {
     // }
     //   , (error: HttpErrorResponse) => alert("mistake!!!!"));
     this._lendingService.idBookInLibrary = data.books.IdBookInLibrary;
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     this.openDialog();
   }
   openDialog() {

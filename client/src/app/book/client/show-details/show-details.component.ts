@@ -20,16 +20,9 @@ export class ShowDetailsComponent implements OnInit {
   lending: Lending;
   idUser: number;
 
-<<<<<<< HEAD
-  constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) {
-    this.book =  new Book;
-    //just for try
-
-=======
   constructor(private dialog: MatDialog, private _creditCardService: CreditCardService, private _userService: UserService, private dialogRef: MatDialogRef<ShowDetailsComponent>, private _lendingService: LendingService) {
     this.book = new Book;
     this.lending = new Lending;
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     this.book.NameBook = this._lendingService.book.NameBook;
     this.book.IdBook = this._lendingService.book.IdBook;
     this.lending.IdUser = Number(sessionStorage.getItem("userId"));
@@ -40,17 +33,6 @@ export class ShowDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
-<<<<<<< HEAD
-lend() {
-this._lendingService.lending(this.lending).subscribe(u => {
-   if (u) {
-      swal("ההשאלה בוצעה בהצלחה", " ראו פרטים נוספים במייל", "success")
-   }
-
-    }
-   , (error: HttpErrorResponse) => alert("mistake!!!!"));
- }
-=======
   lend() {
     this.idUser = Number(sessionStorage.getItem("userId"));
     this._creditCardService.checkPayment(this.idUser).subscribe(res => {
@@ -78,5 +60,4 @@ this._lendingService.lending(this.lending).subscribe(u => {
     }
       , (error: HttpErrorResponse) => alert("mistake!!!!"));
   }
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 }

@@ -18,9 +18,7 @@
     border-radius: 25px;
  } */
 
-<<<<<<< HEAD
 
-=======
  /* input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
   } */
@@ -36,14 +34,12 @@ a{
   .mat-form-field{
     display: inline;
 }
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
   .submit
   {
   background-color: #e5b78b;
   width: 101%;
   color: black;
   }
-<<<<<<< HEAD
   .body{
     background-color: white;
     margin-left: 9vw;
@@ -51,7 +47,6 @@ a{
     padding: 2vw;
     border: solid 2px black;
 }
-=======
  input:focus{
      background-color: transparent;
      color: black;
@@ -59,4 +54,3 @@ a{
  h2{
      color:black;
  }
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b

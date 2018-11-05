@@ -7,15 +7,11 @@ using Entities;
 using Dal;
 namespace BL
 {
-<<<<<<< HEAD
-  public static  class BLPayment
-    {
-    public static bool addPayment(Payments payment)
-=======
+
   public static class BLPayment
   {
     public static Payments addPayment(Payments payment)
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
+
     {
       payment.Date = DateTime.Now;
       payment.StartDate = DateTime.Now;

@@ -21,16 +21,6 @@ export class ResetPasswordComponent implements OnInit {
   signUpForm: FormGroup;
   form: FormGroup;
   constructor(private _userService: UserService, private router: Router, private _route: ActivatedRoute, public fb: FormBuilder) {
-<<<<<<< HEAD
-    _route.params.subscribe(params => this.userId = params['userId']);
-//     const password = new FormControl('', Validators.required);
-// const certainPassword = new FormControl('', CustomValidators.equalTo(password));
-
-this.form = new FormGroup({
-  // password: password,
-  // certainPassword: certainPassword
-});
-=======
     _route.params.subscribe(params => this.userId = +params['userId']);
     this.flag = true;
 //     const password = new FormControl('', Validators.required);
@@ -41,7 +31,6 @@ this.form = new FormGroup({
 //   certainPassword: certainPassword,
 //   flag : Boolean
 // });
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     // this.signUpForm = this.fb.group({
     //   password: [''],
     //   repeatPassword:  ['']
@@ -59,13 +48,8 @@ this.flag = false;
 }
   }
   onSubmit() {
-<<<<<<< HEAD
   //  console.log(sha256('tovy'));
-    this._userService.restPassword(this.userId, this.password2).subscribe(u => {
-=======
-   console.log(sha256('tovy'));
     this._userService.restPassword(this.userId, this.passwordTO).subscribe(u => {
->>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
       if (u) {
         swal('Success', 'You have successfully registered', 'success');
         this.router.navigate(['./managment/Login']);
