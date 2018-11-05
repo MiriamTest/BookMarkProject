@@ -150,6 +150,16 @@ namespace API.Controllers
       }
 
     }
+<<<<<<< HEAD
+=======
+    [System.Web.Http.HttpGet]
+    [System.Web.Http.Route("api/Book/getSpesificBook/{IdBookInLibrary}")]
+    public BooksInLibrary getSpesificBook([FromUri] int IdBookInLibrary)
+    {
+      return BLBook.getSpesificBook(IdBookInLibrary);
+
+    }
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 
   }
 }

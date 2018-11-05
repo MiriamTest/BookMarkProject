@@ -116,9 +116,14 @@ export class SearchLibraryComponent implements OnInit {
     // });
     this._LibraryService.getLibrarySearch().subscribe(res => {
       this.libraries = res;
+<<<<<<< HEAD
       this.libraries.forEach(library => this.booksList.push({ Libraries: library }));
+=======
+      this.libraries.forEach(library => this.booksList.push({ libraries: library }));
+      // tslint:disable-next-line:no-debugger
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
       debugger;
-    })
+    });
 
   }
 
@@ -168,6 +173,7 @@ export class SearchLibraryComponent implements OnInit {
   }
   showDetails(data: any) {
     this._lendingService.book = data.books;
+    // tslint:disable-next-line:no-debugger
     debugger;
     this.openDialog();
   }

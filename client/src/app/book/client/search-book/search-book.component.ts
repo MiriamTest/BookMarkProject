@@ -39,12 +39,20 @@ export class SearchBookComponent implements OnInit {
   pageSize = 25;
   page = 0;
   public header = [
+<<<<<<< HEAD
     { name: "ID", value: 'bookID', show: false, table: 'books' },
     { name: 'ספר:', value: 'bookName', show: true, table: 'books' },
     { name: 'סופר:', value: 'authors', show: true, table: 'books' },
     { name: 'סטטוס:', value: 'statuss', show: true, table: 'books' },
+=======
+    // tslint:disable-next-line:quotemark
+    { name: "ID", value: 'IdBook', show: true, table: 'books' },
+    { name: "idBookInLibrary", value: 'IdBookInLibrary', show: false, table: 'books' },
+    { name: 'ספר:', value: 'NameBook', show: true, table: 'books' },
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     { name: 'קטגוריה:', value: 'category', show: true, table: 'books' },
     { name: 'ספריה:', value: 'library', show: true, table: 'books' },
+    { name: 'קוד ספריה', value: 'IdLibrary', show: false, table: 'books' },
     { name: 'עיר:', value: 'city', show: true, table: 'books' },
     { name: 'איזורים:', value: 'Region', show: true, table: 'books' },
 
@@ -64,7 +72,12 @@ export class SearchBookComponent implements OnInit {
     this._BookService.getSearchObjs().subscribe(res => {
       this.books = res;
       this.books.forEach(book => this.booksList.push({ books: book }));
-    })
+      if (this.booksList)
+      {
+      document.getElementById("spinner").removeAttribute("class");
+      document.getElementById("spn").removeAttribute("class");
+      }
+    });
 
   }
 
@@ -114,6 +127,17 @@ export class SearchBookComponent implements OnInit {
   }
   showDetails(data: any) {
     this._lendingService.book = data.books;
+<<<<<<< HEAD
+=======
+    // this._lendingService.getSpesificBook(data.books.IdBookInLibrary).subscribe(u => {
+    //   if (u) {
+    //     this._lendingService.specificBook = u;
+    //     this.openDialog();
+    //   }
+    // }
+    //   , (error: HttpErrorResponse) => alert("mistake!!!!"));
+    this._lendingService.idBookInLibrary = data.books.IdBookInLibrary;
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     this.openDialog();
   }
   openDialog() {

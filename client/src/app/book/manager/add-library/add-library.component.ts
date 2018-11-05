@@ -47,7 +47,7 @@ export class AddLibraryComponent implements OnInit {
   this.model.Street = this.streetModel.IdStreet;
 this.model.IdAdmin = Number(sessionStorage.getItem("userId"));
 
-    this._LibraryService.saveModel(this.model) 
+    this._LibraryService.saveModel(this.model) ;
     // .subscribe(m => { 
     //   if(m==true)
     //   {

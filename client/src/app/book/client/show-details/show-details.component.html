@@ -1,11 +1,11 @@
-<p>
-  show-details works!
-</p>
+<input type="submit" (click)="dialogRef.close()" class="btn btn-primary" value="X">
 <h1>פרטי ספר</h1>
 <table>
   <tr>
     <td><label for="NameBook">שם הספר:</label></td>
-    <td><h2>{{book.NameBook}}</h2></td>
+    <td>
+      <h2>{{book.NameBook}}</h2>
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -13,5 +13,6 @@
   </tr>
 </table>
 
-<button (click)= "lend()" class="btn btn-success"    value="השאל" >
-<!--[disabled]="!check"     to add disable according to status-->
+<button (click)="lend()" class="btn btn-success" value="השאל">
+
+  <!--[disabled]="!check"     to add disable according to status-->

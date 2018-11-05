@@ -19,4 +19,6 @@
  }
  .example-container{
      width: 90px;
- }
+ }.mat-form-field{
+    display: inline;
+}

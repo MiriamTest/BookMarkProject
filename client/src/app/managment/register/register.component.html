@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="body col-md-4 col-md-offset-3 register">
     <div class="login-triangle"></div>
     <h2 class="login-header">Register</h2>
@@ -52,11 +53,77 @@
               <div [hidden]="!password.hasError('required')">  password is required</div>
               <div [hidden]="!password.hasError('minlength')">  password must be 4 characters</div>
               <div></div>
+=======
+<div class="body col-md-4 col-md-offset-3" dir="rtl">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">הרשמה</h2>
+  <h6>* שדה חובה</h6>
+  <form name="form" (ngSubmit)="Registerform.form.valid&&onSubmit()" #Registerform="ngForm" novalidate>
+          <!-- <div class="form-group">
+                  <label for="Tz">Tz</label>
+                  <input class="form-control" name="Tz" type="text" placeholder="Tz" required maxlength="9" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.Tz"  #Tz="ngModel"/>
+                  <div [hidden]="Tz.valid || Tz.pristine" class="alert alert-danger">
+                      <div [hidden]="!Tz.hasError('required')">  Tz required</div>
+                      <div [hidden]="!Tz.hasError('pattern')">Only number allowed</div>
+                      <!-- <div [hidden]="!password.hasError('maxlength')">Tz should be maximum 9 digits</div>
+                      <div [hidden]="!password.hasError('minlength')">Tz should be 9 digits</div> -->
+                  
+            
+           
+                  <mat-form-field>
+                    <input class="input" matInput placeholder="ת.ז." name="tz" type="text" required maxlength="9" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.tz" #tz="ngModel">
+                    <mat-error [hidden]="tz.valid || tz.pristine">
+                      <div [hidden]="!tz.hasError('required')"> שדה חובה</div>
+                       <div [hidden]="!tz.hasError('pattern')">ניתן להקיש מספרים בלבד</div>
+                      <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
+                    </mat-error>
+                  </mat-form-field>
+             
+              
+                  <mat-form-field>
+                    <input matInput placeholder="שם פרטי" name="firstName" type="text" required pattern="[א-ת]+" [(ngModel)]="model.FirstName" #firstName="ngModel">
+                    <mat-error [hidden]="firstName.valid || firstName.pristine">
+                      <div [hidden]="!firstName.hasError('required')"> שדה חובה</div>
+                       <div [hidden]="!firstName.hasError('pattern')">ניתן להקיש אותיות בלבד</div>
+                  </mat-error>
+                  </mat-form-field>
+             
+                  <mat-form-field>
+                    <input matInput placeholder="שם משפחה" name="lastName" type="text" required pattern="[א-ת]+" [(ngModel)]="model.LastName" #lastName="ngModel">
+                    <mat-error [hidden]="lastName.valid || lastName.pristine">
+                      <div [hidden]="!lastName.hasError('required')">שדה חובה</div>
+                       <div [hidden]="!lastName.hasError('pattern')">ניתן להקיש אותיות בלבד</div>
+                    </mat-error>
+                  </mat-form-field>
+             
+      <!-- <div class="form-group">
+          <label for="Email">Email</label>
+          <input placeholder="eMail"class="form-control" name="Email" type="text" required    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"   [(ngModel)]="model.EMail" #email="ngModel" />
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+              <div [hidden]="!email.hasError('required')">  eMail is required</div>
+               <div [hidden]="!email.hasError('pattern')"> Email format should be<small><b>joe@abc.com</b></small></div>
+      </div>
+    
+  </div> -->
+  
+          <mat-form-field>
+            <input matInput placeholder="מייל" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
+            <mat-error [hidden]="email.valid || email.pristine">
+                  <div [hidden]="!email.hasError('required')">שדה חובה</div>
+                   <div [hidden]="!email.hasError('pattern')">מייל חייב להיות בצורה הבאה<b>joe@abc.com</b></div>
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
             </mat-error>
-            </mat-form-field>
-        </div>
+          </mat-form-field>
         
+      <!-- <div class="form-group">
+          <label for="password">Password</label>
+          <input placeholder="password" class="form-control" id="password" name="password" type="password" required   maxlength="4" minlength="4"
+      [(ngModel)]="model.Password" #password="ngModel"/>
+          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+              <div [hidden]="!password.hasError('required')">  password is required</div>
+          </div>
 
+<<<<<<< HEAD
       
             <div class="example-container">
                 <mat-form-field>
@@ -81,11 +148,82 @@
                 client
               </mat-option>
             </mat-select>
+=======
+      </div> -->
+      
+          <mat-form-field>
+            <input matInput name="סיסמה" [(ngModel)]="model.Password" required #password="ngModel" placeholder="סיסמה" maxlength="4" minlength="4" [type]="hide ? 'password' : 'password'">
+            <mat-error [hidden]="password.pristine">
+            <div [hidden]="!password.hasError('required')">שדה חובה</div>
+            <div [hidden]="!password.hasError('minlength')">חייב להיות 4 תוים</div>
+            <div></div>
+          </mat-error>
+          </mat-form-field>
+  
+      
+
+      <!-- <div class="form-group">
+              <label for="phone">Phone</label>
+              <input placeholder="phone" class="form-control" id="phone" pattern="[0-9]+" name="phone" type="phone" required   maxlength="10" minlength="9"
+          [(ngModel)]="model.PhoneNumber" #phone="ngModel"/>
+              <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                  <div [hidden]="!phone.hasError('required')"> phone is required</div>
+                  <div [hidden]="!phone.hasError('maxlength')">phone should be maximum 10 digits</div>
+                  <div [hidden]="!phone.hasError('pattern')">Only number allowed</div>
+              </div>
+  
+          </div> -->
+              <mat-form-field>
+                <input matInput placeholder="פלאפון" name="phone" type="text" required maxlength="10" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.PhoneNumber" #phone="ngModel">
+                <mat-error [hidden]="phone.valid || phone.pristine">
+                  <div [hidden]="!phone.hasError('required')">שדה חובה</div>
+                   <div [hidden]="!phone.hasError('pattern')">ניתן להקיש מספרים בלבד</div>
+                 
+                  <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
+                </mat-error>
+              </mat-form-field>
+          
+          <!-- <div class="form-group">
+              <label for="IdAppliance">Id Appliance</label>
+              <input class="form-control" name="IdAppliance" type="text" placeholder="Id Appliance"  [(ngModel)]="model.IdAppliance"  #IdAppliance="ngModel"/>
+              <div [hidden]="IdAppliance.valid || IdAppliance.pristine" class="alert alert-danger">
+                  <div [hidden]="!IdAppliance.hasError('required')">  first name is required</div>
+              </div>
+          </div> -->
+          <!-- <div class="form-group">
+              <label for="IsAdmin">Is Admin</label>
+              <input class="form-control" name="IsAdmin" type="checkbox"  [(ngModel)]="model.IsAdmin"  #IsAdmin="ngModel"/>
+             
+              <mat-checkbox name="IsAdmin"  [(ngModel)]="model.IsAdmin"  #IsAdmin="ngModel">Is Admin</mat-checkbox>
+              </div> -->
+        
+      <!-- <div class="form-group">
+             <label for="name">Confirm Password</label>
+            <input type="password" placeholder="confirm Password" class="form-control" id="confirmPassword"
+                       required
+                       validateEqual="model.password"
+                        [(ngModel)]="model.confirmPassword" name="confirmPassword"
+                        #confirmPassword="ngModel">
+           <div [hidden]="flag!=2">   Passwords did not match</div>
+              
+          
+      </div> -->
+
+
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
      
+          <mat-select class="status" name="manager" placeholder="סטטוס"  [(ngModel)]="status" >
+            <mat-option  name="Status" value="manager">
+              מנהל
+            </mat-option>
+            <mat-option  name="Status" value=client >
+              לקוח
+            </mat-option>
+          </mat-select>
+   
 
 
-    
-        <input type="submit"  class="submit"  value="Save" [disabled]="!Registerform.form.valid">
-
-    </form>
+  
+      <input type="submit"  class="btn btn-warning"   [disabled]="!Registerform.form.valid" value="שמור">
+  </form>
 </div>

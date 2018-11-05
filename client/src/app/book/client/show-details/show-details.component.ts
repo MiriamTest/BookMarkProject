@@ -4,9 +4,11 @@ import { Lending } from 'src/app/models/lending';
 import { UserService } from 'src/app/service/user-service';
 import { HttpErrorResponse } from '@angular/common/http';
 import swal from 'sweetalert2';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
 import { TouchSequence } from 'selenium-webdriver';
 import { LendingService } from '../../../service/lending.service';
+import { CreditCardDetailsComponent } from '../../creditCard-details/creditCard-details.component';
+import { CreditCardService } from 'src/app/service/creditCard.service';
 
 @Component({
   selector: 'app-show-details',
@@ -14,23 +16,31 @@ import { LendingService } from '../../../service/lending.service';
   styleUrls: ['./show-details.component.css']
 })
 export class ShowDetailsComponent implements OnInit {
-book: Book;
-lending: Lending;
+  book: Book;
+  lending: Lending;
+  idUser: number;
 
+<<<<<<< HEAD
   constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) {
     this.book =  new Book;
     //just for try
 
+=======
+  constructor(private dialog: MatDialog, private _creditCardService: CreditCardService, private _userService: UserService, private dialogRef: MatDialogRef<ShowDetailsComponent>, private _lendingService: LendingService) {
+    this.book = new Book;
+    this.lending = new Lending;
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
     this.book.NameBook = this._lendingService.book.NameBook;
     this.book.IdBook = this._lendingService.book.IdBook;
-
-    this.lending = new Lending;
     this.lending.IdUser = Number(sessionStorage.getItem("userId"));
-    this.lending.IdBook = this.book.IdBook;
+    //  this.lending.IdBook = this._lendingService.specificBook.IdBookInLibrary;
+  this.lending.IdBook = this._lendingService.idBookInLibrary;
+    this._lendingService.newlending = this.lending;
   }
 
   ngOnInit() {
   }
+<<<<<<< HEAD
 lend() {
 this._lendingService.lending(this.lending).subscribe(u => {
    if (u) {
@@ -40,4 +50,33 @@ this._lendingService.lending(this.lending).subscribe(u => {
     }
    , (error: HttpErrorResponse) => alert("mistake!!!!"));
  }
+=======
+  lend() {
+    this.idUser = Number(sessionStorage.getItem("userId"));
+    this._creditCardService.checkPayment(this.idUser).subscribe(res => {
+      if (res) {
+        this.makeLend();
+      } else {
+        this.dialogRef.close();
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        this.dialog.open(CreditCardDetailsComponent, dialogConfig);
+      }
+    }
+    );
+  }
+  makeLend() {
+    this.dialogRef.close();
+    this._lendingService.lending(this.lending).subscribe(u => {
+      if (u !== -1) {
+        swal("ההשאלה בוצעה בהצלחה", " ראו פרטים נוספים במייל" + u, "success");
+      } else {
+        swal("אופס משהו השתבש...", "פנו למרכז התמיכה בטלפון מס1800345555:", "error");
+      }
+
+    }
+      , (error: HttpErrorResponse) => alert("mistake!!!!"));
+  }
+>>>>>>> f5b93f6a18ffc2fa80de3dcee58c3361fdc7bc4b
 }

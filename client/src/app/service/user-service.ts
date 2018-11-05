@@ -20,7 +20,7 @@ export class UserService {
     constructor(private http: Http , private httpClient: HttpClient) { }
 
     addUser(newUser: User) {
-        return this.http.post("http://localhost:52339/api/user/addUsers", newUser).pipe(map(response => response.json()));
+        return this.http.post("http://localhost:52339/api/user/addUsers", newUser).pipe(map((response: any) => response.json()));
 
     }
 

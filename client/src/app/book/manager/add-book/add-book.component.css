@@ -15,7 +15,9 @@ input {
     border-radius: 25px;
  }
 
-  
+ .mat-form-field{
+    display: inline;
+}
   .submit
   {
   background-color: #e5b78b;

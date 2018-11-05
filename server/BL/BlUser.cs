@@ -53,7 +53,7 @@ namespace BL
       str.Append("<div><b>שלום " + user.FirstName + "</b>").Append(Environment.NewLine);
       str.Append("<p>תודה שהשתמשת בשרותי Bookmark  </p>").Append(Environment.NewLine);
       str.Append("<p> לחץ על לינק זה לבחירת סיסמא חדשה </p> ").Append(Environment.NewLine);
-      str.Append("<a href='http://localhost:5200/managment/resetPassword?user='" + user.IdUser + "'>בחירת סיסמא חדשה</a>").Append(Environment.NewLine);
+      str.Append("<a href='http://localhost:5200/managment/resetPassword/" + user.IdUser + "'>בחירת סיסמא חדשה</a>").Append(Environment.NewLine);
       str.Append("<p>נשמח לעמוד לשרותכם תמיד</p></div>").Append(Environment.NewLine);
       str.Append("<img height = '92px' src=' / images / branding / googlelogo / 2x / googlelogo_color_272x92dp.png' width='272px'  alt='Bookmark' title='Bookmark' />").Append(Environment.NewLine);
       return str.ToString();
