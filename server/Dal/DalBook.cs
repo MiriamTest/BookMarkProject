@@ -66,14 +66,6 @@ namespace Dal
       return Connect.db.BooksInLibrary.FirstOrDefault(s => s.IdBook == bookId);
     }
 
-
-    public static BooksInLibrary getSpesificBook(int IdBookInLibrary)
-    {
-      
-        var i=Connect.db.BooksInLibrary.FirstOrDefault(book => book.IdBookInLibrary == IdBookInLibrary);
-      return i;
-    }
-
     public static Books getBookObj(int bookId)
     {
       Books b= Connect.db.Books.FirstOrDefault(s => s.IdBook == bookId);
@@ -134,11 +126,9 @@ namespace Dal
                    on books.IdAuthor equals authors.IdAuthor
                     select new
                     {
-                      IdBook = books.IdBook,
-                      IdBookInLibrary=booksInLibrary.IdBookInLibrary,
-                      NameBook = books.NameBook,
+                      bookID = books.IdBook,
+                      bookName = books.NameBook,
                       library = libraries.NameLibrary,
-                      IdLibrary=libraries.IdLibrary,
                       city = cities.NameCity,
                       statuss = statusess.Status,
                       Region = regions.NameRegion,

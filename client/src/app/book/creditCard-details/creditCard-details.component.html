@@ -1,78 +1,67 @@
-<div class="body col-md-3 col-md-offset-3 login" dir="rtl">
-  <h2>פרטי כרטיס אשראי</h2>
-  <h6>* שדה חובה</h6>
-  <form name="form" (ngSubmit)="CreditCardDetailsform.form.valid&&onSubmit()" #CreditCardDetailsform="ngForm"
-    novalidate>
+<div class="body col-md-3 col-md-offset-3 login">
+  <h2>CreditCard details</h2>
+  <h6>* required field</h6>
+  <form name="form" (ngSubmit)="CreditCardDetailsform.form.valid&&onSubmit()" #CreditCardDetailsform="ngForm" novalidate>
     <div class="example-container">
       <mat-form-field>
-        <input matInput placeholder="מספר כרטיס" name="NumberOfCredit" type="text" required pattern="[0-9]+"
-          [(ngModel)]="creditCard.CardNumber" #NumberOfCredit="ngModel">
+        <input matInput placeholder="Number of credit" name="NumberOfCredit" type="text" required pattern="[0-9]+" [(ngModel)]="creditCard.CardNumber" #NumberOfCredit="ngModel">
         <div [hidden]="NumberOfCredit.valid || NumberOfCredit.pristine">
-          <div [hidden]="!NumberOfCredit.hasError('required')"> שדה חובה</div>
-          <div [hidden]="!NumberOfCredit.hasError('pattern')">ניתןלהקיש מספרים בלבד</div>
+          <div [hidden]="!NumberOfCredit.hasError('required')">  Number of credit is required</div>
+           <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div>
+           </div>
+          </mat-form-field>
+         </div>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="ID of the card owner" name="tz" type="text" required pattern="[0-9]+" maxlength="9" [(ngModel)]="creditCard.TzOwner" #tz="ngModel">
+          <div [hidden]="tz.valid || tz.pristine">
+            <!-- <div [hidden]="!tz.hasError('required')"> tz is required</div> -->
+             <div [hidden]="!tz.hasError('pattern')">Only numbers allowed</div>
         </div>
-      </mat-form-field>
+        </mat-form-field>
     </div>
     <div class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="ת.ז. של בעל הכרטיס" name="tz" type="text" required pattern="[0-9]+" maxlength="9"
-          [(ngModel)]="creditCard.TzOwner" #tz="ngModel">
-        <div [hidden]="tz.valid || tz.pristine">
-          <!-- <div [hidden]="!tz.hasError('required')"> tz is required</div> -->
-          <div [hidden]="!tz.hasError('pattern')">ניתן להקיש מספרים בלבד</div>
+        <mat-form-field>
+          <input matInput placeholder="three digits" name="threeDigits" type="text" required pattern="[0-9]+" minlength="3" maxlength="3" [(ngModel)]="creditCard.CVV" #threeDigits="ngModel">
+          <div [hidden]="threeDigits.valid || threeDigits.pristine">
+            <!-- <div [hidden]="!tz.hasError('required')"> tz is required</div> -->
+             <div [hidden]="!threeDigits.hasError('pattern')">Only numbers allowed</div>
         </div>
-      </mat-form-field>
-    </div>
-    <div class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="3 ספרות" name="threeDigits" type="text" required pattern="[0-9]+" minlength="3"
-          maxlength="3" [(ngModel)]="creditCard.CVV" #threeDigits="ngModel">
-        <div [hidden]="threeDigits.valid || threeDigits.pristine">
-          <!-- <div [hidden]="!tz.hasError('required')"> tz is required</div> -->
-          <div [hidden]="!threeDigits.hasError('pattern')">ניתן להקיש מספרים בלבד</div>
-        </div>
-      </mat-form-field>
+        </mat-form-field>
     </div>
     <!-- <div class="example-container">
       <mat-form-field>
           
         <input matInput placeholder="credit Company" name="creditCompany" type="text"  required  [(ngModel)]="creditCard.Creditcompany" #creditCompany="ngModel"> -->
-    <!-- <div [hidden]="creditCompany.valid || creditCompany.pristine">
+        <!-- <div [hidden]="creditCompany.valid || creditCompany.pristine">
           <div [hidden]="!creditCompany.hasError('required')"> creditCompany is required</div>
           
       </div> -->
-    <!-- </mat-form-field>
+      <!-- </mat-form-field>
   </div> -->
-    <!-- <mat-form-field>
+  <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" required placeholder="Validity"  name="validity" [(ngModel)]="a" #validity="ngModel">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field> -->
 
-    <!-- <label>Expiration Date</label> -->
-    <mat-form-field class="month">
-      <input matInput placeholder="ח" name="month" type="text" required pattern="[0-9]+" maxlength="2" minlength="1"
-        [(ngModel)]="month_validity" #month="ngModel">
-      <div [hidden]="month.valid || month.pristine">
-        <div [hidden]="!month.hasError('required')">שדה חובה</div>
-        <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
-      </div>
-    </mat-form-field>
-    <mat-form-field class="ש">
-      <input matInput placeholder="year" name="year" type="text" required pattern="[0-9]+" maxlength="2" minlength="2"
-        [(ngModel)]="year_validity" #year="ngModel">
-      <div [hidden]="year.valid || year.pristine">
-        <div [hidden]="!year.hasError('required')">שדה חובה</div>
-        <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
-      </div>
-    </mat-form-field>
-    <span>/</span>
-    <mat-radio-group class="example-radio-group" name="type1" [(ngModel)]="type" >
-      <mat-radio-button  class="example-radio-button" *ngFor="let t of types" [value]="t">
-        {{t}}
-      </mat-radio-button>
-    </mat-radio-group>
-    <input type="submit" class="btn btn-warning" (click)="setTimeout(dialogRef.close(),100)" value="שמור" [disabled]="!CreditCardDetailsform.form.valid">
+ <!-- <label>Expiration Date</label> -->
+      <mat-form-field class="month">
+        <input  matInput placeholder="month" name="month" type="text" required pattern="[0-9]+" maxlength="2" minlength="1" [(ngModel)]="month_validity" #month="ngModel">
+        <div [hidden]="month.valid || month.pristine">
+          <div [hidden]="!month.hasError('required')">  month is required</div>
+           <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
+           </div>
+          </mat-form-field>
+          <mat-form-field class="year">
+            <input  matInput placeholder="year" name="year" type="text" required pattern="[0-9]+" maxlength="2" minlength="2" [(ngModel)]="year_validity" #year="ngModel">
+            <div [hidden]="year.valid || year.pristine">
+              <div [hidden]="!year.hasError('required')">  year is required</div>
+               <!-- <div [hidden]="!NumberOfCredit.hasError('pattern')">Only numbers allowed</div> -->
+               </div>
+              </mat-form-field>
+<span>/</span>
+    <input type="submit"  (click)= "setTimeout(dialogRef.close(),100)" class="btn btn-primary" value="Save" [disabled]="!CreditCardDetailsform.form.valid">
 
   </form>
 </div>

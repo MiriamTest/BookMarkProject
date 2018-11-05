@@ -37,6 +37,13 @@ namespace BL
     {
 
       return DalBook.searchBook(searchObj);
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     }
     public static StatusLending getStatus(int id)
     {
@@ -54,6 +61,10 @@ namespace BL
     {
       return DalBook.deleteBook(bookId);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     public static Object getSearchObj()
     {
       return DalBook.getSearchObj();
@@ -61,10 +72,15 @@ namespace BL
     public static StatusLending[] allStatuses()
     {
       return DalBook.allStatuses();
+<<<<<<< HEAD
+=======
+        
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     }
     public static bool editBook(BooksInLibrary book)
     {
       return DalBook.editBook(book);
+<<<<<<< HEAD
 
     }
 
@@ -72,6 +88,10 @@ namespace BL
     {
       return DalBook.getSpesificBook(IdBookInLibrary);
     }
+=======
+    }
+    
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
   }
   
 }

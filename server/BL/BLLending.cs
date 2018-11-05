@@ -10,9 +10,9 @@ namespace BL
   public static class BLLending
   {
 
-    public static int addLending(Lendings lending)
+    public static bool addLending(Lendings lending)
     {
-      BooksInLibrary book = BLBook.getSpesificBook(lending.IdBook);//gettin book according to bookId
+      BooksInLibrary book = BLBook.getBook(lending.IdBook);//gettin book according to bookId
       Users user = BLUser.getUser(lending.IdUser);//gettin user according to userId
       lending.StartDate = DateTime.Now;//setting the lend date for today
       lending.EndDate = lending.StartDate.AddDays(Convert.ToDouble(book.LendingDuration));
@@ -24,26 +24,26 @@ namespace BL
         {
           Books bookObj = BLBook.getBookObj(book.IdBook);
           string mailSubject = "lending book";
-          if (BLSendinMail.SendingEmail(buildMailBodyForLending(newLending, user.FirstName, bookObj.NameBook), mailSubject, user.EMail))//sending mail
+          if (BLSendinMail.SendingEmail(buildMailBodyForLending(lending, user.FirstName, bookObj.NameBook), mailSubject, user.EMail))//sending mail
           {
-            return newLending.IdLending;
+            return true;
 
           }
           else
           {
             DalLending.deleteLending(newLending.IdLending);//if can't send email deleting the lending from the DB
-            return -1;
+            return false;
           }
         }
         else
         {
           DalLending.deleteLending(newLending.IdLending);//if can't change the status of the book(to catch) deleting the lending from the DB
-          return -1;
+          return false;
         }
       }
       else
       {
-        return -1;//if can't create the new lending deleting the lending from the DB
+        return false;//if can't create the new lending deleting the lending from the DB
       }
     }
     public static bool changeBookStatuse(int idBook, int idStatus)
@@ -73,7 +73,7 @@ namespace BL
       str.Append("<p>קוד השאלה:</p>").Append(Environment.NewLine);
       str.Append("<h3 style='color:red'>" + lending.IdLending + "</h3>").Append(Environment.NewLine);
       str.Append("<p>נשמח לעמוד לשרותכם תמיד</p></div>").Append(Environment.NewLine);
-      str.Append("<img src='https://preview.ibb.co/ftVXdL/logo.jpg' alt='' width='90' height='100' data-load='full'>").Append(Environment.NewLine) ;
+      str.Append("<img height = '92px' src=' / images / branding / googlelogo / 2x / googlelogo_color_272x92dp.png' width='272px'  alt='Bookmark' title='Bookmark' />").Append(Environment.NewLine) ;
       return str.ToString();
     }
 

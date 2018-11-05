@@ -41,12 +41,10 @@ searchBook(book:number,city:number):any{
 
 }
 
-allCities(): any{
-    // tslint:disable-next-line:no-debugger
+allCities():any{
     debugger;
-    if(this.city==null) {
+    if(this.city==null)
     return this.httpClient.get("http://localhost:52339/api/Library/allCities").pipe(map((response=>response)));
-    }
     else
     return this.city;
 }

@@ -34,12 +34,5 @@ namespace API.Controllers
       return BLPayment.deletePayment(idPayment);
 
     }
-    [System.Web.Http.HttpGet]
-    [System.Web.Http.Route("api/Payment/checkPayment/{idUser}")]
-    public bool checkPayment(int idUser)
-    {
-      return BLPayment.checkPayment(idUser);
-
-    }
   }
 }

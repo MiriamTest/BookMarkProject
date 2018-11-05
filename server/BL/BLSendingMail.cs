@@ -25,11 +25,11 @@ namespace BL
         mail.Subject = mailSubject;
         mail.IsBodyHtml = true;
         mail.Body = mailBody;
-        mail.BodyEncoding = System.Text.Encoding.UTF8;
         SmtpServer.UseDefaultCredentials = true;
         SmtpServer.Port = 587;
         SmtpServer.Credentials = new NetworkCredential("libbookmark@gmail.com", "bookLib123");
         SmtpServer.EnableSsl = true;
+
         SmtpServer.Send(mail);
         return true;
       }

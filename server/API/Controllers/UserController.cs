@@ -32,7 +32,6 @@ namespace API.Controllers
 
       try
       {
-        mail = "tov9295@gmail.com";
         BLUser.checkForResetPassword(mail);
         return true;
       }

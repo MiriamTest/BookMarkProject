@@ -1,48 +1,63 @@
-.body{
-    margin-top: 5%;
-    margin-left: 60%;
-    padding: 4vw;
-    background-color: #ffffffc2;
-    border:solid 4px ;
-    border-bottom-color: #f74e25;
-    border-left-color:#f74e25;
-    border-right-color: #f00e62;
-    border-top-color: #f00e62;
-}
 /* input {
-    color: black;
+    color: #ffffff;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     border: solid 2px #e5b78b;
     border-radius: 25px;
  } */
-
- /* input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
-  } */
-
-  .mat-form-field-infix{
-      width: 300px !important;
-  }
-
- input:focus{
-     background-color: transparent;
-     color: black;
- }
- .btn{
-    background-color: #ee1067 !important;
-    width: 10vw !important;
-    height: 6vh !important;
-
+ .body{
+    margin-left: 9vw;
+    margin-top: 6vh;
+    padding: 2vw;
+    background-image: url("../../images/pop.jpg");
+    background-repeat: round;
 }
- h2{
-     color:black;
+ .submit
+ {
+ background-color: #e5b78b;
+ width: 101%;
+ color: white;
  }
- .mat-form-field{
-     display: inline;
+ /* input:focus{
+     background-color: transparent;
+     color: white;
+ } */
+ .alert-danger{
+     color: red;
+     background-color: transparent;
+     border-color: transparent;
+     /* margin-left: 6vw;
+     margin-top: -1.3vh; */
  }
- .status{
-     text-align: right;
-     margin-bottom: 5%;
+ input:-webkit-autofill{
+     color: blueviolet;
  }
+ label{
+     float: left;
+ }
+ .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  h6{
+      color:red;
+  }
+  h2{
+      color:black;
+  }
+ 
+ 

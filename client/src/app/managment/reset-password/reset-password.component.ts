@@ -15,12 +15,11 @@ import { FormControl } from '@angular/forms';
 })
 export class ResetPasswordComponent implements OnInit {
   userId: number;
-  passwordTO: "";
-  passwordConfirmTO: "";
-  flag: Boolean;
+  password2: string;
   signUpForm: FormGroup;
   form: FormGroup;
   constructor(private _userService: UserService, private router: Router, private _route: ActivatedRoute, public fb: FormBuilder) {
+<<<<<<< HEAD
     _route.params.subscribe(params => this.userId = +params['userId']);
     this.flag = true;
 //     const password = new FormControl('', Validators.required);
@@ -31,6 +30,16 @@ export class ResetPasswordComponent implements OnInit {
 //   certainPassword: certainPassword,
 //   flag : Boolean
 // });
+=======
+    _route.params.subscribe(params => this.userId = params['userId']);
+//     const password = new FormControl('', Validators.required);
+// const certainPassword = new FormControl('', CustomValidators.equalTo(password));
+
+this.form = new FormGroup({
+  // password: password,
+  // certainPassword: certainPassword
+});
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     // this.signUpForm = this.fb.group({
     //   password: [''],
     //   repeatPassword:  ['']
@@ -40,16 +49,13 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {
 
   }
-  check() {
-   if ( this.passwordTO === this.passwordConfirmTO) {
-     this.flag = true;
-} else {
-this.flag = false;
-}
-  }
   onSubmit() {
   //  console.log(sha256('tovy'));
+<<<<<<< HEAD
     this._userService.restPassword(this.userId, this.passwordTO).subscribe(u => {
+=======
+    this._userService.restPassword(this.userId, this.password2).subscribe(u => {
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
       if (u) {
         swal('Success', 'You have successfully registered', 'success');
         this.router.navigate(['./managment/Login']);

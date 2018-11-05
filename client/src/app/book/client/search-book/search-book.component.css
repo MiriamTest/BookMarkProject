@@ -1,9 +1,9 @@
 ul{
-  float: left;
+    float: left;
 }
 table {
-width: 100%;
-background: white;
+  width: 100%;
+  background: white;
 }
 th{
   padding-right: 5%;
@@ -258,6 +258,7 @@ th{
     background-color: #7cced8;
     transition: 0s;
     color: white; }
+<<<<<<< HEAD
 
 #businesses-component .btn-grids {
   display: grid;
@@ -619,3 +620,5 @@ body {
     transform: rotate(360deg);
   }
 }
+=======
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject

@@ -150,6 +150,7 @@ namespace API.Controllers
       }
 
     }
+<<<<<<< HEAD
 
     [System.Web.Http.HttpGet]
     [System.Web.Http.Route("api/Book/getSpesificBook/{IdBookInLibrary}")]
@@ -158,6 +159,8 @@ namespace API.Controllers
       return BLBook.getSpesificBook(IdBookInLibrary);
 
     }
+=======
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
 
   }
 }

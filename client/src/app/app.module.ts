@@ -25,7 +25,11 @@ import { SearchBookComponent } from './book/client/search-book/search-book.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatCheckboxModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
+<<<<<<< HEAD
 import { MatDialogModule, MatRadioModule } from "@angular/material";
+=======
+import { MatDialogModule } from "@angular/material";
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material";
 import { CreditCardDetailsComponent } from './book/creditCard-details/creditCard-details.component';
@@ -50,6 +54,10 @@ import { ClientInstructionsComponent } from './book/client/client-instructions/c
 import { ManagerInstructionsComponent } from './book/manager/manager-instructions/manager-instructions.component';
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
 const route: Routes = [
   {
     path: 'managment', component: ManagmentComponent, children:
@@ -57,6 +65,10 @@ const route: Routes = [
         { path: 'Login', component: LoginComponent },
         { path: 'Register', component: RegisterComponent },
         { path: 'resetPassword/:IdUser', component: ResetPasswordComponent }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
       ],
   },
   {
@@ -122,7 +134,6 @@ const route: Routes = [
 
   ],
   imports: [
-    MatRadioModule,
     // EqualTextValidator,
     CommonModule,
     BrowserModule,
@@ -142,7 +153,6 @@ const route: Routes = [
     FilterPipeModule
   ],
   exports: [
-    MatRadioModule,
     MatCheckboxModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -154,8 +164,13 @@ const route: Routes = [
     ChartsModule,
     MatPaginatorModule,
     MatTableModule,
+<<<<<<< HEAD
     FilterPipeModule
   ],
+=======
+    FilterPipeModule,
+     ],
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
   providers: [UserService, LibraryService, BookService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]

@@ -18,9 +18,6 @@ input {
      background-color: transparent;
      color: white;
  }
- .mat-form-field{
-    display: inline;
-}
  .body{
     background-color: #ffffffc2;
     border:solid 4px ;

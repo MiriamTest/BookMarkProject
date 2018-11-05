@@ -116,10 +116,14 @@ export class SearchLibraryComponent implements OnInit {
     // });
     this._LibraryService.getLibrarySearch().subscribe(res => {
       this.libraries = res;
+<<<<<<< HEAD
       this.libraries.forEach(library => this.booksList.push({ libraries: library }));
       // tslint:disable-next-line:no-debugger
+=======
+      this.libraries.forEach(library => this.booksList.push({ Libraries: library }));
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
       debugger;
-    });
+    })
 
   }
 
@@ -169,7 +173,6 @@ export class SearchLibraryComponent implements OnInit {
   }
   showDetails(data: any) {
     this._lendingService.book = data.books;
-    // tslint:disable-next-line:no-debugger
     debugger;
     this.openDialog();
   }

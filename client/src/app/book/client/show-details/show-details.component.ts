@@ -4,11 +4,9 @@ import { Lending } from 'src/app/models/lending';
 import { UserService } from 'src/app/service/user-service';
 import { HttpErrorResponse } from '@angular/common/http';
 import swal from 'sweetalert2';
-import { MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { TouchSequence } from 'selenium-webdriver';
 import { LendingService } from '../../../service/lending.service';
-import { CreditCardDetailsComponent } from '../../creditCard-details/creditCard-details.component';
-import { CreditCardService } from 'src/app/service/creditCard.service';
 
 @Component({
   selector: 'app-show-details',
@@ -16,23 +14,30 @@ import { CreditCardService } from 'src/app/service/creditCard.service';
   styleUrls: ['./show-details.component.css']
 })
 export class ShowDetailsComponent implements OnInit {
-  book: Book;
-  lending: Lending;
-  idUser: number;
+book: Book;
+lending: Lending;
 
+<<<<<<< HEAD
   constructor(private dialog: MatDialog, private _creditCardService: CreditCardService, private _userService: UserService, private dialogRef: MatDialogRef<ShowDetailsComponent>, private _lendingService: LendingService) {
     this.book = new Book;
     this.lending = new Lending;
+=======
+  constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) {
+    this.book =  new Book;
+    //just for try
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     this.book.NameBook = this._lendingService.book.NameBook;
     this.book.IdBook = this._lendingService.book.IdBook;
+
+    this.lending = new Lending;
     this.lending.IdUser = Number(sessionStorage.getItem("userId"));
-    //  this.lending.IdBook = this._lendingService.specificBook.IdBookInLibrary;
-  this.lending.IdBook = this._lendingService.idBookInLibrary;
-    this._lendingService.newlending = this.lending;
+    this.lending.IdBook = this.book.IdBook;
   }
 
   ngOnInit() {
   }
+<<<<<<< HEAD
   lend() {
     this.idUser = Number(sessionStorage.getItem("userId"));
     this._creditCardService.checkPayment(this.idUser).subscribe(res => {
@@ -60,4 +65,15 @@ export class ShowDetailsComponent implements OnInit {
     }
       , (error: HttpErrorResponse) => alert("mistake!!!!"));
   }
+=======
+lend() {
+this._lendingService.lending(this.lending).subscribe(u => {
+   if (u) {
+      swal("ההשאלה בוצעה בהצלחה", " ראו פרטים נוספים במייל", "success")
+   }
+
+    }
+   , (error: HttpErrorResponse) => alert("mistake!!!!"));
+ }
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
 }

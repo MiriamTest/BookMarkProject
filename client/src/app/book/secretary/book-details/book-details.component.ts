@@ -4,7 +4,6 @@ import { MatDialogRef } from '@angular/material';
 import swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LendingService } from 'src/app/service/lending.service';
-import { SearchObj } from 'src/app/models/search-obj';
 
 @Component({
   selector: 'app-book-details',
@@ -12,34 +11,30 @@ import { SearchObj } from 'src/app/models/search-obj';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  book: SearchObj;
-  message: string;
-  check: any;
-  constructor(public _lendingService: LendingService, private dialogRef: MatDialogRef<BookDetailsComponent>) {
-    this.book = new SearchObj;
-    this.book = this._lendingService.book;
-    // tslint:disable-next-line:no-debugger
+book:Book;
+message:string;
+check:any;
+  constructor(public _lendingService:LendingService,private dialogRef: MatDialogRef<BookDetailsComponent>) {
+  this.book=new Book;
+    this.book=this._lendingService.book;
     debugger;
-  }
+   }
 
   ngOnInit() {
-    this.message = this._lendingService.message;
-    this.check = this._lendingService.valid;
+    this.message=this._lendingService.message;
+    this.check=this._lendingService.valid;
   }
-  changeStatus() {
-    // tslint:disable-next-line:no-debugger
-    debugger;
+  changeStatus()
+{debugger;
+  
+  this._lendingService.changeStatus(parseInt(sessionStorage.getItem("idLending")),1).subscribe(b=>{
+    if(b)
+    swal("Success","You have successfully registered","success");
+    else
+    swal("Error","You have successfully registered","error");
+  },(error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
+  );
 
-    this._lendingService.changeStatus(Number(sessionStorage.getItem("idLending")), 1).subscribe(b => {
-      this.dialogRef.close();
-      if (b) {
-        swal("Success", "You have successfully registered", "success");
-     } else {
-        swal("Error", "You have successfully registered", "error");
-      }
-    }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText)
-    );
-
-  }
+}
 
 }

@@ -14,6 +14,7 @@ import { Payment } from '../models/payment';
   providedIn: 'root'
 })
 export class CreditCardService {
+<<<<<<< HEAD
   checkPayment(idUser: number): any {
     return this.httpClient.get("http://localhost:52339/api/Payment/checkPayment/" + idUser).pipe(map((response => response)));
   }
@@ -25,12 +26,25 @@ export class CreditCardService {
 }
 addCreditCard(newCreditCard: CreditCard): Observable<any> {
   return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard", newCreditCard).pipe(map((response: any) => response.json()));
+=======
+  constructor(private http: Http , private httpClient: HttpClient) { }
+  addPayment(newPayment: Payment): Observable<any>  {
+    return this.http.post("http://localhost:52339/api/Payment/addPayment", newPayment).pipe(map((response: any) => response.json()));
+
+}
+addCreditCard(newCreditCard:CreditCard):Observable<any>{
+  return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard",newCreditCard).pipe(map((response: any) => response.json()));
+
+  
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
 }
 
-deletePayment(idPayment: number): any {
-  return this.httpClient.get("http://localhost:52339/api/Payment/deletePayment/" + idPayment).pipe(map((response => response)));
+deletePayment(idPayment:number):any{
+  return this.httpClient.get("http://localhost:52339/api/Payment/deletePayment/"+idPayment).pipe(map((response=>response)));
+  
 }
-deleteCreditCard(idCreditCard: number): any {
-  return this.httpClient.get("http://localhost:52339/api/CreditCard/deleteCreditCard/" + idCreditCard).pipe(map((response => response)));
+deleteCreditCard(idCreditCard:number):any{
+  
+  return this.httpClient.get("http://localhost:52339/api/CreditCard/deleteCreditCard/"+idCreditCard).pipe(map((response=>response)));
 }
 }

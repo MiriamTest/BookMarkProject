@@ -46,7 +46,7 @@ namespace Dal
     }
     public static Libraries getLibraryAccordingToBook(int bookId)
     {
-      var bookInLibrary = Connect.db.BooksInLibrary.FirstOrDefault(l => l.IdBookInLibrary == bookId);
+      var bookInLibrary = Connect.db.BooksInLibrary.FirstOrDefault(l => l.IdBook == bookId);
       var library = Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == bookInLibrary.IdLibrary);
       return library;
     }
@@ -67,7 +67,10 @@ namespace Dal
       Connect.db.SaveChanges();
       return true;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
     public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
     {
       return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();

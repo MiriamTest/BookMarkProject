@@ -1,6 +1,6 @@
-/* .body{
+.body{
     background-color: white;
-    /* margin-left: 10vw; 
+    /* margin-left: 10vw; */
     padding: 4vw;
 }
 h2{
@@ -17,38 +17,3 @@ h6{
     width: 55px;
     float: right;
 }
-.mat-form-field{
-    display: inline;
-}
-.body{
-    padding: 4vw;
-    background-color: #ffffffc2;
-    border:solid 4px ;
-    border-bottom-color: #f74e25;
-    border-left-color:#f74e25;
-    border-right-color: #f00e62;
-    border-top-color: #f00e62;
-    margin-top: 5%;
-    margin-left: 60%;
-}
-.btn{
-    background-color: #ee1067 !important;
-    width: 10vw !important;
-    height: 6vh !important;
-
-}
-.mat-form-field{
-    display: inline;
-} */
-example-radio-group {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  
-  .example-radio-button {
-    margin: 5px;
-  }
-  
-  .example-selected-value {
-    margin: 15px 0;
-  }

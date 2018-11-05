@@ -1,16 +1,5 @@
-.body{
-    margin-top: 5%;
-    margin-left: 60%;
-    padding: 4vw;
-    background-color: #ffffffc2;
-    border:solid 4px ;
-    border-bottom-color: #f74e25;
-    border-left-color:#f74e25;
-    border-right-color: #f00e62;
-    border-top-color: #f00e62;
-}
 /* input {
-    color: black;
+    color: #ffffff;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -18,6 +7,7 @@
     border-radius: 25px;
  } */
 
+<<<<<<< HEAD
 
  /* input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
@@ -34,11 +24,14 @@ a{
   .mat-form-field{
     display: inline;
 }
+=======
+
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
   .submit
   {
   background-color: #e5b78b;
-  width: 101%;
-  color: black;
+  width: 15%;
+  color: white;
   }
   .body{
     background-color: white;
@@ -47,6 +40,7 @@ a{
     padding: 2vw;
     border: solid 2px black;
 }
+<<<<<<< HEAD
  input:focus{
      background-color: transparent;
      color: black;
@@ -54,3 +48,5 @@ a{
  h2{
      color:black;
  }
+=======
+>>>>>>> parent of 4486ca7... Merge branch 'master' of https://github.com/MiriamTest/BookMarkProject
