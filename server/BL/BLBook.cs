@@ -35,8 +35,17 @@ namespace BL
     }
     public static BooksInLibrary[] searchBook(Dal.Model.SearchObj searchObj)
     {
+<<<<<<< HEAD
 
       return DalBook.searchBook(searchObj);
+=======
+
+      return DalBook.searchBook(searchObj);
+
+
+
+
+>>>>>>> 6be3c5a6e78d693b154a47589c358a740004e3e6
     }
     public static StatusLending getStatus(int id)
     {
@@ -54,7 +63,11 @@ namespace BL
     {
       return DalBook.deleteBook(bookId);
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 6be3c5a6e78d693b154a47589c358a740004e3e6
     public static Object getSearchObj()
     {
       return DalBook.getSearchObj();
@@ -62,11 +75,16 @@ namespace BL
     public static StatusLending[] allStatuses()
     {
       return DalBook.allStatuses();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 6be3c5a6e78d693b154a47589c358a740004e3e6
     }
     public static bool editBook(BooksInLibrary book)
     {
       return DalBook.editBook(book);
+<<<<<<< HEAD
 
     }
 
@@ -74,5 +92,11 @@ namespace BL
     {
       return DalBook.getSpesificBook(IdBookInLibrary);
     }
+=======
+    }
+=======
+   
+>>>>>>> 9da0ddb7cd1774f8683283bb539ca529211fd1c9
+>>>>>>> 6be3c5a6e78d693b154a47589c358a740004e3e6
   }
 }
