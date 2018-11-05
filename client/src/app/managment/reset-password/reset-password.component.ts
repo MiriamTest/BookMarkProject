@@ -15,18 +15,22 @@ import { sha256, sha224 } from 'js-sha256';
 })
 export class ResetPasswordComponent implements OnInit {
   userId: number;
-  password2: string;
+  passwordTO: "";
+  passwordConfirmTO: "";
+  flag: Boolean;
   signUpForm: FormGroup;
   form: FormGroup;
   constructor(private _userService: UserService, private router: Router, private _route: ActivatedRoute, public fb: FormBuilder) {
-    _route.params.subscribe(params => this.userId = params['userId']);
-    const password = new FormControl('', Validators.required);
-const certainPassword = new FormControl('', CustomValidators.equalTo(password));
+    _route.params.subscribe(params => this.userId = +params['userId']);
+    this.flag = true;
+//     const password = new FormControl('', Validators.required);
+// const certainPassword = new FormControl('', CustomValidators.equalTo(password));
 
-this.form = new FormGroup({
-  password: password,
-  certainPassword: certainPassword
-});
+// this.form = new FormGroup({
+//   password: password,
+//   certainPassword: certainPassword,
+//   flag : Boolean
+// });
     // this.signUpForm = this.fb.group({
     //   password: [''],
     //   repeatPassword:  ['']
@@ -36,9 +40,16 @@ this.form = new FormGroup({
   ngOnInit() {
 
   }
+  check() {
+   if ( this.passwordTO === this.passwordConfirmTO) {
+     this.flag = true;
+} else {
+this.flag = false;
+}
+  }
   onSubmit() {
    console.log(sha256('tovy'));
-    this._userService.restPassword(this.userId, this.password2).subscribe(u => {
+    this._userService.restPassword(this.userId, this.passwordTO).subscribe(u => {
       if (u) {
         swal('Success', 'You have successfully registered', 'success');
         this.router.navigate(['./managment/Login']);

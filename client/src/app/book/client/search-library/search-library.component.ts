@@ -117,8 +117,9 @@ export class SearchLibraryComponent implements OnInit {
     this._LibraryService.getLibrarySearch().subscribe(res => {
       this.libraries = res;
       this.libraries.forEach(library => this.booksList.push({ libraries: library }));
+      // tslint:disable-next-line:no-debugger
       debugger;
-    })
+    });
 
   }
 
@@ -168,6 +169,7 @@ export class SearchLibraryComponent implements OnInit {
   }
   showDetails(data: any) {
     this._lendingService.book = data.books;
+    // tslint:disable-next-line:no-debugger
     debugger;
     this.openDialog();
   }

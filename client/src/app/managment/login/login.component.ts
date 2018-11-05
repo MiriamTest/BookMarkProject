@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
   checkForReset() {
     sha256("tovy");
     this._userService.checkForRestPassword(this.model.EMail).subscribe(u => {
-      if (u) { }
+      if (u) {
+        swal("אימות חשבון", "ראו במייל פרטים נוספים", "info");
+      }
     }, (error: HttpErrorResponse) => alert("mistake!!!!"));
   }
   onSubmit() {

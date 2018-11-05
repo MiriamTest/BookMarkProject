@@ -46,7 +46,7 @@ namespace Dal
     }
     public static Libraries getLibraryAccordingToBook(int bookId)
     {
-      var bookInLibrary = Connect.db.BooksInLibrary.FirstOrDefault(l => l.IdBook == bookId);
+      var bookInLibrary = Connect.db.BooksInLibrary.FirstOrDefault(l => l.IdBookInLibrary == bookId);
       var library = Connect.db.Libraries.FirstOrDefault(l => l.IdLibrary == bookInLibrary.IdLibrary);
       return library;
     }
@@ -58,27 +58,14 @@ namespace Dal
       foreach (var item in bookInLibrary)
       {
         Connect.db.BooksInLibrary.Remove(item);
-<<<<<<< HEAD
-        Connect.db.BooksInLibrary.Remove(item);
-=======
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
       }
-      var secratery = Connect.db.SecrateryInLibrary.Where(s => s.IdLibrary == library.IdLibrary);
+      var secratery = Connect.db.SecretaryInLibrary.Where(s => s.IdLibrary == library.IdLibrary);
       foreach (var item in secratery)
 
       Connect.db.SaveChanges();
       return true;
     }
-<<<<<<< HEAD
- 
-    public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
-  {
-    return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();
-  }
 
-
-  }
-=======
     public static BooksInLibrary[] getBooksInLibrary(int idLibrary)
     {
       return Connect.db.BooksInLibrary.Where(b => b.IdLibrary == idLibrary).ToArray();
@@ -122,8 +109,6 @@ namespace Dal
       {
         return false;
       }
-
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
     }
 
 
