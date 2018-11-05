@@ -3,14 +3,7 @@
     <h2 class="login-header">Register</h2>
     <h6>* required field</h6>
     <form name="form" (ngSubmit)="Registerform.form.valid&&onSubmit()" #Registerform="ngForm" novalidate>
-            <!-- <div class="form-group">
-                    <label for="Tz">Tz</label>
-                    <input class="form-control" name="Tz" type="text" placeholder="Tz" required maxlength="9" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.Tz"  #Tz="ngModel"/>
-                    <div [hidden]="Tz.valid || Tz.pristine" class="alert alert-danger">
-                        <div [hidden]="!Tz.hasError('required')">  Tz required</div>
-                        <div [hidden]="!Tz.hasError('pattern')">Only number allowed</div>
-                        <!-- <div [hidden]="!password.hasError('maxlength')">Tz should be maximum 9 digits</div>
-                        <div [hidden]="!password.hasError('minlength')">Tz should be 9 digits</div> -->
+
                     
               
                 <div class="example-container">
@@ -19,7 +12,6 @@
                       <mat-error [hidden]="tz.valid || tz.pristine">
                         <div [hidden]="!tz.hasError('required')">  tz is required</div>
                          <div [hidden]="!tz.hasError('pattern')">Only numbers allowed</div>
-                        <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
                       </mat-error>
                     </mat-form-field>
                 </div>
@@ -41,15 +33,7 @@
                       </mat-error>
                     </mat-form-field>
                 </div>
-        <!-- <div class="form-group">
-            <label for="Email">Email</label>
-            <input placeholder="eMail"class="form-control" name="Email" type="text" required	pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"   [(ngModel)]="model.EMail" #email="ngModel" />
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-                <div [hidden]="!email.hasError('required')">  eMail is required</div>
-                 <div [hidden]="!email.hasError('pattern')"> Email format should be<small><b>joe@abc.com</b></small></div>
-        </div>
-      
-    </div> -->
+     
     <div class="example-container">
             <mat-form-field>
               <input matInput placeholder="eMail" [(ngModel)]="model.EMail" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" required>
@@ -60,15 +44,7 @@
             </mat-form-field>
           </div>
 
-        <!-- <div class="form-group">
-            <label for="password">Password</label>
-            <input placeholder="password" class="form-control" id="password" name="password" type="password" required   maxlength="4" minlength="4"
-        [(ngModel)]="model.Password" #password="ngModel"/>
-            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-                <div [hidden]="!password.hasError('required')">  password is required</div>
-            </div>
-
-        </div> -->
+     
         <div class="example-container">
             <mat-form-field>
               <input matInput name="password" [(ngModel)]="model.Password" required #password="ngModel" placeholder="password" maxlength="4" minlength="4" [type]="hide ? 'password' : 'password'">
@@ -81,17 +57,7 @@
         </div>
         
 
-        <!-- <div class="form-group">
-                <label for="phone">Phone</label>
-                <input placeholder="phone" class="form-control" id="phone" pattern="[0-9]+" name="phone" type="phone" required   maxlength="10" minlength="9"
-            [(ngModel)]="model.PhoneNumber" #phone="ngModel"/>
-                <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-                    <div [hidden]="!phone.hasError('required')"> phone is required</div>
-                    <div [hidden]="!phone.hasError('maxlength')">phone should be maximum 10 digits</div>
-                    <div [hidden]="!phone.hasError('pattern')">Only number allowed</div>
-                </div>
-    
-            </div> -->
+      
             <div class="example-container">
                 <mat-form-field>
                   <input matInput placeholder="Phone" name="phone" type="text" required maxlength="10" minlength="9"  pattern="[0-9]+" [(ngModel)]="model.PhoneNumber" #phone="ngModel">
@@ -103,45 +69,11 @@
                   </mat-error>
                 </mat-form-field>
             </div>
-            <!-- <div class="form-group">
-                <label for="IdAppliance">Id Appliance</label>
-                <input class="form-control" name="IdAppliance" type="text" placeholder="Id Appliance"  [(ngModel)]="model.IdAppliance"  #IdAppliance="ngModel"/>
-                <div [hidden]="IdAppliance.valid || IdAppliance.pristine" class="alert alert-danger">
-                    <div [hidden]="!IdAppliance.hasError('required')">  first name is required</div>
-                </div>
-            </div> -->
-            <div class="example-container">
-                <mat-form-field>
-                  <input matInput placeholder="IdAppliance" name="idAppliance" type="text" required   [(ngModel)]="model.IdAppliance" #idAppliance="ngModel">
-                  <mat-error [hidden]="idAppliance.valid || idAppliance.pristine">
-                    <div [hidden]="!idAppliance.hasError('required')">  idAppliance is required</div>
-                   
-                    <!-- <div [hidden]="!tz.hasError('minlength')">Tz should be 9 digits</div>  -->
-                </mat-error>
-                </mat-form-field>
-            </div>
-            <!-- <div class="form-group">
-                <label for="IsAdmin">Is Admin</label>
-                <input class="form-control" name="IsAdmin" type="checkbox"  [(ngModel)]="model.IsAdmin"  #IsAdmin="ngModel"/>
-               
-                <mat-checkbox name="IsAdmin"  [(ngModel)]="model.IsAdmin"  #IsAdmin="ngModel">Is Admin</mat-checkbox>
-                </div> -->
-          
-     	<!-- <div class="form-group">
-           	   <label for="name">Confirm Password</label>
-              <input type="password" placeholder="confirm Password" class="form-control" id="confirmPassword"
-                         required
-                         validateEqual="model.password"
-                          [(ngModel)]="model.confirmPassword" name="confirmPassword"
-                          #confirmPassword="ngModel">
-             <div [hidden]="flag!=2">   Passwords did not match</div>
-                
-            
-        </div> -->
+
 
 
        
-            <mat-select name="manager" placeholder="status" [(ngModel)]="Ismanager" >
+            <mat-select name="manager" placeholder="status" [(ngModel)]="status" >
               <mat-option  name="Status" value=manager>
                 manager
               </mat-option>

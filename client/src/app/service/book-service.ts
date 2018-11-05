@@ -66,7 +66,7 @@ allStatuses(): any {
 }
 editBook(b: BookInLibrary): Observable<any>  {
     debugger;
-    return this.http.post("http://localhost:52339/api/Book/editBook", b).pipe(map((response: any) => response.json()));
+    return this.httpClient.post("http://localhost:52339/api/Book/editBook", b).pipe(map((response: any) => response.json()));
 
 }
 }

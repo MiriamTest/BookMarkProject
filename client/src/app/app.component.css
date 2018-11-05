@@ -1,15 +1,13 @@
-body{
-  
-}
+
 .body{
-    background-image: url("src/app/images/bookBackGround.jpg");
+    background-image: url("src/app/images/treeBackground.jpg");
     background-repeat: round;
       width: 97vw;
      height: 115vh;
-     color:#c4716f;
+     color:#f74e25;
    }
    a a:hover{
-     color:#c4716f !important;
+     color:#f74e25 !important;
    }
    h1{
      color:#893739;
@@ -17,4 +15,73 @@ body{
    }
   p{
     float: left;
+  }
+  body {
+    margin: 0 auto;
+  }
+
+  hr {
+    margin: 0 auto;
+    border: 2px solid #f74e25;
+  }
+
+  #nav {
+    padding-bottom: 60px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+    border-bottom: 10px solid #f74e25;
+    border-top: 2px solid #f74e25;
+    transition: all 0.2s ease;
+  }
+
+  #nav h1 {
+    margin: 0 auto;
+    transition: all 0.2s ease;
+  }
+
+  #nav .logo {
+    font-family: sans-serif;
+    float: left;
+    padding: 13px;
+  }
+
+  #nav a {
+    float: right;
+    text-decoration: none;
+    color: #f74e25;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 24px;
+    font-family: sans-serif;
+    transition: all 0.2s ease;
+    border-bottom: 0px solid #f74e25;
+    border-top: 0px solid #f74e25;
+    border-left: 0px solid #f74e25;
+    border-right: 0px solid #f74e25;
+  }
+
+  #nav a:hover {
+    border-top: 10px solid #f74e25;
+    border-left: 2px solid #f74e25;
+    border-right: 2px solid #f74e25;
+    bottom: -4px;
+    padding-top: 17px;
+    padding-bottom: 13px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 24px;
+  }
+
+  #nav a:active {
+    background: #f74e25;
+    color: white;
+    bottom: 0px;
+  }
+  #nav h1:hover {
+    font-size: 35px;
+  }
+  #nav:hover{
   }

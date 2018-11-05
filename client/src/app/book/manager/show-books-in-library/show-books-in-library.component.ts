@@ -16,7 +16,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ShowBooksInLibraryComponent implements OnInit {
 books:BookInLibrary;
 
-  constructor(private _libraryService:LibraryService, private _bookSerice:BookService) { }
+  constructor(private _libraryService:LibraryService, private _bookSerice:BookService) {
+    debugger;
+   }
 
   ngOnInit() {
   

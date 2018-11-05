@@ -122,15 +122,19 @@ namespace Dal
                     on cities.IdRegion equals regions.IdRegion
                     join categories in Connect.db.Categories.ToList()
                     on books.category equals categories.IdCategory
+                   join authors in Connect.db.Authors.ToList()
+                   on books.IdAuthor equals authors.IdAuthor
                     select new
                     {
                       bookID = books.IdBook,
                       bookName = books.NameBook,
                       library = libraries.NameLibrary,
                       city = cities.NameCity,
-                      status = statusess.Status,
-                      ares = regions.NameRegion,
-                      category = categories.Category
+                      statuss = statusess.Status,
+                      Region = regions.NameRegion,
+                      category = categories.Category,
+                      authors=authors.AuthorFirstName+ " "+authors.AuthorLastName
+
                     }).AsQueryable();
       List<Object> dynamicList = new List<Object>();
       dynamicList.Add(search);

@@ -7,8 +7,9 @@ export class SearchObj{
     bookID: number;
     bookName: string;
     library: string;
+    authors: string;
     city: string;
-    status: string;
-    ares: string;
+    statuss: string;
+    Region: string;
     category: string;
 }

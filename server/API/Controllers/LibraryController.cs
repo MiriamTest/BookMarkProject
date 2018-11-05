@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Entities;
 using System.Net;
 using BL;
+using System.IO;
+
 namespace API.Controllers
 {
     public class LibraryController : ApiController
@@ -82,7 +84,7 @@ namespace API.Controllers
       }
     }
     [System.Web.Http.HttpPost]
-    [System.Web.Http.Route("api/Library/editLibrary/{library}")]
+    [System.Web.Http.Route("api/Library/editLibrary")]
     public HttpResponseMessage editLibrary([FromBody] Libraries library)
     {
       try
@@ -107,5 +109,6 @@ namespace API.Controllers
         return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
       }
     }
+    
   }
 }

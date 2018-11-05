@@ -9,7 +9,7 @@ namespace BL
 {
   public static  class BLPayment
     {
-    public static Payments addPayment(Payments payment)
+    public static bool addPayment(Payments payment)
     {
       payment.Date = DateTime.Now;
       payment.StartDate = DateTime.Now;

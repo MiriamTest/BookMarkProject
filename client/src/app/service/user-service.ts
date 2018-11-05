@@ -18,20 +18,12 @@ import {Lending} from '../models/lending';
 @Injectable()
 export class UserService {
     constructor(private http: Http , private httpClient: HttpClient) { }
-    lending(l: Lending ) {
-       // tslint:disable-next-line:no-debugger
-       debugger;
-       return this.http.post("http://localhost:52339/api/Lending/addLending", l).pipe(map(response => response.json()));
-    }
+
     addUser(newUser: User) {
         return this.http.post("http://localhost:52339/api/user/addUsers", newUser).pipe(map(response => response.json()));
 
     }
-// public UserId;
 
-//         setUserId(UserId){
-//           this.UserId = UserId;
-//         }
     login(EMail: string, password: string): any {
         return this.httpClient.get("http://localhost:52339/api/user/login/" + EMail + "/" + password)
       .pipe(map((response => response)));
@@ -50,7 +42,9 @@ a = 2;
       .pipe(map((response => response)));
     }
     checkEMail(email: string ): any {
-        return this.httpClient.get("http://localhost:52339/api/user/checkEMail/" + email)
+        let a;
+        a = 2;
+        return this.httpClient.get("http://localhost:52339/api/user/checkEMail/" + a)
         .pipe(map((response => response)));
     }
     // sendMail():any{

@@ -55,24 +55,24 @@
   </div> -->
 
 
-  <div id="orders-component">
+  <div id="orders-component" dir="rtl">
     <!-- <div class="d-grid-top justify-content-end">
-     
+
       <p>סנן לפי תאריכים:</p>
       <button mat-raised-button color="grey" (click)="myFilter = {}; categoriesModel = myCategories; statusModel = myStatuses"
         class="root-btn filled">נקה חיפוש</button>
-  
+
       <div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="true">
         <button id="dd-btn" mat-raised-button color="cyan" class="root-btn filled" dropdownToggle type="button"
           aria-controls="dd-select-column">
           שדות להצגה
         </button>
-        
+
       </div>
     </div> -->
-  
- 
-  
+
+
+
     <div>
       <div class="table-responsive mat-elevation-z8">
         <mat-paginator [length]="(booksList | filterBy: myFilter).length" [pageSize]="pageSize" [pageIndex]="page"
@@ -82,7 +82,7 @@
           <thead>
             <tr class="text-right title-row">
               <th>#</th>
-              <th *ngFor="let head of header | filterBy: {show: true};let i = index" (click)="onClickTh(head)"
+              <th dir="rtl" *ngFor="let head of header | filterBy: {show: true};let i = index" (click)="onClickTh(head)"
                 [attr.data-id]="header.indexOf(head)" style="white-space: nowrap; cursor: pointer;" draggable="true"
                 (dragstart)="onColumnDragStart($event, header.indexOf(head))" (drop)="onDropColumn($event)" (dragover)="onDragOverColumn($event)"
                 (dragleave)="onDragLeaveColumn($event)">{{ head.name }}
@@ -94,7 +94,7 @@
           <tbody>
             <tr>
               <td></td>
-              <td *ngFor="let head of header | filterBy: { show: true };let i = index">
+              <td dir="rtl" *ngFor="let head of header | filterBy: { show: true };let i = index">
                 <div class="inner-addon" *ngIf="head.value!= 'status' && head.value!= 'actions'">
                   <i class="ss-icon-zoom2"></i>
                   <input placeholder="חיפוש..." [(ngModel)]="myFilter[head.table][head.value]" (ngModelChange)="page = 0; log()"
@@ -107,8 +107,8 @@
             <!-- | orderBy: sort : reverse |  -->
             <tr *ngFor="let data of booksList | filterBy: myFilter |slice: (pageSize*page) : (pageSize*(page + 1)) ;let i = index">
               <td>{{ (pageSize*page) + i + 1 }}</td>
-              <td *ngFor="let head of header | filterBy: {show: true}">
-                <ng-container *ngIf="head.value !== 'actions' && head.value !== 'status'">
+              <td dir="rtl" *ngFor="let head of header | filterBy: {show: true}">
+                <ng-container  *ngIf="head.value !== 'actions' && head.value !== 'status'">
                   {{data[head.table][head.value]}}
                 </ng-container>
                 <div *ngIf="head.value == 'actions'">
@@ -121,10 +121,10 @@
                   <span> {{iService.isDate(data[head.table][head.value])}} </span>
                   <div class="status-div" [style.background-color]="getcolor(data.order.status)"></div>
                 </div> -->
-  
+
               </td>
               <td>
-                <button value="השאל" (click)="showDetails(data)">vatl</button>
+                <button value="השאל" (click)="showDetails(data)">השאל</button>
               </td>
             </tr>
           </tbody>
@@ -134,6 +134,6 @@
         </mat-paginator>
       </div>
     </div>
-    <button value="השאל" (click)="showDetails(data)"></button>
+    <!-- <button value="השאל" (click)="showDetails(data)"></button> -->
 
   </div>

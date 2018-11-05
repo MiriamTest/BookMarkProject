@@ -1,12 +1,13 @@
-<form name="form" (ngSubmit)="EditBookform.form.valid&&onSubmit()" #EditBookform="ngForm" novalidate>
+<form class="body" name="form" (ngSubmit)="EditBookform.form.valid&&onSubmit()" #EditBookform="ngForm" novalidate dir="rtl" >
+  <h2>עריכת ספר</h2>
 <div class="form-group">
-  <label for="NameBook">Name Book</label>
-<ng-select [items]=" books" bindLabel="NameBook"  placeholder="Select Book" [(ngModel)]="book" name="book">
+  <label for="NameBook">שם ספר</label>
+<ng-select dir="ltr" [items]=" books" bindLabel="NameBook"  placeholder="Select Book" [(ngModel)]="book" name="book" >
 </ng-select>
 </div>
 <div class="form-group">
-<label for="NameLibrary">Library</label>
-<ng-select [items]=" libraries" bindLabel="NameLibrary"  placeholder="Select library" [(ngModel)]="library" name="library">
+<label for="NameLibrary">שם ספריה</label>
+<ng-select dir="ltr" [items]=" libraries" bindLabel="NameLibrary"  placeholder="Select library" [(ngModel)]="library" name="library">
 </ng-select>
 
 </div>
@@ -18,8 +19,9 @@
   <div [hidden]="!LendingDuration.hasError('required')">  שדה  חובה</div>
 </mat-error>
 </mat-form-field>
-
+<label for="Status">סטטוס</label>
   <ng-select [items]="status"
+  dir="ltr"
   class="ng"
   name="status"
   bindLabel="Status"
@@ -27,7 +29,5 @@
   [(ngModel)]="sta"
   >
 </ng-select>
-<input type="submit" class="btn btn-primary"  value="Save" [disabled]="!EditBookform.form.valid">
+<input type="submit" class="submit"  value="Save" [disabled]="!EditBookform.form.valid">
 </form>
-
-

@@ -17,9 +17,10 @@ export class ShowDetailsComponent implements OnInit {
 book: Book;
 lending: Lending;
 
-  constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) { 
+  constructor (private _userService:UserService,private dialogRef: MatDialogRef<ShowDetailsComponent>,private _lendingService:LendingService) {
     this.book =  new Book;
     //just for try
+
     this.book.NameBook = this._lendingService.book.NameBook;
     this.book.IdBook = this._lendingService.book.IdBook;
 
@@ -31,7 +32,7 @@ lending: Lending;
   ngOnInit() {
   }
 lend() {
-this._userService.lending(this.lending).subscribe(u => {
+this._lendingService.lending(this.lending).subscribe(u => {
    if (u) {
       swal("ההשאלה בוצעה בהצלחה", " ראו פרטים נוספים במייל", "success")
    }

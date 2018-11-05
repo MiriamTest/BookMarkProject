@@ -5,11 +5,14 @@ table {
   width: 100%;
   background: white;
 }
+th{
+  padding-right: 5%;
+}
 #businesses-component .btn-grids {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 1rem; }
-  
+
   #businesses-component .inner-addon {
     position: relative; }
     #businesses-component .inner-addon .ss-icon-zoom2, #businesses-component .inner-addon .ss-icon-wizard_calendar_icon {
@@ -17,11 +20,11 @@ table {
       position: absolute;
       pointer-events: none;
       padding: 10px; }
-  
+
   #businesses-component .title-row {
     background-color: #b0b0b0;
     color: white; }
-  
+
   #businesses-component .d-grid-top {
     display: grid;
     grid-template-columns: repeat(5, auto);
@@ -32,29 +35,29 @@ table {
     #businesses-component .d-grid-top p {
       font-size: 1rem;
       font-weight: bold; }
-  
+
   #businesses-component .root-multi-select.form-control, #businesses-component .form-control.multiSelect {
     min-width: 8rem; }
-  
+
   *****************************
   button {
     outline: none !important; }
-  
+
   td.mat-cell:first-child,
   td.mat-footer-cell:first-child,
   th.mat-header-cell:first-child {
     padding-right: 24px !important;
     padding-left: unset !important; }
-  
+
   .container-fluid {
     max-width: 100rem !important;
     width: 100rem !important; }
-  
+
   .mat-drawer-container {
     background-color: #fafafa;
     color: #545454;
-    font-size: 1rem; }
-  
+    font-size: 1rem;
+   }
   .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -62,24 +65,24 @@ table {
     outline: 0;
     box-shadow: 0 0 0 1px #7ccdd881;
     border-radius: 2.5px; }
-  
+
   .form-control {
     border-radius: 2.5px;
     border: 0px solid #7cced8;
     min-width: 8rem; }
-  
+
   #businesses-component .table-bordered td, #orders-component .table-bordered td, #ads-component .table-bordered td, #properties-component .table-bordered td, #ads-component .table-bordered td {
     border: 0px solid #201f1f36; }
-  
+
   #businesses-component .table-striped tbody tr:nth-of-type(odd), #orders-component .table-striped tbody tr:nth-of-type(odd), #ads-component .table-striped tbody tr:nth-of-type(odd), #properties-component .table-striped tbody tr:nth-of-type(odd), #ads-component .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.02); }
-  
+
   #businesses-component .table-striped tbody tr:nth-of-type(even), #orders-component .table-striped tbody tr:nth-of-type(even), #ads-component .table-striped tbody tr:nth-of-type(even), #properties-component .table-striped tbody tr:nth-of-type(even), #ads-component .table-striped tbody tr:nth-of-type(even) {
     background-color: white; }
-  
+
   #businesses-component .table, #orders-component .table, #ads-component .table, #properties-component .table, #ads-component .table {
     min-height: 30rem; }
-  
+
   #businesses-component .table th,
   #businesses-component .table td, #orders-component .table th,
   #orders-component .table td, #ads-component .table th,
@@ -89,42 +92,42 @@ table {
     padding: 0.75rem;
     vertical-align: middle;
     border: none; }
-  
+
   #businesses-component .table thead th, #orders-component .table thead th, #ads-component .table thead th, #properties-component .table thead th, #ads-component .table thead th {
     border-bottom: none; }
-  
+
   .dropdown-menu {
     border: 0px solid rgba(0, 0, 0, 0.15);
     border-radius: 0;
     box-shadow: 0px 3px 8px 0 rgba(0, 0, 0, 0.1);
     padding: 0.5rem 0.5rem;
     text-align: right; }
-  
+
   .dd-multi-select .fa {
     font-size: 0.875rem; }
-  
+
   .dd-multi-select .dropdown-menu {
     right: 0;
     padding-top: 2.8rem; }
-  
+
   .dd-multi-select .dropdown-item.active,
   .dd-multi-select .dropdown-item:active {
     color: #545454;
     text-decoration: none;
     background-color: white; }
-  
+
   .dd-multi-select .dropdown-item:hover {
     color: #fff !important;
     text-decoration: none;
     background-color: #7cced8; }
-  
+
   .dd-multi-select .dropdown-inline {
     width: 8rem; }
-  
+
   .dd-multi-select .dropdown-item {
     margin: 1px 0;
     padding: 0.25rem 0.2rem; }
-  
+
   .dd-multi-select a.dropdown-item.check-control {
     font-weight: bold;
     width: 40%;
@@ -137,36 +140,36 @@ table {
     height: 1.875rem;
     box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.28) !important;
     font-size: 0.875rem; }
-  
+
   .dd-multi-select a.dropdown-item.check-control-check {
     border: 2px solid #71c6a5;
     color: #71c6a5;
     right: 0.5rem; }
-  
+
   .dd-multi-select a.dropdown-item.check-control-check:hover {
     background-color: #71c6a5; }
-  
+
   .dd-multi-select a.dropdown-item.check-control-uncheck {
     border: 2px solid #f44336;
     color: #f44336;
     left: 0.5rem; }
-  
+
   .dd-multi-select a.dropdown-item.check-control-uncheck:hover {
     background-color: #f44336; }
-  
+
   #dd-select-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 3rem;
     padding: 1rem 2rem;
     grid-row-gap: .5rem; }
-  
+
   .mat-select-panel .mat-select {
     font-size: 0.875rem !important; }
-  
+
   .mat-select-panel .mat-form-field-infix {
     padding: 0.3em 0 0.6em !important; }
-  
+
   .mat-select-panel .mat-select-arrow {
     width: 0;
     height: 0;
@@ -174,13 +177,13 @@ table {
     border-right: 4.5px solid transparent;
     border-top: 5px solid;
     margin: 0 4px 0 0; }
-  
+
   .mat-select-panel .mat-option.mat-active {
     background-color: transparent !important; }
-  
+
   .mat-select-panel .mat-pseudo-checkbox-checked::after {
     color: blue !important; }
-  
+
   .mat-select-panel .mat-option:hover,
   .mat-select-panel .mat-option.mat-active:hover,
   .mat-select-panel .mat-selected:hover {
@@ -189,28 +192,28 @@ table {
     .mat-select-panel .mat-option.mat-active:hover .mat-option-text,
     .mat-select-panel .mat-selected:hover .mat-option-text {
       color: #ffffff !important; }
-  
+
   .mat-select-panel .mat-select-content {
     padding: 0.375rem 0.125rem; }
-  
+
   .h-divider {
     height: 1px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem; }
-  
+
   .h-divider-header {
     height: 1.5px;
     width: 100%;
     background-color: #545454;
     margin-bottom: 2rem; }
-  
+
   .bold {
     font-weight: bold !important; }
-  
+
   .pointer {
     cursor: pointer; }
-  
+
   .title-divider {
     margin: 2rem 0 1rem;
     display: grid !important;
@@ -222,37 +225,36 @@ table {
       font-weight: normal; }
     .title-divider .h-divider {
       margin: unset; }
-  
+
   .cdk-global-overlay-wrapper,
   .cdk-overlay-container {
     z-index: 99999 !important; }
-  
+
   .pac-container {
     z-index: 1199 !important;
     position: fixed !important;
     top: 0 !important; }
-  
+
   .theme-green .bs-datepicker-head {
     background-color: #b0b0b0; }
-  
+
   .theme-green .bs-datepicker-body table td span.selected,
   .theme-green .bs-datepicker-body table td.selected span,
   .theme-green .bs-datepicker-body table td span[class*="select-"]:after,
   .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
     background-color: #7cced8; }
-  
+
   .theme-green .bs-datepicker-body table td.week span {
     color: #71c6a5; }
-  
+
   .bs-datepicker-body table td span.disabled,
   .bs-datepicker-body table td.disabled span {
     color: #b0b0b0bd; }
-  
+
   .bs-datepicker-body .days.weeks thead th {
     color: #7cced8; }
-  
+
   .bs-datepicker-body table td.is-highlighted:not(.disabled):not(.selected) span, .bs-datepicker-body table td span.is-highlighted:not(.disabled):not(.selected) {
     background-color: #7cced8;
     transition: 0s;
     color: white; }
-  

@@ -56,7 +56,8 @@
                  bindLabel="NameStreet"
                  placeholder="בחר רחוב"
                  [(ngModel)]="streetModel"
-                 name ="street">
+                 name ="street"
+                 >
       </ng-select>
 
 
@@ -82,6 +83,15 @@
           <input matInput placeholder="מספר בית" name="numHouse" type="text" required  [(ngModel)]="model.NumHouse" #numHouse="ngModel">
           <div [hidden]="numHouse.pristine">
             <div [hidden]="!numHouse.hasError('required')">שדה חובה</div>
+           
+        </div>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="שעות פתיחה" name="OpeningHours" type="text" required  [(ngModel)]="model.OpeningHours" #OpeningHours="ngModel">
+          <div [hidden]="OpeningHours.pristine">
+            <div [hidden]="!OpeningHours.hasError('required')">שדה חובה</div>
            
         </div>
         </mat-form-field>

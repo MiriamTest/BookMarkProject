@@ -78,11 +78,11 @@
         <mat-paginator [length]="(booksList | filterBy: myFilter).length" [pageSize]="pageSize" [pageIndex]="page"
           (page)="page = $event.pageIndex;pageSize = $event.pageSize" [pageSizeOptions]="[5, 10, 25, 100, 200]">
         </mat-paginator>
-        <table class="table table-responsive table-striped m-0">
+        <table  dir="rtl" class="table table-responsive table-striped m-0">
           <thead>
             <tr class="text-right title-row">
               <th>#</th>
-              <th *ngFor="let head of header | filterBy: {show: true};let i = index" (click)="onClickTh(head)"
+              <th  dir="rtl" *ngFor="let head of header | filterBy: {show: true};let i = index" (click)="onClickTh(head)"
                 [attr.data-id]="header.indexOf(head)" style="white-space: nowrap; cursor: pointer;" draggable="true"
                 (dragstart)="onColumnDragStart($event, header.indexOf(head))" (drop)="onDropColumn($event)" (dragover)="onDragOverColumn($event)"
                 (dragleave)="onDragLeaveColumn($event)">{{ head.name }}
@@ -123,9 +123,7 @@
                 </div> -->
   
               </td>
-              <td>
-                <button value="השאל" (click)="showDetails(data)">vatl</button>
-              </td>
+             
             </tr>
           </tbody>
         </table>

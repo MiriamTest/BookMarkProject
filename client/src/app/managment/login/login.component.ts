@@ -7,7 +7,7 @@ import swal from 'sweetalert2';
 import { Route } from '@angular/compiler/src/core';
 import { MatDialogRef } from '@angular/material';
 import { Lending } from '../../models/lending';
-import { sha256 } from 'js-sha256';
+// import { sha256 } from 'js-sha256';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   checkForReset() {
-    sha256("tovy");
+    // sha256("tovy");
     this._userService.checkForRestPassword(this.model.EMail).subscribe(u => {
       if (u) { }
     }, (error: HttpErrorResponse) => alert("mistake!!!!"));

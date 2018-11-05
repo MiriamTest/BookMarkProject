@@ -58,7 +58,7 @@ namespace BL
     {
       return DalBook.deleteBook(bookId);
     }
-<<<<<<< HEAD
+
     public static Object getSearchObj()
     {
       return DalBook.getSearchObj();
@@ -72,8 +72,7 @@ namespace BL
     {
       return DalBook.editBook(book);
     }
-=======
-   
->>>>>>> 9da0ddb7cd1774f8683283bb539ca529211fd1c9
+    
   }
+  
 }

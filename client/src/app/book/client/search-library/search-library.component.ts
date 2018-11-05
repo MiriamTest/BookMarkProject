@@ -62,7 +62,7 @@ export class SearchLibraryComponent implements OnInit {
 
   // onSubmit()
   // {
-  //   this.router.navigate(['./client/BooksFound',this.bookModel,this.cityModel]); 
+  //   this.router.navigate(['./client/BooksFound',this.bookModel,this.cityModel]);
 
   // }
 
@@ -71,7 +71,7 @@ export class SearchLibraryComponent implements OnInit {
   page = 0;
   public header = [
     // tslint:disable-next-line:quotemark
-    // { name: "ID", value: 'IdLibrary', show: true, table: 'Libraries' },
+      { name: "ID", value: 'IdLibrary', show: true, table: 'Libraries' },
     { name: 'ספריה:', value: 'NameLibrary', show: true, table: 'Libraries' },
     { name: 'עיר:', value: 'City', show: true, table: 'Libraries' },
     { name: 'רחוב:', value: 'Street', show: true, table: 'Libraries' },
@@ -82,7 +82,7 @@ export class SearchLibraryComponent implements OnInit {
   public libraries: SearchLibrary[] = [];
   public sort = '';
   public reverse = false;
-  public myFilter = { libraries: {} };
+  public myFilter = { Libraries: {} };
   public mySettings;
   public myTexts;
   categoriesModel: string[] = ['שונות', 'עולם החי'];
@@ -116,7 +116,7 @@ export class SearchLibraryComponent implements OnInit {
     // });
     this._LibraryService.getLibrarySearch().subscribe(res => {
       this.libraries = res;
-      this.libraries.forEach(library => this.booksList.push({ libraries: library }));
+      this.libraries.forEach(library => this.booksList.push({ Libraries: library }));
       debugger;
     })
 

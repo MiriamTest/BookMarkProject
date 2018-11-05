@@ -7,6 +7,7 @@ import { Library } from 'src/app/models/library';
 import { LibraryService } from 'src/app/service/library-service';
 import { UserService } from 'src/app/service/user-service';
 import { BookInLibrary } from 'src/app/models/book-in-library';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -31,9 +32,6 @@ duration: number;
     this._bookService.allBooks().subscribe(books => {
       this.books = books;
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
-  this._bookService.allBooks().subscribe(c => {
-     this.b = c;
-   }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
    // tslint:disable-next-line:radix
    this._libraryService.getLibrary(parseInt(sessionStorage.getItem("userId"))).subscribe(libraries => {
     this.libraries = libraries;
@@ -51,7 +49,7 @@ duration: number;
  //   this.bookToAdd.LendingDuration=this.duration;
     this._bookService.addBook(this.bookToAdd).subscribe(response => {
       if (response) {
-      alert("great");
+        swal("אישור", "הספר:  " + this.book.NameBook + "נוסף בהצלחה לספרי " + this.library.NameLibrary, "success");
       }
      }, (error: HttpErrorResponse) => alert(error.status + " " + error.statusText));
   }

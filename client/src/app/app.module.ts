@@ -26,11 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatCheckboxModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
 import { MatDialogModule } from "@angular/material";
-<<<<<<< HEAD
 import { MatDatepickerModule } from "@angular/material/datepicker";
-=======
-import { MatDatepickerModule } from "@angular/material/datepicker"
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
 import { MatNativeDateModule } from "@angular/material";
 import { CreditCardDetailsComponent } from './book/creditCard-details/creditCard-details.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -42,30 +38,27 @@ import { SecretaryComponent } from './book/secretary/secretary.component';
 import { EditDetailsComponent } from './book/manager/edit-details/edit-details.component';
 import { EditLibraryComponent } from './book/manager/edit-library/edit-library.component';
 import { ShowBooksInLibraryComponent } from './book/manager/show-books-in-library/show-books-in-library.component';
-<<<<<<< HEAD
 import { ResetPasswordComponent } from './managment/reset-password/reset-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { TextEqualityValidatorModule } from "ngx-text-equality-validator";
 import { CommonModule } from '@angular/common';
-import { sha256, sha224 } from 'js-sha256';
+// import { sha256, sha224 } from 'js-sha256';
 // import { EqualTextValidator } from "angular2-text-equality-validator";
-=======
 import { EditBookComponent } from './book/manager/edit-book/edit-book.component';
+import { AboutComponent } from './about/about.component';
+import { ClientInstructionsComponent } from './book/client/client-instructions/client-instructions.component';
+import { ManagerInstructionsComponent } from './book/manager/manager-instructions/manager-instructions.component';
 
 
 
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
 const route: Routes = [
   {
     path: 'managment', component: ManagmentComponent, children:
       [
         { path: 'Login', component: LoginComponent },
         { path: 'Register', component: RegisterComponent },
-<<<<<<< HEAD
         { path: 'resetPassword/:IdUser', component: ResetPasswordComponent }
-=======
 
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
       ],
   },
   {
@@ -91,19 +84,14 @@ const route: Routes = [
         { path: 'ShowDetails', component: ShowDetailsComponent },
       ]
   },
+  { path: 'about', component: AboutComponent },
   { path: 'secretary', component: SecretaryComponent },
   { path: 'bookDetails', component: BookDetailsComponent },
   { path: 'EditDetails', component: BookDetailsComponent },
-<<<<<<< HEAD
-  { path: 'EditLibrary/:IdLibrary', component: EditLibraryComponent }
-
-
-
-
-=======
   { path: 'EditLibrary/:IdLibrary', component: EditLibraryComponent },
   { path: 'EditBook/:IdBook', component: EditBookComponent },
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
+  { path: 'managerInstructions', component: ManagerInstructionsComponent },
+  { path: 'clientInstructions', component: ClientInstructionsComponent },
 ];
 @NgModule({
   declarations: [
@@ -128,11 +116,11 @@ const route: Routes = [
     EditDetailsComponent,
     EditLibraryComponent,
     ShowBooksInLibraryComponent,
-<<<<<<< HEAD
     ResetPasswordComponent,
-=======
     EditBookComponent,
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
+    AboutComponent,
+    ManagerInstructionsComponent,
+    ClientInstructionsComponent,
 
   ],
   imports: [
@@ -166,19 +154,10 @@ const route: Routes = [
     ChartsModule,
     MatPaginatorModule,
     MatTableModule,
-<<<<<<< HEAD
     FilterPipeModule,
      ],
-=======
-    FilterPipeModule
-  ],
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
   providers: [UserService, LibraryService, BookService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })
-<<<<<<< HEAD
 export class AppModule { }
-=======
-export class AppModule {}
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102

@@ -6,29 +6,21 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Library } from '../models/Library';
 import { Subject, pipe } from 'rxjs';
-<<<<<<< HEAD
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Payment } from '../models/payment';
-=======
-
-import { HttpClient } from 'selenium-webdriver/http';
-import { Payment } from '../models/payment';
-
->>>>>>> ff69846edfd41dfa2cae63c2d22f2247f377b102
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreditCardService {
-
-  constructor(private http:Http ,private httpClient:HttpClient) { }
-  addPayment(newPayment:Payment):Observable<any>  {
-    return this.http.post("http://localhost:52339/api/Payment/addPayment",newPayment).pipe(map((response:any)=> response.json()));
+  constructor(private http: Http , private httpClient: HttpClient) { }
+  addPayment(newPayment: Payment): Observable<any>  {
+    return this.http.post("http://localhost:52339/api/Payment/addPayment", newPayment).pipe(map((response: any) => response.json()));
 
 }
 addCreditCard(newCreditCard:CreditCard):Observable<any>{
-  return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard",newCreditCard).pipe(map((response:any)=> response.json()));
+  return this.http.post("http://localhost:52339/api/CreditCard/addCreditCard",newCreditCard).pipe(map((response: any) => response.json()));
 
   
 }

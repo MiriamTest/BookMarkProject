@@ -60,4 +60,8 @@ export class LibraryService {
     getLibrarySearch(): any {
         return this.httpClient.get("http://localhost:52339/api/Library/getSearchLibrary");
     }
+    editLibrary(library: Library): Observable<any>  {
+        return this.httpClient.post("http://localhost:52339/api/Library/editLibrary", library).pipe(map((response: any) => response.json()));
+
+    }
 }

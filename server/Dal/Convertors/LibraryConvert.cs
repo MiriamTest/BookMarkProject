@@ -17,7 +17,8 @@ namespace Dal.Convertors
                 City = l.City,
                 Street = l.Street,
                 NumHouse = l.NumHouse,
-                IdAdmin = l.IdAdmin
+                IdAdmin = l.IdAdmin,
+                OpeningHours=l.OpeningHours
 
             };
             return lib;

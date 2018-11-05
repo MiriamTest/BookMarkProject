@@ -86,6 +86,7 @@ namespace API.Controllers
     [System.Web.Http.Route("api/user/checkEMail/{email}")]
     public bool checkEMail([FromUri] string email)
     {
+      email = "mmm@mm.mm";
       return BLUser.checkEMail(email);
 
     }
